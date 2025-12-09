@@ -14,7 +14,7 @@ import {
 
 import { SignUpService } from './signUp.service'
 
-@Controller('aign-up')
+@Controller('sign-up')
 @ApiTags('Sign up')
 export class SignUpContorller {
   constructor(private readonly signUpService: SignUpService) {}

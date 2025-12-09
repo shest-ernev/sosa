@@ -30,10 +30,12 @@ export class SignUpCreateTokenData {
 export class SignUpCheckCodeBody {
   @ApiProperty()
   @IsJWT({ message: 'Please send jwt token' })
+  @IsNotEmpty({ message: 'Please send token' })
   token: string
 
   @ApiProperty()
   @IsString({ message: 'Please send string for code' })
+  @IsNotEmpty({ message: 'Please send code' })
   code: string
 }
 
@@ -48,5 +50,6 @@ export class SignUpCheckCodeData {
 export class SignUpSendCodeBody {
   @ApiProperty()
   @IsJWT({ message: 'Please send jwt token' })
+  @IsNotEmpty({ message: 'Please send token' })
   token: string
 }
