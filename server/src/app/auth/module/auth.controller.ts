@@ -33,6 +33,7 @@ export class AuthController {
 
   @Patch('log-out')
   @UseGuards(AuthGuard)
+  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async logOut(@Req() req: RequestWithUser) {
