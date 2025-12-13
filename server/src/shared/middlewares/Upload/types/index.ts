@@ -1,6 +1,6 @@
 // /\.(png|jpeg|jpg|avif)$/
 
-export type UploadFileParams = {
+export type UploadParams = {
   path: string
   validation: RegExp
   message: string

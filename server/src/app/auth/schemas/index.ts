@@ -3,10 +3,7 @@ import { ApiProperty, PickType } from '@nestjs/swagger'
 import { UserSchema } from '@/shared/schemas'
 import { UserSettingsEntity } from '@/database/entities'
 
-class GetAuthDataSettings extends PickType(UserSettingsEntity, [
-  'lang',
-  'theme',
-]) {}
+class GetAuthDataSettings extends PickType(UserSettingsEntity, ['theme']) {}
 
 export class GetAuthData {
   @ApiProperty()

@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-import { ls } from '@/shared/config'
+import { ls, apiConfig } from '@/shared/config'
 import { ErrorResponse } from '@/shared/types/ErrorResponse'
 
-export const api = axios.create({ baseURL: 'http://localhost:8001/api' })
+export const api = axios.create({ baseURL: apiConfig.base })
 
 api.interceptors.request.use((config) => {
   if (localStorage.getItem(ls.accessToken)) {

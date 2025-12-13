@@ -26,10 +26,6 @@ export class UserSettingsEntity {
   @ApiProperty()
   user: UserEntity
 
-  @Column({ default: 'ru' })
-  @ApiProperty({ enum: ['ru', 'en'] })
-  lang: 'ru' | 'en'
-
   @Column({ default: 'dark' })
   @ApiProperty({ enum: ['dark', 'light'] })
   theme: 'dark' | 'light'

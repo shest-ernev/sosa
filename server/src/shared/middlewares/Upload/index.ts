@@ -2,17 +2,18 @@ import { UseInterceptors } from '@nestjs/common'
 import { BadRequestException } from '@nestjs/common'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { diskStorage } from 'multer'
-import { Request } from 'express'
 
 import { getDate } from '@/shared/lib'
-import { UploadFileParams } from './types'
+import { RequestWithUser } from '@/shared/types'
 
-export const uploadFile = ({ path, validation, message }: UploadFileParams) => {
+import { UploadParams } from './types'
+
+export const Upload = ({ path, validation, message }: UploadParams) => {
   return UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
         destination: path,
-        filename: (req: Request & { user: { id: string } }, _, cb) => {
+        filename: (req: RequestWithUser, _, cb) => {
           const userId = req.user.id
           const { day, month, year, hours, minutes, seconds, milliseconds } =
             getDate()
