@@ -70,6 +70,7 @@ export class UserController {
 
   @Delete('avatar')
   @UseGuards(AuthGuard)
+  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async deleteAvatar(@Req() req: RequestWithUser) {
@@ -97,6 +98,7 @@ export class UserController {
 
   @Delete('cover')
   @UseGuards(AuthGuard)
+  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async deleteCover(@Req() req: RequestWithUser) {

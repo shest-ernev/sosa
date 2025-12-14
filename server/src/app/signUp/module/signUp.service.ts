@@ -82,7 +82,7 @@ export class SignUpService {
 
     const accessToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '5m' }
+      { expiresIn: '10m' }
     )
 
     const refreshToken = await this.jwtService.signAsync(

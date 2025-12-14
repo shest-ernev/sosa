@@ -20,7 +20,7 @@ export class AuthService {
 
     const settings = await this.userSettingsRepository.findOne({
       where: { userId: user.id },
-      select: ['theme'],
+      select: ['theme', 'lang'],
     })
 
     return { user, settings }

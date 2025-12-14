@@ -6,7 +6,11 @@ import { JwtService } from '@nestjs/jwt'
 import { UserEntity } from '@/database/entities'
 import { CodeService } from '@/shared/services'
 
-import { SignInCheckCodeBody, SignInCreateTokenBody, SignInSendCodeBody } from '../schemas'
+import {
+  SignInCheckCodeBody,
+  SignInCreateTokenBody,
+  SignInSendCodeBody,
+} from '../schemas'
 
 export class SignInService {
   constructor(
@@ -52,7 +56,7 @@ export class SignInService {
 
     const accessToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '5m' }
+      { expiresIn: '10m' }
     )
 
     const refreshToken = await this.jwtService.signAsync(

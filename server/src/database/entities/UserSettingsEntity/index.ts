@@ -30,6 +30,14 @@ export class UserSettingsEntity {
   @ApiProperty({ enum: ['dark', 'light'] })
   theme: 'dark' | 'light'
 
+  @Column({ default: 'en' })
+  @ApiProperty({ enum: ['ru', 'en'] })
+  lang: 'ru' | 'en'
+
+  @Column({ name: 'private_profile', default: false })
+  @ApiProperty()
+  privateProfile: boolean
+
   @Column({ default: false, name: 'private_followers' })
   @ApiProperty()
   privateFollowers: boolean
