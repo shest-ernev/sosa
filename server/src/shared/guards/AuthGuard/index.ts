@@ -43,6 +43,7 @@ export class AuthGuard implements CanActivate {
         'avatar',
         'cover',
         'role',
+        'description',
         'createdAt',
         'updateAt',
       ],

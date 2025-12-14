@@ -8,6 +8,7 @@ export class UserSchema extends PickType(UserEntity, [
   'name',
   'avatar',
   'cover',
+  'description',
   'role',
   'createdAt',
   'updateAt',

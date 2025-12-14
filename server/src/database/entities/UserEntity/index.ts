@@ -23,6 +23,10 @@ export class UserEntity {
 
   @Column({ default: '' })
   @ApiProperty()
+  description: string
+
+  @Column({ default: '' })
+  @ApiProperty()
   avatar: string
 
   @Column({ default: '' })

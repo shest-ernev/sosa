@@ -23,7 +23,7 @@ export class UserSettingsEntity {
 
   @OneToOne(() => UserEntity, (user) => user)
   @JoinColumn({ name: 'user_id' })
-  @ApiProperty()
+  @ApiProperty({ type: UserEntity })
   user: UserEntity
 
   @Column({ default: 'dark' })

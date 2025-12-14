@@ -22,7 +22,7 @@ import { MessageResponse, UserSchema, UploadFileBody } from '@/shared/schemas'
 import { RequestWithUser } from '@/shared/types'
 import { Upload } from '@/shared/middlewares'
 
-import { UserEditNameBody } from '../schemas'
+import { UserEditDescriptionBody, UserEditNameBody } from '../schemas'
 
 import { UserService } from './user.service'
 
@@ -47,6 +47,18 @@ export class UserController {
   @ApiResponse({ type: MessageResponse })
   async editName(@Body() body: UserEditNameBody, @Req() req: RequestWithUser) {
     return this.userService.editName(body, req)
+  }
+
+  @Patch('description')
+  @UseGuards(AuthGuard)
+  @ApiBearerAuth()
+  @ApiError()
+  @ApiResponse({ type: MessageResponse })
+  async editDescription(
+    @Body() body: UserEditDescriptionBody,
+    @Req() req: RequestWithUser
+  ) {
+    return this.userService.editDescription(body, req)
   }
 
   @Patch('avatar')

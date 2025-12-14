@@ -6,7 +6,7 @@ import { unlink } from 'fs'
 import { UserEntity } from '@/database/entities'
 import { RequestWithUser } from '@/shared/types'
 
-import { UserEditNameBody } from '../schemas'
+import { UserEditDescriptionBody, UserEditNameBody } from '../schemas'
 
 export class UserService {
   constructor(
@@ -36,6 +36,14 @@ export class UserService {
     }
 
     await this.usersRepository.update({ id: req.user.id }, { name })
+
+    return { message: 'Name changed' }
+  }
+
+  async editDescription(params: UserEditDescriptionBody, req: RequestWithUser) {
+    const description = params.description
+
+    await this.usersRepository.update({ id: req.user.id }, { description })
 
     return { message: 'Name changed' }
   }
