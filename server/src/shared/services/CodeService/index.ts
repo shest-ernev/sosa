@@ -35,16 +35,6 @@ export class CodeService {
     return user.code === code ? user : false
   }
 
-  async delete(id: string) {
-    const user = await this.usersRepository.findOne({ where: { id } })
-
-    if (!user) {
-      throw new NotFoundException('User not found')
-    }
-
-    await this.usersRepository.update({ id }, { code: '' })
-  }
-
   async send(id: string, code: string) {
     const user = await this.usersRepository.findOne({ where: { id } })
 

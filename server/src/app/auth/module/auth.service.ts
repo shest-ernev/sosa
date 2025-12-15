@@ -18,12 +18,7 @@ export class AuthService {
   async getAuth(req: RequestWithUser) {
     const user = req.user
 
-    const settings = await this.userSettingsRepository.findOne({
-      where: { userId: user.id },
-      select: ['theme', 'lang'],
-    })
-
-    return { user, settings }
+    return user
   }
 
   async logOut(req: RequestWithUser) {

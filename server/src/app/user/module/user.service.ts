@@ -45,7 +45,7 @@ export class UserService {
 
     await this.usersRepository.update({ id: req.user.id }, { description })
 
-    return { message: 'Name changed' }
+    return { message: 'Description changed' }
   }
 
   async editAvatar(req: RequestWithUser, file?: Express.Multer.File) {

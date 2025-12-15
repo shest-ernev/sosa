@@ -64,9 +64,10 @@ export class SignInService {
       { expiresIn: '30d' }
     )
 
-    await this.usersRepository.update({ id: user.id }, { refreshToken })
-
-    await this.codeService.delete(user.id)
+    await this.usersRepository.update(
+      { id: user.id },
+      { refreshToken, code: '' }
+    )
 
     return {
       access_token: accessToken,

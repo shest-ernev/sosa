@@ -2,10 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
+import { UserSettingsEntity } from '../UserSettingsEntity'
 
 @Entity('users')
 export class UserEntity {
@@ -54,6 +57,15 @@ export class UserEntity {
   @Column({ default: 'user' })
   @ApiProperty()
   role: 'user' | 'admin' | 'moderator'
+
+  @Column({ name: 'settings_id', nullable: true, default: null })
+  @ApiProperty()
+  settingsId: string
+
+  @OneToOne(() => UserSettingsEntity, (settings) => settings)
+  @JoinColumn({ name: 'settings_id' })
+  @ApiProperty({ type: UserSettingsEntity })
+  settings: UserSettingsEntity
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()

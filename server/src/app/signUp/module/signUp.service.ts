@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { ConflictException, UnauthorizedException } from '@nestjs/common'
+import { ConflictException, NotFoundException } from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 
@@ -22,6 +22,18 @@ export class SignUpService {
     private readonly codeService: CodeService
   ) {}
 
+  private canDelete(date: Date) {
+    const createdAt = date.valueOf()
+    const now = new Date().valueOf()
+    const diffInMinutes = (now - createdAt) / (1000 * 60)
+
+    if (diffInMinutes > 10) {
+      return true
+    }
+
+    return false
+  }
+
   async createToken(params: SignUpCreateTokenBody) {
     const { name, email } = params
 
@@ -29,7 +41,13 @@ export class SignUpService {
       where: [{ email: ILike(email.trim()) }, { name: ILike(name.trim()) }],
     })
 
-    if (userConflict) {
+    if (
+      userConflict &&
+      !userConflict.isActive &&
+      this.canDelete(userConflict.createdAt)
+    ) {
+      await this.usersRepository.delete({ id: userConflict.id })
+    } else if (userConflict) {
       throw new ConflictException('Such a user already exists')
     }
 
@@ -39,23 +57,6 @@ export class SignUpService {
     })
 
     const user = await this.usersRepository.save(newUser)
-
-    const newSettings = this.usersSettingsRepository.create({
-      userId: user.id,
-    })
-
-    const settings = await this.usersSettingsRepository.save(newSettings)
-
-    setTimeout(async () => {
-      const checkUser = await this.usersRepository.findOne({
-        where: { id: user.id },
-      })
-
-      if (checkUser && !checkUser.isActive) {
-        await this.usersSettingsRepository.delete({ id: settings.id })
-        await this.usersRepository.delete({ id: checkUser.id })
-      }
-    }, 600000)
 
     const token = await this.jwtService.signAsync(
       { id: user.id },
@@ -77,7 +78,7 @@ export class SignUpService {
     const user = await this.codeService.compare(id, code)
 
     if (!user) {
-      throw new UnauthorizedException('Not correct code')
+      throw new NotFoundException('User not found')
     }
 
     const accessToken = await this.jwtService.signAsync(
@@ -90,12 +91,14 @@ export class SignUpService {
       { expiresIn: '30d' }
     )
 
+    const newSettings = this.usersSettingsRepository.create()
+
+    const settings = await this.usersSettingsRepository.save(newSettings)
+
     await this.usersRepository.update(
       { id: user.id },
-      { isActive: true, refreshToken }
+      { isActive: true, refreshToken, settingsId: settings.id, code: '' }
     )
-
-    await this.codeService.delete(user.id)
 
     return {
       access_token: accessToken,

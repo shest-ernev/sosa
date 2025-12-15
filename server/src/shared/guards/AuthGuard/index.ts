@@ -36,15 +36,17 @@ export class AuthGuard implements CanActivate {
 
     const user = await this.userRepository.findOne({
       where: { id },
+      relations: ['settings'],
       select: [
         'id',
-        'email',
-        'name',
         'avatar',
         'cover',
-        'role',
-        'description',
         'createdAt',
+        'description',
+        'email',
+        'name',
+        'role',
+        'settings',
         'updateAt',
       ],
     })

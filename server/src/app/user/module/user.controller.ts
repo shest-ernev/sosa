@@ -1,7 +1,6 @@
 import {
   Controller,
   UseGuards,
-  Get,
   Req,
   Patch,
   Body,
@@ -18,7 +17,7 @@ import {
 
 import { AuthGuard } from '@/shared/guards'
 import { ApiError } from '@/shared/decorators'
-import { MessageResponse, UserSchema, UploadFileBody } from '@/shared/schemas'
+import { MessageResponse, UploadFileBody } from '@/shared/schemas'
 import { RequestWithUser } from '@/shared/types'
 import { Upload } from '@/shared/middlewares'
 
@@ -30,15 +29,6 @@ import { UserService } from './user.service'
 @ApiTags('User')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-
-  @Get()
-  @UseGuards(AuthGuard)
-  @ApiBearerAuth()
-  @ApiError()
-  @ApiResponse({ type: UserSchema })
-  async getUser(@Req() req: RequestWithUser) {
-    return req.user
-  }
 
   @Patch('name')
   @UseGuards(AuthGuard)

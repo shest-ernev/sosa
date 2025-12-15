@@ -5,26 +5,13 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   Column,
-  OneToOne,
-  JoinColumn,
 } from 'typeorm'
-
-import { UserEntity } from '../UserEntity'
 
 @Entity('user_settings')
 export class UserSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
   id: string
-
-  @Column({ name: 'user_id' })
-  @ApiProperty()
-  userId: string
-
-  @OneToOne(() => UserEntity, (user) => user)
-  @JoinColumn({ name: 'user_id' })
-  @ApiProperty({ type: UserEntity })
-  user: UserEntity
 
   @Column({ default: 'dark' })
   @ApiProperty({ enum: ['dark', 'light'] })
@@ -65,6 +52,10 @@ export class UserSettingsEntity {
   @Column({ default: true, name: 'notifications_comment' })
   @ApiProperty()
   notificationsComment: boolean
+
+  @Column({ default: true, name: 'notifications_new_release' })
+  @ApiProperty()
+  notificationsNewRelease: boolean
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()

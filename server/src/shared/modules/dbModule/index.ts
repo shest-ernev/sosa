@@ -2,7 +2,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 
 import { db } from '@/shared/config'
 
-import { UserEntity, UserSettingsEntity } from '@/database/entities'
+import {
+  UserEntity,
+  UserSettingsEntity,
+  UserSubsEntity,
+} from '@/database/entities'
 
 export const dbModule = () => {
   return TypeOrmModule.forRoot({
@@ -13,7 +17,7 @@ export const dbModule = () => {
     password: db.password,
     database: db.name,
     synchronize: true,
-    entities: [UserEntity, UserSettingsEntity],
+    entities: [UserEntity, UserSettingsEntity, UserSubsEntity],
     logging: true,
   })
 }

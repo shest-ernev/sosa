@@ -4,9 +4,9 @@ import { ApiTags, ApiBearerAuth, ApiResponse } from '@nestjs/swagger'
 import { ApiError } from '@/shared/decorators'
 import { AuthGuard } from '@/shared/guards'
 import { RequestWithUser } from '@/shared/types'
-import { MessageResponse } from '@/shared/schemas'
+import { MessageResponse, UserSchema } from '@/shared/schemas'
 
-import { AuthRefreshData, GetAuthData } from '../schemas'
+import { AuthRefreshData } from '../schemas'
 
 import { AuthService } from './auth.service'
 
@@ -19,7 +19,7 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @ApiBearerAuth()
   @ApiError()
-  @ApiResponse({ type: GetAuthData })
+  @ApiResponse({ type: UserSchema })
   async getAuth(@Req() req: RequestWithUser) {
     return this.authService.getAuth(req)
   }
