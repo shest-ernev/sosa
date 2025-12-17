@@ -4,6 +4,10 @@ import {
   UserEntity,
   UserSettingsEntity,
   UserSubsEntity,
+  ReleaseEntity,
+  GenreEntity,
+  CommentEntity,
+  NotificationEntity,
 } from '@/database/entities'
 
 export const entitiesModule = () => {
@@ -11,5 +15,9 @@ export const entitiesModule = () => {
     UserEntity,
     UserSettingsEntity,
     UserSubsEntity,
+    ReleaseEntity,
+    GenreEntity,
+    CommentEntity,
+    NotificationEntity,
   ])
 }

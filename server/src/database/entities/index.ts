@@ -1,3 +1,7 @@
 export * from './UserEntity'
 export * from './UserSettingsEntity'
 export * from './UserSubsEntity'
+export * from './GenreEntity'
+export * from './ReleaseEntity'
+export * from './CommentEntity'
+export * from './NotificationEntity'

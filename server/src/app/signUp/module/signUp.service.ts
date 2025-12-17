@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { ConflictException, NotFoundException } from '@nestjs/common'
+import { BadRequestException, ConflictException } from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 
@@ -78,7 +78,7 @@ export class SignUpService {
     const user = await this.codeService.compare(id, code)
 
     if (!user) {
-      throw new NotFoundException('User not found')
+      throw new BadRequestException('Wrong code')
     }
 
     const accessToken = await this.jwtService.signAsync(

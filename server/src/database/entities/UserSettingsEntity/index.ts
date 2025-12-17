@@ -25,9 +25,9 @@ export class UserSettingsEntity {
   @ApiProperty()
   privateProfile: boolean
 
-  @Column({ default: false, name: 'private_followers' })
+  @Column({ default: false, name: 'private_subscribers' })
   @ApiProperty()
-  privateFollowers: boolean
+  privateSubscribers: boolean
 
   @Column({ default: false, name: 'private_subs' })
   @ApiProperty()
@@ -37,9 +37,9 @@ export class UserSettingsEntity {
   @ApiProperty()
   privateLibrary: boolean
 
-  @Column({ default: true, name: 'notifications_new_folowers' })
+  @Column({ default: true, name: 'notifications_new_subscriber' })
   @ApiProperty()
-  notificationsNewFolowers: boolean
+  notificationsNewSubscriber: boolean
 
   @Column({ default: true, name: 'notifications_repost' })
   @ApiProperty()

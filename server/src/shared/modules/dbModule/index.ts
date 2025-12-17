@@ -6,6 +6,10 @@ import {
   UserEntity,
   UserSettingsEntity,
   UserSubsEntity,
+  ReleaseEntity,
+  GenreEntity,
+  CommentEntity,
+  NotificationEntity,
 } from '@/database/entities'
 
 export const dbModule = () => {
@@ -17,7 +21,15 @@ export const dbModule = () => {
     password: db.password,
     database: db.name,
     synchronize: true,
-    entities: [UserEntity, UserSettingsEntity, UserSubsEntity],
+    entities: [
+      UserEntity,
+      UserSettingsEntity,
+      UserSubsEntity,
+      ReleaseEntity,
+      GenreEntity,
+      CommentEntity,
+      NotificationEntity,
+    ],
     logging: true,
   })
 }

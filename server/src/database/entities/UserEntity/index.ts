@@ -59,12 +59,12 @@ export class UserEntity {
   role: 'user' | 'admin' | 'moderator'
 
   @Column({ name: 'settings_id', nullable: true, default: null })
-  @ApiProperty()
-  settingsId: string
+  @ApiProperty({ nullable: true })
+  settingsId: string | null
 
-  @OneToOne(() => UserSettingsEntity, (settings) => settings)
+  @OneToOne(() => UserSettingsEntity, { nullable: true })
   @JoinColumn({ name: 'settings_id' })
-  @ApiProperty({ type: UserSettingsEntity })
+  @ApiProperty({ type: UserSettingsEntity, nullable: true })
   settings: UserSettingsEntity
 
   @CreateDateColumn({ name: 'created_at' })
