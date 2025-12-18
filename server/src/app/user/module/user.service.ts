@@ -1,7 +1,7 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { BadRequestException, ConflictException, Logger } from '@nestjs/common'
+import { BadRequestException, ConflictException } from '@nestjs/common'
 import { ILike, Repository } from 'typeorm'
-import { unlink } from 'fs'
+import { unlink } from 'fs/promises'
 
 import { UserEntity } from '@/database/entities'
 import { RequestWithUser } from '@/shared/types'
@@ -12,7 +12,6 @@ export class UserService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
-    private readonly logger: Logger
   ) {}
 
   async editName(params: UserEditNameBody, req: RequestWithUser) {
@@ -56,9 +55,7 @@ export class UserService {
     }
 
     if (user.avatar) {
-      unlink(`public${user.avatar}`, (err) => {
-        this.logger.log(`Error to delete avatar ${user.id}`, err)
-      })
+      await unlink(`public${user.avatar}`)
     }
 
     this.usersRepository.update(
@@ -76,9 +73,7 @@ export class UserService {
       throw new BadRequestException(`User havn't avatar`)
     }
 
-    unlink(`public${user.avatar}`, (err) => {
-      this.logger.log(`Error delete avatar ${user.id}`, err)
-    })
+    unlink(`public${user.avatar}`)
 
     this.usersRepository.update({ id: user.id }, { avatar: '' })
 
@@ -93,9 +88,7 @@ export class UserService {
     }
 
     if (user.cover) {
-      unlink(`public${user.cover}`, (err) => {
-        this.logger.log(`Error to delete cover ${user.id}`, err)
-      })
+      await unlink(`public${user.cover}`)
     }
 
     this.usersRepository.update(
@@ -113,9 +106,7 @@ export class UserService {
       throw new BadRequestException(`User havn't cover`)
     }
 
-    unlink(`public${user.cover}`, (err) => {
-      this.logger.log(`Error delete cover ${user.id}`, err)
-    })
+    await unlink(`public${user.cover}`)
 
     this.usersRepository.update({ id: user.id }, { cover: '' })
 

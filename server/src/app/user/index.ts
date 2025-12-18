@@ -1,4 +1,4 @@
-import { Module, Logger } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 
 import { dbModule, entitiesModule } from '@/shared/modules'
 
@@ -8,6 +8,6 @@ import { UserService } from './module/user.service'
 @Module({
   imports: [dbModule(), entitiesModule()],
   controllers: [UserController],
-  providers: [UserService, Logger],
+  providers: [UserService],
 })
 export class UserModule {}
