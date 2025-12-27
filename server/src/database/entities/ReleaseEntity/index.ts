@@ -38,7 +38,7 @@ export class ReleaseEntity {
 
   @Column()
   @ApiProperty()
-  year: string
+  date: Date
 
   @Column({ name: 'user_id' })
   @ApiProperty()

@@ -5,11 +5,11 @@ import { db } from '@/shared/config'
 import {
   UserEntity,
   UserSettingsEntity,
-  UserSubsEntity,
   ReleaseEntity,
   GenreEntity,
   CommentEntity,
   NotificationEntity,
+  FavoritesEntity,
 } from '@/database/entities'
 
 export const dbModule = () => {
@@ -24,11 +24,11 @@ export const dbModule = () => {
     entities: [
       UserEntity,
       UserSettingsEntity,
-      UserSubsEntity,
       ReleaseEntity,
       GenreEntity,
       CommentEntity,
       NotificationEntity,
+      FavoritesEntity,
     ],
     logging: true,
   })

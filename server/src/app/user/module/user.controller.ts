@@ -27,12 +27,12 @@ import { UserService } from './user.service'
 
 @Controller('user')
 @ApiTags('User')
+@ApiBearerAuth()
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Patch('name')
   @UseGuards(AuthGuard)
-  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async editName(@Body() body: UserEditNameBody, @Req() req: RequestWithUser) {
@@ -41,7 +41,6 @@ export class UserController {
 
   @Patch('description')
   @UseGuards(AuthGuard)
-  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async editDescription(
@@ -59,7 +58,6 @@ export class UserController {
     message: 'Not valid file',
   })
   @ApiError()
-  @ApiBearerAuth()
   @ApiResponse({ type: MessageResponse })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: UploadFileBody })
@@ -72,7 +70,6 @@ export class UserController {
 
   @Delete('avatar')
   @UseGuards(AuthGuard)
-  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async deleteAvatar(@Req() req: RequestWithUser) {
@@ -87,7 +84,6 @@ export class UserController {
     message: 'Not valid file',
   })
   @ApiError()
-  @ApiBearerAuth()
   @ApiResponse({ type: MessageResponse })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: UploadFileBody })
@@ -100,7 +96,6 @@ export class UserController {
 
   @Delete('cover')
   @UseGuards(AuthGuard)
-  @ApiBearerAuth()
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async deleteCover(@Req() req: RequestWithUser) {
