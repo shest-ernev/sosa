@@ -8,7 +8,7 @@ import { RequestWithUser } from '@/shared/types'
 
 import { UploadParams } from './types'
 
-export const Upload = ({ path, validation, message }: UploadParams) => {
+export const Upload = ({ path, validation, message, file }: UploadParams) => {
   return UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
@@ -18,7 +18,7 @@ export const Upload = ({ path, validation, message }: UploadParams) => {
           const { day, month, year, hours, minutes, seconds, milliseconds } =
             getDate()
 
-          const name = `${userId}_${day}_${month}_${year}_${hours}_${minutes}_${seconds}_${milliseconds}.jpg`
+          const name = `${userId}_${day}_${month}_${year}_${hours}_${minutes}_${seconds}_${milliseconds}${file}`
 
           cb(null, name)
         },

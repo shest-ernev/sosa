@@ -8,6 +8,7 @@ import {
   CommentEntity,
   NotificationEntity,
   FavoritesEntity,
+  ReleaseGenresEntity,
 } from '@/database/entities'
 
 export const entitiesModule = () => {
@@ -19,5 +20,6 @@ export const entitiesModule = () => {
     CommentEntity,
     NotificationEntity,
     FavoritesEntity,
+    ReleaseGenresEntity,
   ])
 }

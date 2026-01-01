@@ -54,8 +54,9 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Upload({
     path: 'public/users/avatars',
-    validation: /\.(png|jpeg|jpg|avif)$/,
+    validation: /\.(png|jpeg|jpg|avif|webp)$/,
     message: 'Not valid file',
+    file: '.jpg',
   })
   @ApiError()
   @ApiResponse({ type: MessageResponse })
@@ -80,8 +81,9 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Upload({
     path: 'public/users/covers',
-    validation: /\.(png|jpeg|jpg|avif)$/,
+    validation: /\.(png|jpeg|jpg|avif|webp)$/,
     message: 'Not valid file',
+    file: '.jpg',
   })
   @ApiError()
   @ApiResponse({ type: MessageResponse })

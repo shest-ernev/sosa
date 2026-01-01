@@ -5,6 +5,7 @@ import { SignInModule } from './signIn'
 import { AuthModule } from './auth'
 import { UserModule } from './user'
 import { UserSettingsModule } from './userSettings'
+import { ReleaseModule } from './release'
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UserSettingsModule } from './userSettings'
     AuthModule,
     UserModule,
     UserSettingsModule,
+    ReleaseModule,
   ],
 })
 export class AppModule {}

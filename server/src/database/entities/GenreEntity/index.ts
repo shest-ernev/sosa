@@ -13,7 +13,7 @@ export class GenreEntity {
   @ApiProperty()
   id: string
 
-  @Column()
+  @Column({ unique: true })
   @ApiProperty()
   name: string
 

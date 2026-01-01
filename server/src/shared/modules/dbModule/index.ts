@@ -10,6 +10,7 @@ import {
   CommentEntity,
   NotificationEntity,
   FavoritesEntity,
+  ReleaseGenresEntity,
 } from '@/database/entities'
 
 export const dbModule = () => {
@@ -29,6 +30,7 @@ export const dbModule = () => {
       CommentEntity,
       NotificationEntity,
       FavoritesEntity,
+      ReleaseGenresEntity,
     ],
     logging: true,
   })

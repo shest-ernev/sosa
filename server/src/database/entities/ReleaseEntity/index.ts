@@ -7,12 +7,11 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  ManyToMany,
-  JoinTable,
+  OneToMany,
 } from 'typeorm'
 
 import { UserEntity } from '../UserEntity'
-import { GenreEntity } from '../GenreEntity'
+import { ReleaseGenresEntity } from '../ReleaseGenresEntitty'
 
 @Entity('releases')
 export class ReleaseEntity {
@@ -24,8 +23,12 @@ export class ReleaseEntity {
   @ApiProperty()
   name: string
 
-  @Column({ default: '', nullable: true })
-  @ApiProperty({ nullable: true })
+  @Column({ default: '' })
+  @ApiProperty()
+  cover: string
+
+  @Column({ default: '' })
+  @ApiProperty()
   description: string
 
   @Column({ default: '' })
@@ -36,7 +39,7 @@ export class ReleaseEntity {
   @ApiProperty()
   public: boolean
 
-  @Column()
+  @Column({ nullable: true })
   @ApiProperty()
   date: Date
 
@@ -49,20 +52,9 @@ export class ReleaseEntity {
   @ApiProperty({ type: UserEntity })
   user: UserEntity
 
-  @ManyToMany(() => GenreEntity)
-  @JoinTable({
-    name: 'release_genres',
-    joinColumn: {
-      name: 'release_id',
-      referencedColumnName: 'id',
-    },
-    inverseJoinColumn: {
-      name: 'genre_id',
-      referencedColumnName: 'id',
-    },
-  })
-  @ApiProperty({ type: [GenreEntity] })
-  genres: GenreEntity[]
+  @OneToMany(() => ReleaseGenresEntity, (entity) => entity.release)
+  @ApiProperty({ type: () => [ReleaseGenresEntity] })
+  genres: ReleaseGenresEntity[]
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
