@@ -17,7 +17,7 @@ export class FavoritesEntity {
   id: string
 
   @Column()
-  @ApiProperty({ enum: ['profile'] })
+  @ApiProperty({ enum: ['profile', 'release'] })
   type: 'profile' | 'release'
 
   @Column({ name: 'user_id' })
@@ -29,7 +29,7 @@ export class FavoritesEntity {
   @ApiProperty({ type: UserEntity })
   user: UserEntity
 
-  @Column({ name: 'profile_id' })
+  @Column({ name: 'profile_id', nullable: true, default: null })
   @ApiProperty()
   profileId: string
 
@@ -38,11 +38,11 @@ export class FavoritesEntity {
   @ApiProperty({ type: UserEntity })
   profile: UserEntity
 
-  @Column({ name: 'release_id' })
+  @Column({ name: 'release_id', nullable: true, default: null })
   @ApiProperty()
   releaseId: string
 
-  @ManyToOne(() => UserEntity)
+  @ManyToOne(() => ReleaseEntity)
   @JoinColumn({ name: 'release_id' })
   @ApiProperty({ type: ReleaseEntity })
   release: ReleaseEntity

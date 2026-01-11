@@ -11,7 +11,6 @@ import {
 
 import { UserEntity } from '../UserEntity'
 import { ReleaseEntity } from '../ReleaseEntity'
-import { CommentEntity } from '../CommentEntity'
 
 @Entity('notifications')
 export class NotificationEntity {
@@ -20,8 +19,8 @@ export class NotificationEntity {
   id: string
 
   @Column()
-  @ApiProperty({ enum: ['like', 'comment', 'release', 'subscriber', 'repost'] })
-  type: 'like' | 'comment' | 'release' | 'subscriber' | 'repost'
+  @ApiProperty({ enum: ['release', 'subscriber', 'like'] })
+  type: 'release' | 'subscriber' | 'like'
 
   @Column({ nullable: true, name: 'user_id' })
   @ApiProperty({ nullable: true })
@@ -32,7 +31,7 @@ export class NotificationEntity {
   @ApiProperty({ type: UserEntity, nullable: true })
   user: UserEntity
 
-  @Column({ nullable: true, name: 'profile_id' })
+  @Column({ nullable: true, name: 'profile_id', default: null })
   @ApiProperty({ nullable: true })
   profileId: string
 
@@ -41,7 +40,7 @@ export class NotificationEntity {
   @ApiProperty({ type: UserEntity, nullable: true })
   profile: UserEntity
 
-  @Column({ nullable: true, name: 'release_id' })
+  @Column({ nullable: true, name: 'release_id', default: null })
   @ApiProperty({ nullable: true })
   releaseId: string
 
@@ -49,15 +48,6 @@ export class NotificationEntity {
   @JoinColumn({ name: 'release_id' })
   @ApiProperty({ type: ReleaseEntity, nullable: true })
   release: ReleaseEntity
-
-  @Column({ nullable: true, name: 'comment_id' })
-  @ApiProperty({ nullable: true })
-  commentId: string
-
-  @ManyToOne(() => CommentEntity, { nullable: true })
-  @JoinColumn({ name: 'comment_id' })
-  @ApiProperty({ type: CommentEntity, nullable: true })
-  comment: CommentEntity
 
   @Column({ default: false })
   @ApiProperty()
