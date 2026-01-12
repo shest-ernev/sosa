@@ -12,19 +12,25 @@ import {
   ReleaseEntity,
   GenreEntity,
   ReleaseGenresEntity,
+  FavoritesEntity,
+  NotificationEntity,
 } from '@/database/entities'
 import { getColor } from '@/shared/lib'
 
-import { ReleaseCreateBody, ReleaseEditBody, EditPublicBody } from '../schemas'
+import { ReleaseCreateBody, ReleaseEditBody } from '../schemas'
 
-export class ReleaseService {
+export class UserReleaseService {
   constructor(
     @InjectRepository(ReleaseEntity)
     private readonly releasesRepository: Repository<ReleaseEntity>,
     @InjectRepository(GenreEntity)
     private readonly genresRepository: Repository<GenreEntity>,
     @InjectRepository(ReleaseGenresEntity)
-    private readonly releaseGenresRepository: Repository<ReleaseGenresEntity>
+    private readonly releaseGenresRepository: Repository<ReleaseGenresEntity>,
+    @InjectRepository(FavoritesEntity)
+    private readonly favoritesRepository: Repository<FavoritesEntity>,
+    @InjectRepository(NotificationEntity)
+    private readonly notificationsRepository: Repository<NotificationEntity>
   ) {}
 
   private async getGenres(genres?: string[]) {
@@ -217,8 +223,19 @@ export class ReleaseService {
     return formatRelease
   }
 
-  async editPublic(req: RequestWithUser, id: string, params: EditPublicBody) {
+  async editPublic(req: RequestWithUser, id: string) {
     const release = await this.releasesRepository.findOne({ where: { id } })
+    const favorites = await this.favoritesRepository
+      .createQueryBuilder('favorites')
+      .leftJoinAndSelect('favorites.user', 'favoriteUser')
+      .leftJoinAndSelect('favoriteUser.settings', 'favoriteUserSettings')
+      .where('favorites.type = :type', { type: 'profile' })
+      .andWhere('favorites.profileId = :profileId', { profileId: req.user.id })
+      .andWhere(
+        'favoriteUserSettings.notificationsNewRelease = :notifications',
+        { notifications: true }
+      )
+      .getMany()
 
     if (!release) {
       throw new NotFoundException('Release not found')
@@ -228,6 +245,33 @@ export class ReleaseService {
       throw new ForbiddenException('No access')
     }
 
-    await this.releasesRepository.update({ id }, { public: params.type })
+    if (!release.public) {
+      if (!release.date) {
+        await this.releasesRepository.update(
+          { id },
+          { public: true, date: new Date() }
+        )
+
+        const newNotifications = this.notificationsRepository.create(
+          favorites.map((obj) => ({
+            type: 'newRelease',
+            userId: obj.userId,
+            releaseId: release.id,
+          }))
+        )
+
+        await this.notificationsRepository.save(newNotifications)
+
+        return { message: 'Album out now' }
+      }
+
+      await this.releasesRepository.update({ id }, { public: true })
+
+      return { message: 'Album out now' }
+    }
+
+    await this.releasesRepository.update({ id }, { public: false })
+
+    return { message: 'Release hidden' }
   }
 }

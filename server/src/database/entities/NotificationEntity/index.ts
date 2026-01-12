@@ -19,8 +19,8 @@ export class NotificationEntity {
   id: string
 
   @Column()
-  @ApiProperty({ enum: ['release', 'subscriber', 'like'] })
-  type: 'release' | 'subscriber' | 'like'
+  @ApiProperty({ enum: ['newRelease', 'subscriber', 'like'] })
+  type: 'newRelease' | 'subscriber' | 'like'
 
   @Column({ nullable: true, name: 'user_id' })
   @ApiProperty({ nullable: true })

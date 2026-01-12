@@ -75,8 +75,3 @@ export class GetRelease extends PickType(ReleaseEntity, [
   @ApiProperty({ type: [ReleaseGenre] })
   genres: ReleaseGenre[]
 }
-
-export class EditPublicBody {
-  @ApiProperty()
-  type: boolean
-}

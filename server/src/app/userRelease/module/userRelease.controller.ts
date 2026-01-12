@@ -31,20 +31,20 @@ import {
   ReleaseEditBody,
 } from '../schemas'
 
-import { ReleaseService } from './release.service'
+import { UserReleaseService } from './userRelease.service'
 
-@Controller('release')
-@ApiTags('Release')
+@Controller('user-release')
+@ApiTags('User release')
 @ApiBearerAuth()
-export class ReleaseController {
-  constructor(private readonly releaseService: ReleaseService) {}
+export class UserReleaseController {
+  constructor(private readonly userReleaseService: UserReleaseService) {}
 
   @Post()
   @UseGuards(AuthGuard)
   @ApiError()
   @ApiResponse({ type: ReleaseCreateData })
   async create(@Req() req: RequestWithUser, @Body() body: ReleaseCreateBody) {
-    return this.releaseService.create(req, body)
+    return this.userReleaseService.create(req, body)
   }
 
   @Delete(':id')
@@ -52,7 +52,7 @@ export class ReleaseController {
   @ApiError()
   @ApiResponse({ type: MessageResponse })
   async remove(@Req() req: RequestWithUser, @Param('id') id: string) {
-    return this.releaseService.remove(req, id)
+    return this.userReleaseService.remove(req, id)
   }
 
   @Patch('cover/:id')
@@ -72,7 +72,7 @@ export class ReleaseController {
     @Param('id') id: string,
     @UploadedFile() file: Express.Multer.File
   ) {
-    return this.releaseService.editCover(id, req, file)
+    return this.userReleaseService.editCover(id, req, file)
   }
 
   @Patch(':id')
@@ -84,7 +84,7 @@ export class ReleaseController {
     @Param('id') id: string,
     @Body() body: ReleaseEditBody
   ) {
-    return this.releaseService.editRelease(id, req, body)
+    return this.userReleaseService.editRelease(id, req, body)
   }
 
   @Get(':id')
@@ -92,6 +92,14 @@ export class ReleaseController {
   @ApiError()
   @ApiResponse({ type: GetRelease })
   async getRelease(@Req() req: RequestWithUser, @Param('id') id: string) {
-    return this.releaseService.getRelease(req, id)
+    return this.userReleaseService.getRelease(req, id)
+  }
+
+  @Patch('public/:id')
+  @UseGuards(AuthGuard)
+  @ApiError()
+  @ApiResponse({ type: MessageResponse })
+  async editPublic(@Req() req: RequestWithUser, @Param('id') id: string) {
+    return this.userReleaseService.editPublic(req, id)
   }
 }

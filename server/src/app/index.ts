@@ -5,7 +5,7 @@ import { SignInModule } from './signIn'
 import { AuthModule } from './auth'
 import { UserModule } from './user'
 import { UserSettingsModule } from './userSettings'
-import { ReleaseModule } from './release'
+import { ReleaseModule } from './userRelease'
 import { FavoritesModule } from './favorites'
 
 @Module({

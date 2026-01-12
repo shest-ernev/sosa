@@ -26,4 +26,16 @@ export class UserSettingsService {
 
     return { message: 'Successful edit settings' }
   }
+
+  async getSettings(req: RequestWithUser) {
+    const settings = await this.userSettingsRepository.findOne({
+      where: { id: req.user.settings.id },
+    })
+
+    if (!settings) {
+      throw new NotFoundException('Settings not found')
+    }
+
+    return settings
+  }
 }
