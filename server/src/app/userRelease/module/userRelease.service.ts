@@ -17,7 +17,7 @@ import {
 } from '@/database/entities'
 import { getColor } from '@/shared/lib'
 
-import { ReleaseCreateBody, ReleaseEditBody } from '../schemas'
+import { UserReleaseCreateBody, UserReleaseEditBody } from '../schemas'
 
 export class UserReleaseService {
   constructor(
@@ -49,7 +49,7 @@ export class UserReleaseService {
     return genres
   }
 
-  async create(req: RequestWithUser, params: ReleaseCreateBody) {
+  async create(req: RequestWithUser, params: UserReleaseCreateBody) {
     const { name, genres } = params
 
     const newrelease = this.releasesRepository.create({
@@ -134,7 +134,11 @@ export class UserReleaseService {
     return { message: 'Successful change cover' }
   }
 
-  async editRelease(id: string, req: RequestWithUser, params: ReleaseEditBody) {
+  async editRelease(
+    id: string,
+    req: RequestWithUser,
+    params: UserReleaseEditBody
+  ) {
     const { name, description, genres } = params
     const user = req.user
 
@@ -178,7 +182,7 @@ export class UserReleaseService {
     return { message: 'Successful edit release' }
   }
 
-  async getRelease(req: RequestWithUser, id: string) {
+  async GetUserRelease(req: RequestWithUser, id: string) {
     const release = await this.releasesRepository
       .createQueryBuilder('release')
       .leftJoinAndSelect('release.genres', 'releaseGenre')

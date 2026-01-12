@@ -11,7 +11,7 @@ import {
 
 import { GenreEntity, ReleaseEntity, UserEntity } from '@/database/entities'
 
-export class ReleaseCreateBody {
+export class UserReleaseCreateBody {
   @IsString({ message: 'Please enter string for name' })
   @MaxLength(200, { message: 'Maximum 200 characters for name album' })
   @MinLength(1, { message: 'Minimum 1 character for name album' })
@@ -26,12 +26,12 @@ export class ReleaseCreateBody {
   genres?: string[]
 }
 
-export class ReleaseCreateData {
+export class UserReleaseCreateData {
   @ApiProperty()
   id: string
 }
 
-export class ReleaseEditBody {
+export class UserReleaseEditBody {
   @IsOptional()
   @IsString({ message: 'Please enter string for name' })
   @MaxLength(200, { message: 'Maximum 200 characters for name album' })
@@ -58,7 +58,7 @@ class ReleaseUser extends PickType(UserEntity, ['id', 'name', 'avatar']) {}
 
 class ReleaseGenre extends PickType(GenreEntity, ['id', 'name']) {}
 
-export class GetRelease extends PickType(ReleaseEntity, [
+export class GetUserRelease extends PickType(ReleaseEntity, [
   'id',
   'name',
   'cover',

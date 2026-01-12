@@ -25,10 +25,10 @@ import { MessageResponse, UploadFileBody } from '@/shared/schemas'
 import { Upload } from '@/shared/middlewares'
 
 import {
-  GetRelease,
-  ReleaseCreateBody,
-  ReleaseCreateData,
-  ReleaseEditBody,
+  GetUserRelease,
+  UserReleaseCreateBody,
+  UserReleaseCreateData,
+  UserReleaseEditBody,
 } from '../schemas'
 
 import { UserReleaseService } from './userRelease.service'
@@ -42,8 +42,11 @@ export class UserReleaseController {
   @Post()
   @UseGuards(AuthGuard)
   @ApiError()
-  @ApiResponse({ type: ReleaseCreateData })
-  async create(@Req() req: RequestWithUser, @Body() body: ReleaseCreateBody) {
+  @ApiResponse({ type: UserReleaseCreateData })
+  async create(
+    @Req() req: RequestWithUser,
+    @Body() body: UserReleaseCreateBody
+  ) {
     return this.userReleaseService.create(req, body)
   }
 
@@ -82,7 +85,7 @@ export class UserReleaseController {
   async edit(
     @Req() req: RequestWithUser,
     @Param('id') id: string,
-    @Body() body: ReleaseEditBody
+    @Body() body: UserReleaseEditBody
   ) {
     return this.userReleaseService.editRelease(id, req, body)
   }
@@ -90,9 +93,9 @@ export class UserReleaseController {
   @Get(':id')
   @UseGuards(AuthGuard)
   @ApiError()
-  @ApiResponse({ type: GetRelease })
-  async getRelease(@Req() req: RequestWithUser, @Param('id') id: string) {
-    return this.userReleaseService.getRelease(req, id)
+  @ApiResponse({ type: GetUserRelease })
+  async GetUserRelease(@Req() req: RequestWithUser, @Param('id') id: string) {
+    return this.userReleaseService.GetUserRelease(req, id)
   }
 
   @Patch('public/:id')
