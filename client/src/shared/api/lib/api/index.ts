@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { ls, apiConfig } from '@/shared/config'
-import { ErrorResponse } from '@/shared/types/ErrorResponse'
+import { MessageResponse } from '@/shared/types'
 
 export const api = axios.create({ baseURL: apiConfig.base })
 
@@ -17,7 +17,7 @@ api.interceptors.request.use((config) => {
 
 api.interceptors.response.use(
   (response) => response,
-  async (err: ErrorResponse) => {
+  async (err: MessageResponse) => {
     try {
       const originalRequest = err.config as AxiosRequestConfig
 

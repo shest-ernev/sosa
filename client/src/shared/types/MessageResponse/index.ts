@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios'
 
-export type ErrorResponse = AxiosError<{
+export type MessageResponse = AxiosError<{
   message: string
 }>

@@ -1,0 +1,57 @@
+.container {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.library {
+  height: 100%;
+  border-radius: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: rgb(var(--section));
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+
+.resize {
+  width: 0.625rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:hover {
+    .resizeThumb {
+      opacity: 100;
+    }
+  }
+}
+
+.resizeThumb {
+  width: 0.125rem;
+  height: 3.125rem;
+  background-color: rgb(var(--text-secondary));
+  border-radius: 0.125rem;
+  opacity: 0;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+.resizeThumbActive {
+  height: 3.75rem;
+  opacity: 100;
+  background-color: rgb(var(--text-primary));
+}
