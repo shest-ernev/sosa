@@ -1,0 +1,40 @@
+.text {
+  font-family: 'Circe';
+  line-height: 115%;
+}
+
+.primary {
+  color: rgb(var(--text-primary));
+}
+
+.secondary {
+  color: rgb(var(--text-secondary));
+}
+
+.succesfully {
+  color: rgb(var(--text-succesfully));
+}
+
+.danger {
+  color: rgb(var(--text-danger));
+}
+
+.s {
+  font-size: var(--text-s);
+}
+
+.m {
+  font-size: var(--text-m);
+}
+
+.l {
+  font-size: var(--text-l);
+}
+
+.xl {
+  font-size: var(--text-xl);
+}
+
+.xxl {
+  font-size: var(--text-xxl);
+}

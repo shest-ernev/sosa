@@ -4,10 +4,10 @@ import { ls } from '@/shared/config'
 
 import { UseResizeLibraryParams } from '../types'
 
-export const useResizeLibrary = (params: UseResizeLibraryParams) => {
+export const useResizeAside = (params: UseResizeLibraryParams) => {
   const [width, setWidth] = useState(
-    localStorage.getItem(ls.libraryWidth)
-      ? Number(localStorage.getItem(ls.libraryWidth))
+    localStorage.getItem(ls.asideWidth)
+      ? Number(localStorage.getItem(ls.asideWidth))
       : params.min
   )
   const [hidden, setHidden] = useState(width === params.hiddenWidth)
@@ -65,7 +65,7 @@ export const useResizeLibrary = (params: UseResizeLibraryParams) => {
   }
 
   useEffect(() => {
-    localStorage.setItem(ls.libraryWidth, String(width))
+    localStorage.setItem(ls.asideWidth, String(width))
 
     setHidden(width === params.hiddenWidth)
   }, [width, params.hiddenWidth])

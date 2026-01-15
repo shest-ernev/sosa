@@ -1,4 +1,4 @@
-import { Library } from '@/widgets'
+import { Aside } from '@/widgets'
 
 import { DefaultScreenProps } from '../../types'
 import styles from '../../styles/index.module.scss'
@@ -7,7 +7,7 @@ export const DefaultScreen = ({ children }: DefaultScreenProps) => {
   return (
     <div className={styles.defaultScreen}>
       <div className={styles.defaultScreenContent}>
-        <Library />
+        <Aside />
         <div className={styles.defaultScreenPages}>{children}</div>
       </div>
     </div>

@@ -30,7 +30,7 @@ export const getColor = async (path: string) => {
     //}
 
     //const hex = `#${toHex(r)}${toHex(g)}${toHex(b)}`
-    const rgb = `${r} ${g} ${b}`
+    const rgb = `${r}, ${g}, ${b}`
 
     return rgb
   } catch (err) {
