@@ -1,4 +1,4 @@
-import { forwardRef, createElement } from 'react'
+import { ElementType, forwardRef } from 'react'
 import cn from 'clsx'
 
 import { TextProps } from '../types'
@@ -18,18 +18,20 @@ export const Text = forwardRef<HTMLElement, TextProps>(
     },
     ref
   ) => {
-    return createElement(
-      tag,
-      {
-        className: cn(styles.text, styles[color], styles[size], className),
-        ref,
-        style: {
+    const Comp = tag as ElementType
+
+    return (
+      <Comp
+        className={cn(styles.text, styles[color], styles[size], className)}
+        ref={ref}
+        style={{
           fontWeight: weight,
           ...style,
-        },
-        ...props,
-      },
-      children
+        }}
+        {...props}
+      >
+        {children}
+      </Comp>
     )
   }
 )

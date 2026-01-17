@@ -1,0 +1,456 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: var(--text-m);
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+}
+
+.loading {
+  color: #ffffff00 !important;
+  cursor: progress !important;
+  position: relative;
+
+  * {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.loaderContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  visibility: visible !important;
+  opacity: 100 !important;
+
+  .loader {
+    visibility: visible !important;
+    opacity: 100 !important;
+
+    * {
+      visibility: visible !important;
+      opacity: 100 !important;
+    }
+  }
+}
+
+.secondary-contain {
+  color: rgb(var(--button-secondary-contain-color));
+  background-color: rgb(var(--button-secondary-contain-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-secondary-contain-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-secondary-contain-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-secondary-contain-active));
+    }
+  }
+}
+
+.secondary-contain-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-secondary-contain-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-secondary-contain-bg));
+  }
+}
+
+.secondary-text {
+  color: rgb(var(--button-secondary-text-color));
+  background-color: rgba(var(--button-secondary-text-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-secondary-text-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-secondary-text-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-secondary-text-active));
+    }
+  }
+}
+
+.secondary-text-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-secondary-text-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-secondary-text-bg));
+  }
+}
+
+.secondary-outline {
+  color: rgb(var(--button-secondary-outline-color));
+  background-color: rgba(var(--button-secondary-outline-bg));
+  border: 1px solid rgb(var(--button-secondary-outline-color));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-secondary-outline-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-secondary-outline-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-secondary-outline-active));
+    }
+  }
+}
+
+.secondary-outline-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-secondary-outline-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-secondary-outline-bg));
+  }
+}
+
+.primary-contain {
+  color: rgb(var(--button-primary-contain-color));
+  background-color: rgb(var(--button-primary-contain-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-primary-contain-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-primary-contain-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-primary-contain-active));
+    }
+  }
+}
+
+.primary-contain-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-primary-contain-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-primary-contain-bg));
+  }
+}
+
+.primary-text {
+  color: rgb(var(--button-primary-text-color));
+  background-color: rgba(var(--button-primary-text-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-primary-text-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-primary-text-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-primary-text-active));
+    }
+  }
+}
+
+.primary-text-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-primary-text-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-primary-text-bg));
+  }
+}
+
+.primary-outline {
+  color: rgb(var(--button-primary-outline-color));
+  background-color: rgba(var(--button-primary-outline-bg));
+  border: 1px solid rgb(var(--button-primary-outline-color));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-primary-outline-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-primary-outline-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-primary-outline-active));
+    }
+  }
+}
+
+.primary-outline-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-primary-outline-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-primary-outline-bg));
+  }
+}
+
+.danger-contain {
+  color: rgb(var(--button-danger-contain-color));
+  background-color: rgb(var(--button-danger-contain-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-danger-contain-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-danger-contain-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-danger-contain-active));
+    }
+  }
+}
+
+.danger-contain-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-danger-contain-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-danger-contain-bg));
+  }
+}
+
+.danger-text {
+  color: rgb(var(--button-danger-text-color));
+  background-color: rgba(var(--button-danger-text-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-danger-text-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-danger-text-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-danger-text-active));
+    }
+  }
+}
+
+.danger-text-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-danger-text-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-danger-text-bg));
+  }
+}
+
+.danger-outline {
+  color: rgb(var(--button-danger-outline-color));
+  background-color: rgba(var(--button-danger-outline-bg));
+  border: 1px solid rgb(var(--button-danger-outline-color));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-danger-outline-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-danger-outline-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-danger-outline-active));
+    }
+  }
+}
+
+.danger-outline-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-danger-outline-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-danger-outline-bg));
+  }
+}
+
+.succesfully-contain {
+  color: rgb(var(--button-succesfully-contain-color));
+  background-color: rgb(var(--button-succesfully-contain-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-succesfully-contain-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-succesfully-contain-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-succesfully-contain-active));
+    }
+  }
+}
+
+.succesfully-contain-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-succesfully-contain-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-succesfully-contain-bg));
+  }
+}
+
+.succesfully-text {
+  color: rgb(var(--button-succesfully-text-color));
+  background-color: rgba(var(--button-succesfully-text-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-succesfully-text-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-succesfully-text-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-succesfully-text-active));
+    }
+  }
+}
+
+.succesfully-text-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-succesfully-text-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-succesfully-text-bg));
+  }
+}
+
+.succesfully-outline {
+  color: rgb(var(--button-succesfully-outline-color));
+  background-color: rgba(var(--button-succesfully-outline-bg));
+  border: 1px solid rgb(var(--button-succesfully-outline-color));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-succesfully-outline-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-succesfully-outline-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-succesfully-outline-active));
+    }
+  }
+}
+
+.succesfully-outline-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+
+  &:hover {
+    background-color: rgb(var(--button-succesfully-outline-bg));
+  }
+
+  &:active {
+    background-color: rgb(var(--button-succesfully-outline-bg));
+  }
+}

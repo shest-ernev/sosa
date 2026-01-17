@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
 
-import { Text } from '@/shared/ui'
+import { Text, Button } from '@/shared/ui'
 import LogoIcon from '@/shared/assets/svg/logo.svg?react'
 
 import { useResizeAside } from '../hooks'
@@ -30,6 +30,7 @@ export const Aside = observer(() => {
               size='xl'
               weight={700}
               color='primary'
+              className={styles.name}
             >
               Sosa
             </Text>
