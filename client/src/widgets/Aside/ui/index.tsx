@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
 
-import { Text, Button } from '@/shared/ui'
+import { Text } from '@/shared/ui'
 import LogoIcon from '@/shared/assets/svg/logo.svg?react'
 
 import { useResizeAside } from '../hooks'
