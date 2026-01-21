@@ -72,4 +72,9 @@ export const light = {
   '--button-succesfully-outline-hover': '185, 255, 210',
   '--button-succesfully-outline-active': '155, 255, 192',
   '--button-succesfully-outline-color': '0, 221, 81',
+
+  '--input-bg': '215, 215, 215',
+  '--input-hover': '200, 200, 200',
+  '--input-focus': '0, 0, 0',
+  '--input-error': '255, 77, 77',
 }
