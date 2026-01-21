@@ -29,8 +29,8 @@ export const light = {
   '--button-secondary-outline-color': '95, 95, 95',
 
   '--button-primary-contain-bg': '0, 0, 0',
-  '--button-primary-contain-hover': '40, 40, 40',
-  '--button-primary-contain-active': '60, 60, 60',
+  '--button-primary-contain-hover': '50, 50, 50',
+  '--button-primary-contain-active': '70, 70, 70',
   '--button-primary-contain-color': '255, 255, 255',
 
   '--button-primary-text-bg': '197, 197, 197, 0',
