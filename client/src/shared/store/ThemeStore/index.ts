@@ -12,6 +12,5 @@ export class ThemeStore {
 
   setTheme = (v: 'light' | 'dark') => {
     this.activeTheme = v
-    localStorage.setItem(ls.theme, v)
   }
 }

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Slot } from '@radix-ui/react-slot'
+import { Slot } from 'radix-ui'
 import cn from 'clsx'
 
 import { Loader } from '../../Loader'
@@ -15,13 +15,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       children,
       color = 'secondary',
       variant = 'contain',
-      loading,
+      loading = false,
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const Comp = asChild ? Slot : 'button'
+    const Comp = asChild && !loading ? Slot.Root : 'button'
 
     return (
       <Comp
@@ -30,22 +30,28 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles[`${color}-${variant}`],
           disabled && styles[`${color}-${variant}-disabled`],
           loading && styles.loading,
-          className
+          className,
         )}
         disabled={loading || disabled}
         ref={ref}
         {...props}
       >
-        {children}
-        {loading && (
-          <div className={styles.loaderContainer}>
-            <Loader
-              className={styles.loader}
-              color={`rgb(var(--button-${color}-${variant}-color))`}
-            />
-          </div>
+        {asChild && !loading ? (
+          children
+        ) : (
+          <>
+            {loading && (
+              <div className={styles.loaderContainer}>
+                <Loader
+                  className={styles.loader}
+                  color={`rgb(var(--button-${color}-${variant}-color))`}
+                />
+              </div>
+            )}
+            {children}
+          </>
         )}
       </Comp>
     )
-  }
+  },
 )

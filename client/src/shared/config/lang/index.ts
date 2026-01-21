@@ -1,4 +1,10 @@
 export const lang = {
-  ru: 'ru',
-  en: 'en',
+  ru: {
+    name: 'ru',
+    description: 'Русский',
+  },
+  en: {
+    name: 'en',
+    description: 'English',
+  },
 } as const

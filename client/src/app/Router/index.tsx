@@ -5,7 +5,7 @@ export const Router = () => {
     <Routes>
       <Route
         path='/'
-        element={<>сука</>}
+        element={<></>}
       />
     </Routes>
   )

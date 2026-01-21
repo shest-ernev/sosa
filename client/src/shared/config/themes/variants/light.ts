@@ -7,11 +7,11 @@ export const light = {
   '--text-succesfully': '0, 221, 81',
   '--text-danger': '255, 77, 77',
 
-  '--text-s': '14px',
-  '--text-m': '16px',
-  '--text-l': '20px',
-  '--text-xl': '30px',
-  '--text-xxl': '55px',
+  '--text-s': '0.875rem',
+  '--text-m': '1rem',
+  '--text-l': '1.25rem',
+  '--text-xl': '1.875rem',
+  '--text-xxl': '3.4375rem',
 
   '--button-secondary-contain-bg': '210, 210, 210',
   '--button-secondary-contain-hover': '190, 190, 190',

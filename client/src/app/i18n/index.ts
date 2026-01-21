@@ -11,12 +11,12 @@ i18n
   .use(Backend)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: lang.en.name,
     resources: {
-      [lang.ru]: {
+      [lang.ru.name]: {
         translation: ru,
       },
-      [lang.en]: {
+      [lang.en.name]: {
         translation: en,
       },
     },

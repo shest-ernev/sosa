@@ -2,7 +2,7 @@ import { useEffect, ReactNode } from 'react'
 import { observer } from 'mobx-react-lite'
 
 import { useStore } from '@/shared/hooks'
-import { themes } from '@/shared/config'
+import { themes, ls } from '@/shared/config'
 
 export const ThemeProvider = observer(
   ({ children }: { children: ReactNode }) => {
@@ -10,17 +10,19 @@ export const ThemeProvider = observer(
       theme: { activeTheme },
     } = useStore()
 
-    const theme = themes[activeTheme]
-
     useEffect(() => {
+      const theme = themes[activeTheme]
+
+      localStorage.setItem(ls.theme, activeTheme)
+
       Object.keys(theme).map((key) => {
         document.documentElement.style.setProperty(
           key,
-          theme[key as keyof typeof theme]
+          theme[key as keyof typeof theme],
         )
       })
-    }, [theme])
+    }, [activeTheme])
 
     return <>{children}</>
-  }
+  },
 )

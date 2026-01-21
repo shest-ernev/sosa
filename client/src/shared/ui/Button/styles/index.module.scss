@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   cursor: pointer;
   font-size: var(--text-m);
   transition: background-color 0.2s;
@@ -114,7 +114,7 @@
 .secondary-outline {
   color: rgb(var(--button-secondary-outline-color));
   background-color: rgba(var(--button-secondary-outline-bg));
-  border: 1px solid rgb(var(--button-secondary-outline-color));
+  border: 0.0625rem solid rgb(var(--button-secondary-outline-color));
 
   @media (hover: hover) {
     &:hover {
@@ -217,7 +217,7 @@
 .primary-outline {
   color: rgb(var(--button-primary-outline-color));
   background-color: rgba(var(--button-primary-outline-bg));
-  border: 1px solid rgb(var(--button-primary-outline-color));
+  border: 0.0625rem solid rgb(var(--button-primary-outline-color));
 
   @media (hover: hover) {
     &:hover {
@@ -320,7 +320,7 @@
 .danger-outline {
   color: rgb(var(--button-danger-outline-color));
   background-color: rgba(var(--button-danger-outline-bg));
-  border: 1px solid rgb(var(--button-danger-outline-color));
+  border: 0.0625rem solid rgb(var(--button-danger-outline-color));
 
   @media (hover: hover) {
     &:hover {
@@ -423,7 +423,7 @@
 .succesfully-outline {
   color: rgb(var(--button-succesfully-outline-color));
   background-color: rgba(var(--button-succesfully-outline-bg));
-  border: 1px solid rgb(var(--button-succesfully-outline-color));
+  border: 0.0625rem solid rgb(var(--button-succesfully-outline-color));
 
   @media (hover: hover) {
     &:hover {

@@ -7,13 +7,13 @@ export const dark = {
   '--text-succesfully': '77, 255, 116',
   '--text-danger': '255, 77, 77',
 
-  '--text-s': '14px',
-  '--text-m': '16px',
-  '--text-l': '20px',
-  '--text-xl': '30px',
-  '--text-xxl': '55px',
+  '--text-s': '0.875rem',
+  '--text-m': '1rem',
+  '--text-l': '1.25rem',
+  '--text-xl': '1.875rem',
+  '--text-xxl': '3.4375rem',
 
-  '--button-secondary-contain-bg': '17, 17, 17',
+  '--button-secondary-contain-bg': '18, 18, 18',
   '--button-secondary-contain-hover': '21, 21, 21',
   '--button-secondary-contain-active': '25, 25, 25',
   '--button-secondary-contain-color': '121, 121, 121',
@@ -29,8 +29,8 @@ export const dark = {
   '--button-secondary-outline-color': '121, 121, 121',
 
   '--button-primary-contain-bg': '255, 255, 255',
-  '--button-primary-contain-hover': '210, 210, 210',
-  '--button-primary-contain-active': '190, 190, 190',
+  '--button-primary-contain-hover': '200, 200, 200',
+  '--button-primary-contain-active': '180, 180, 180',
   '--button-primary-contain-color': '0, 0, 0',
 
   '--button-primary-text-bg': '197, 197, 197, 0',
@@ -39,8 +39,8 @@ export const dark = {
   '--button-primary-text-color': '255, 255, 255',
 
   '--button-primary-outline-bg': '197, 197, 197, 0',
-  '--button-primary-outline-hover': '25, 25, 25',
-  '--button-primary-outline-active': '35, 35, 35',
+  '--button-primary-outline-hover': '40, 40, 40',
+  '--button-primary-outline-active': '50, 50, 50',
   '--button-primary-outline-color': '255, 255, 255',
 
   '--button-danger-contain-bg': '255, 77, 77',
