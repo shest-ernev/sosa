@@ -6,6 +6,7 @@ import { routes } from '@/shared/config'
 import LogoIcon from '@/shared/assets/svg/logo.svg?react'
 
 import styles from '../styles/index.module.scss'
+import { HeaderSearch } from './parts/HeaderSearch'
 
 export const Header = () => {
   const { t } = useTranslation()
@@ -14,6 +15,9 @@ export const Header = () => {
     <div className={styles.header}>
       <div className={styles.logoContainer}>
         <LogoIcon className={styles.logo} />
+      </div>
+      <div className={styles.center}>
+        <HeaderSearch />
       </div>
       <div className={styles.authBtns}>
         <Button

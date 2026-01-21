@@ -72,4 +72,10 @@ export const dark = {
   '--button-succesfully-outline-hover': '58, 80, 63',
   '--button-succesfully-outline-active': '66, 106, 75',
   '--button-succesfully-outline-color': '77, 255, 116',
+
+  '--input-bg': '21, 21, 21',
+  '--input-hover': '30, 30, 30',
+  '--input-active': '35, 35, 35',
+  '--input-focus': '255, 255, 255',
+  '--input-error': '255, 77, 77',
 }

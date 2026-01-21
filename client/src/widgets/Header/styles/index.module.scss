@@ -20,6 +20,19 @@
   height: 100%;
 }
 
+.center {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
 .authBtns {
   height: 100%;
   display: flex;
@@ -31,4 +44,16 @@
   height: 100%;
   padding: 0 0.9375rem;
   border-radius: 3.125rem;
+}
+
+.input {
+  width: 21.875rem;
+  height: 100%;
+  border-radius: 3.125rem;
+}
+
+.searchIcon {
+  width: 1rem;
+  flex-shrink: 0;
+  color: rgb(var(--text-secondary));
 }

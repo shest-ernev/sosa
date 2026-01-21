@@ -9,7 +9,9 @@ export const DefaultScreen = ({ children }: DefaultScreenProps) => {
       <Header />
       <div className={styles.defaultScreenContent}>
         <Library />
-        <div className={styles.defaultScreenPages}>{children}</div>
+        <div className={styles.defaultScreenPages}>
+          {children}
+        </div>
       </div>
     </div>
   )
