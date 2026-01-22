@@ -1,2 +1,1 @@
-# sosa
-Soundcloud analogue
+дай бог доделаю
