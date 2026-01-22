@@ -3,7 +3,7 @@ export const light = {
   '--section': '229, 229, 229',
 
   '--text-primary': '0, 0, 0',
-  '--text-secondary': '95, 95, 95',
+  '--text-secondary': '140, 140, 140',
   '--text-succesfully': '0, 221, 81',
   '--text-danger': '255, 77, 77',
 
@@ -73,8 +73,11 @@ export const light = {
   '--button-succesfully-outline-active': '155, 255, 192',
   '--button-succesfully-outline-color': '0, 221, 81',
 
-  '--input-bg': '215, 215, 215',
-  '--input-hover': '200, 200, 200',
+  '--input-bg': '210, 210, 210',
+  '--input-hover': '190, 190, 190',
   '--input-focus': '0, 0, 0',
   '--input-error': '255, 77, 77',
+
+  '--tooltip-bg': '200, 200, 200',
+  '--tooltip-shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(107, 107, 107, 0.17)',
 }

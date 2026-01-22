@@ -13,9 +13,9 @@ export const dark = {
   '--text-xl': '1.875rem',
   '--text-xxl': '3.4375rem',
 
-  '--button-secondary-contain-bg': '18, 18, 18',
-  '--button-secondary-contain-hover': '21, 21, 21',
-  '--button-secondary-contain-active': '25, 25, 25',
+  '--button-secondary-contain-bg': '21, 21, 21',
+  '--button-secondary-contain-hover': '30, 30, 30',
+  '--button-secondary-contain-active': '35, 35, 35',
   '--button-secondary-contain-color': '121, 121, 121',
 
   '--button-secondary-text-bg': '17, 17, 17, 0',
@@ -75,7 +75,9 @@ export const dark = {
 
   '--input-bg': '21, 21, 21',
   '--input-hover': '30, 30, 30',
-  '--input-active': '35, 35, 35',
   '--input-focus': '255, 255, 255',
   '--input-error': '255, 77, 77',
+
+  '--tooltip-bg': '22, 22, 22',
+  '--tooltip-shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.368)',
 }

@@ -6,7 +6,9 @@ import { routes } from '@/shared/config'
 import LogoIcon from '@/shared/assets/svg/logo.svg?react'
 
 import styles from '../styles/index.module.scss'
+
 import { HeaderSearch } from './parts/HeaderSearch'
+import { HeaderHomeLink } from './parts/HeaderHomeLink'
 
 export const Header = () => {
   const { t } = useTranslation()
@@ -17,6 +19,7 @@ export const Header = () => {
         <LogoIcon className={styles.logo} />
       </div>
       <div className={styles.center}>
+        <HeaderHomeLink />
         <HeaderSearch />
       </div>
       <div className={styles.authBtns}>
