@@ -1,0 +1,103 @@
+.root {
+  position: relative;
+  overflow: hidden;
+}
+
+.vieport {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+
+  & > div {
+    height: 100% !important;
+    display: flex !important;
+  }
+}
+
+.scrollBar {
+  touch-action: none;
+  display: flex;
+  user-select: none;
+  z-index: 10000;
+  animation-timing-function: linear;
+  animation-duration: 0.2s;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+
+  &[data-orientation='vertical'] {
+    height: 100%;
+    width: 0.5rem;
+  }
+
+  &[data-orientation='horizontal'] {
+    height: 100%;
+    width: 0.5rem;
+  }
+
+  &[data-state='hidden'] {
+    animation-name: close;
+  }
+
+  &[data-state='visible'] {
+    animation-name: open;
+  }
+}
+
+.thumb {
+  width: 100% !important;
+  position: relative;
+  border-radius: 6.25rem;
+  background-color: rgba(var(--scrollbar));
+  cursor: grab;
+  transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgba(var(--scrollbar-hover));
+    }
+
+    &:active {
+      background-color: rgba(var(--scrollbar-active));
+      cursor: grabbing;
+    }
+  }
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media (hover: none) {
+  .scrollBar {
+    &[data-orientation='vertical'] {
+      height: 100%;
+      width: 0.3125rem;
+    }
+
+    &[data-orientation='horizontal'] {
+      height: 100%;
+      width: 0.3125rem;
+    }
+  }
+}

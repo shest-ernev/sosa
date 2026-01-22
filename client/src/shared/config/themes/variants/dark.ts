@@ -2,6 +2,8 @@ export const dark = {
   '--wrapper': '0, 0, 0',
   '--section': '11, 11, 11',
 
+  '--shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.368)',
+
   '--text-primary': '255, 255, 255',
   '--text-secondary': '121, 121, 121',
   '--text-succesfully': '77, 255, 116',
@@ -79,5 +81,8 @@ export const dark = {
   '--input-error': '255, 77, 77',
 
   '--tooltip-bg': '22, 22, 22',
-  '--tooltip-shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.368)',
+
+  '--scrollbar': '255, 255, 255, 0.07',
+  '--scrollbar-hover': '255, 255, 255, 0.15',
+  '--scrollbar-active': '255, 255, 255, 0.2',
 }

@@ -2,6 +2,8 @@ export const light = {
   '--wrapper': '255, 255, 255',
   '--section': '229, 229, 229',
 
+  '--shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(107, 107, 107, 0.17)',
+
   '--text-primary': '0, 0, 0',
   '--text-secondary': '140, 140, 140',
   '--text-succesfully': '0, 221, 81',
@@ -79,5 +81,8 @@ export const light = {
   '--input-error': '255, 77, 77',
 
   '--tooltip-bg': '200, 200, 200',
-  '--tooltip-shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(107, 107, 107, 0.17)',
+
+  '--scrollbar': '0, 0, 0, 0.07',
+  '--scrollbar-hover': '0, 0, 0, 0.15',
+  '--scrollbar-active': '0, 0, 0, 0.2',
 }
