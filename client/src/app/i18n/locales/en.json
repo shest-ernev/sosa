@@ -16,5 +16,12 @@
   },
   "signIn": {
     "title": "Sign in"
+  },
+  "sendCode": {
+    "title": "Confirm account",
+    "description": "Enter the code sent to {{ email }}",
+    "submit": "Send",
+    "question": "Want to change your email?",
+    "questionLink": "Go back"
   }
 }

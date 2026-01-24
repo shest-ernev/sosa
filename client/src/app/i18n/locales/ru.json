@@ -16,5 +16,12 @@
   },
   "signIn": {
     "title": "Войти"
+  },
+  "sendCode": {
+    "title": "Подтвердите аккаунт",
+    "description": "Введите код отправленный на {{ email }}",
+    "submit": "Отправить",
+    "question": "Хотите изменить email?",
+    "questionLink": "Вернуться назад"
   }
 }

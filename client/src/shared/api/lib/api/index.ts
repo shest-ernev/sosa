@@ -1,14 +1,14 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 import { ls, server } from '@/shared/config'
-import { MessageResponse } from '@/shared/types'
+import { MessageResponse, components } from '@/shared/types'
 
 export const api = axios.create({ baseURL: server.base })
 
 api.interceptors.request.use((config) => {
   if (localStorage.getItem(ls.accessToken)) {
     config.headers.Authorization = `Bearer ${localStorage.getItem(
-      ls.accessToken
+      ls.accessToken,
     )}`
   }
 
@@ -25,9 +25,9 @@ api.interceptors.response.use(
         localStorage.getItem(ls.refreshToken) &&
         err.response?.data.message === 'Invalid access token'
       ) {
-        const { data } = await api.get<{
-          access_token: string
-        }>(`/auth/refresh/${localStorage.getItem(ls.refreshToken)}`)
+        const { data } = await api.get<
+          components['schemas']['AuthRefreshData']
+        >(`/auth/refresh/${localStorage.getItem(ls.refreshToken)}`)
 
         localStorage.setItem(ls.accessToken, data.access_token)
 
@@ -45,5 +45,5 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(err)
-  }
+  },
 )

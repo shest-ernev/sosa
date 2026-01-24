@@ -21,7 +21,7 @@
     }
   }
 
-  @media (hover: active) {
+  @media (hover: none) {
     &:active {
       background-color: rgb(var(--input-hover));
       border-color: rgb(var(--input-hover));
@@ -38,7 +38,7 @@
     }
   }
 
-  @media (hover: active) {
+  @media (hover: none) {
     &:active {
       border-color: rgb(var(--input-focus));
     }
@@ -54,7 +54,7 @@
     }
   }
 
-  @media (hover: active) {
+  @media (hover: none) {
     &:active {
       border-color: rgb(var(--input-error));
     }
