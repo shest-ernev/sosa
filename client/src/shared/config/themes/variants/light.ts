@@ -1,7 +1,7 @@
 export const light = {
   '--wrapper': '255, 255, 255',
   '--section': '229, 229, 229',
-  '--block': '16, 16, 16',
+  '--block': '219, 219, 219',
 
   '--shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(107, 107, 107, 0.17)',
 
@@ -77,7 +77,8 @@ export const light = {
   '--button-succesfully-outline-color': '0, 221, 81',
 
   '--input-bg': '210, 210, 210',
-  '--input-hover': '190, 190, 190',
+  '--input-hover': '200, 200, 200',
+  '--input-active': '190, 190, 190',
   '--input-focus': '0, 0, 0',
   '--input-error': '255, 77, 77',
   '--input-checkbox-icon': '255, 255, 255',
