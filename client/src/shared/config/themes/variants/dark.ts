@@ -1,6 +1,7 @@
 export const dark = {
   '--wrapper': '0, 0, 0',
   '--section': '11, 11, 11',
+  '--block': '16, 16, 16',
 
   '--shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.368)',
 
@@ -77,8 +78,10 @@ export const dark = {
 
   '--input-bg': '21, 21, 21',
   '--input-hover': '30, 30, 30',
+  '--input-active': '35, 35, 35',
   '--input-focus': '255, 255, 255',
   '--input-error': '255, 77, 77',
+  '--input-checkbox-icon': '0, 0, 0',
 
   '--tooltip-bg': '22, 22, 22',
 

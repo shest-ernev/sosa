@@ -7,11 +7,10 @@ import styles from '../styles/index.module.scss'
 export const ScrollAreaScrollbar = forwardRef<
   HTMLDivElement,
   ScrollArea.ScrollAreaScrollbarProps
->(({ className, orientation = 'vertical', ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <ScrollArea.Scrollbar
     ref={ref}
-    orientation={orientation}
-    className={cn(styles.scrollBar, styles[orientation], className)}
+    className={cn(styles.scrollBar, className)}
     {...props}
   >
     <ScrollArea.Thumb className={styles.thumb} />

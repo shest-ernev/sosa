@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "swagger": "npx openapi-typescript http://localhost:8001/api/swagger-json --output src/shared/types/swagger/index.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@tanstack/react-query": "^5.90.16",
     "@types/node": "^24.10.1",
     "axios": "^1.13.2",
@@ -18,13 +20,16 @@
     "i18next-http-backend": "^3.0.2",
     "mobx": "^6.15.0",
     "mobx-react-lite": "^4.1.1",
+    "openapi-typescript": "^7.10.1",
     "radix-ui": "^1.4.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.71.1",
     "react-i18next": "^16.5.3",
     "react-router": "^7.12.0",
     "sass": "^1.97.2",
-    "vite-plugin-svgr": "^4.5.0"
+    "vite-plugin-svgr": "^4.5.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -4,5 +4,17 @@
     "signUp": "Sign up",
     "signIn": "Sing in",
     "search": "Search..."
+  },
+  "singUp": {
+    "title": "Sign up",
+    "description": "Fill in the details to create an account",
+    "emailPlaceholder": "Enter your email...",
+    "nicknamePlaceholder": "Enter your nickname...",
+    "submit": "Create an account",
+    "agree": "I consent to the processing of personal data",
+    "question": "Already have an account?"
+  },
+  "signIn": {
+    "title": "Sign in"
   }
 }

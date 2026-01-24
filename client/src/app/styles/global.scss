@@ -1,0 +1,15 @@
+.a {
+  color: rgb(var(--text-primary));
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}

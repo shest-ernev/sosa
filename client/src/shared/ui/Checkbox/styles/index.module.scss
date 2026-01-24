@@ -1,0 +1,80 @@
+.container {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  .input:checked + .checkbox {
+    background-color: rgb(var(--input-focus));
+
+    svg {
+      opacity: 100;
+    }
+  }
+
+  .input:focus + .checkbox {
+    border-color: rgb(var(--input-focus));
+  }
+
+  @media (hover: hover) {
+    &:hover .checkbox {
+      background-color: rgb(var(--input-hover));
+    }
+
+    &:active .checkbox {
+      background-color: rgb(var(--input-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active .checkbox {
+      background-color: rgb(var(--input-hover));
+    }
+  }
+}
+
+.input {
+  display: none;
+}
+
+.checkbox {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--input-bg));
+  border: 1px solid transparent;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  -webkit-transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  -moz-transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  -o-transition:
+    background-color 0.2s,
+    border-color 0.2s;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0;
+    color: rgb(var(--input-checkbox-icon));
+    transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+  }
+}
+
+.error {
+  border-color: rgb(var(--input-error)) !important;
+}
