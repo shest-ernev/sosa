@@ -41,18 +41,18 @@ export class UserReleaseController {
 
   @Post()
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: UserReleaseCreateData })
   async create(
     @Req() req: RequestWithUser,
-    @Body() body: UserReleaseCreateBody
+    @Body() body: UserReleaseCreateBody,
   ) {
     return this.userReleaseService.create(req, body)
   }
 
   @Delete(':id')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(404, 403, 401, 500)
   @ApiResponse({ type: MessageResponse })
   async remove(@Req() req: RequestWithUser, @Param('id') id: string) {
     return this.userReleaseService.remove(req, id)
@@ -68,39 +68,39 @@ export class UserReleaseController {
   })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: UploadFileBody })
-  @ApiError()
+  @ApiError(500, 401, 400, 403)
   @ApiResponse({ type: MessageResponse })
   async editCover(
     @Req() req: RequestWithUser,
     @Param('id') id: string,
-    @UploadedFile() file: Express.Multer.File
+    @UploadedFile() file: Express.Multer.File,
   ) {
     return this.userReleaseService.editCover(id, req, file)
   }
 
   @Patch(':id')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400, 403)
   @ApiResponse({ type: MessageResponse })
   async edit(
     @Req() req: RequestWithUser,
     @Param('id') id: string,
-    @Body() body: UserReleaseEditBody
+    @Body() body: UserReleaseEditBody,
   ) {
     return this.userReleaseService.editRelease(id, req, body)
   }
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400, 403, 404)
   @ApiResponse({ type: GetUserRelease })
   async GetUserRelease(@Req() req: RequestWithUser, @Param('id') id: string) {
-    return this.userReleaseService.GetUserRelease(req, id)
+    return this.userReleaseService.getUserRelease(req, id)
   }
 
   @Patch('public/:id')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400, 404, 403)
   @ApiResponse({ type: MessageResponse })
   async editPublic(@Req() req: RequestWithUser, @Param('id') id: string) {
     return this.userReleaseService.editPublic(req, id)

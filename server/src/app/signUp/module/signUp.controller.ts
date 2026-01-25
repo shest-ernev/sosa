@@ -21,21 +21,21 @@ export class SignUpContorller {
 
   @Post('create-token')
   @ApiResponse({ type: SignUpCreateTokenData })
-  @ApiError()
+  @ApiError(500, 409, 404, 400)
   async createToken(@Body() body: SignUpCreateTokenBody) {
     return this.signUpService.createToken(body)
   }
 
   @Post('check-code')
   @ApiResponse({ type: SignUpCheckCodeData })
-  @ApiError()
+  @ApiError(500, 400)
   async checkCode(@Body() body: SignUpCheckCodeBody) {
     return this.signUpService.checkCode(body)
   }
 
   @Post('send-code')
   @ApiResponse({ type: MessageResponse })
-  @ApiError()
+  @ApiError(500, 404, 400)
   async sendCode(@Body() body: SignUpSendCodeBody) {
     return this.signUpService.sendCode(body)
   }

@@ -17,18 +17,18 @@ export class UserSettingsController {
 
   @Patch()
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 404)
   @ApiResponse({ type: MessageResponse })
   async editSettings(
     @Req() req: RequestWithUser,
-    @Body() body: EditUserSettingsBody
+    @Body() body: EditUserSettingsBody,
   ) {
     return this.userSettingsService.editUserSettings(req, body)
   }
 
   @Get()
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 404)
   @ApiResponse({ type: GetUserSettings })
   async getSettings(@Req() req: RequestWithUser) {
     return this.userSettingsService.getSettings(req)

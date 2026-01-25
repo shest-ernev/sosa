@@ -18,14 +18,14 @@ export class AuthController {
   @Get()
   @UseGuards(AuthGuard)
   @ApiBearerAuth()
-  @ApiError()
+  @ApiError(500, 401)
   @ApiResponse({ type: UserSchema })
   async getAuth(@Req() req: RequestWithUser) {
     return this.authService.getAuth(req)
   }
 
   @Get('refresh/:token')
-  @ApiError()
+  @ApiError(500, 401)
   @ApiResponse({ type: AuthRefreshData })
   async refresh(@Param('token') token: string) {
     return this.authService.refresh(token)
@@ -34,7 +34,7 @@ export class AuthController {
   @Patch('log-out')
   @UseGuards(AuthGuard)
   @ApiBearerAuth()
-  @ApiError()
+  @ApiError(401)
   @ApiResponse({ type: MessageResponse })
   async logOut(@Req() req: RequestWithUser) {
     return this.authService.logOut(req)

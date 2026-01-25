@@ -3,11 +3,13 @@ import { applyDecorators } from '@nestjs/common'
 
 import { MessageResponse } from '@/shared/schemas'
 
-export const ApiError = () => {
-  return applyDecorators(
+export const ApiError = (...err: number[]) => {
+  const decorators = err.map((item) =>
     ApiResponse({
-      status: 500,
+      status: item,
       type: MessageResponse,
-    })
+    }),
   )
+
+  return applyDecorators(...decorators)
 }

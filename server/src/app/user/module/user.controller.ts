@@ -33,7 +33,7 @@ export class UserController {
 
   @Patch('name')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(401, 400, 409, 500)
   @ApiResponse({ type: MessageResponse })
   async editName(@Body() body: UserEditNameBody, @Req() req: RequestWithUser) {
     return this.userService.editName(body, req)
@@ -41,11 +41,11 @@ export class UserController {
 
   @Patch('description')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: MessageResponse })
   async editDescription(
     @Body() body: UserEditDescriptionBody,
-    @Req() req: RequestWithUser
+    @Req() req: RequestWithUser,
   ) {
     return this.userService.editDescription(body, req)
   }
@@ -58,20 +58,20 @@ export class UserController {
     message: 'Not valid file',
     file: '.jpg',
   })
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: MessageResponse })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: UploadFileBody })
   async editAvatar(
     @UploadedFile() file: Express.Multer.File,
-    @Req() req: RequestWithUser
+    @Req() req: RequestWithUser,
   ) {
     return this.userService.editAvatar(req, file)
   }
 
   @Delete('avatar')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: MessageResponse })
   async deleteAvatar(@Req() req: RequestWithUser) {
     return this.userService.deleteAvatar(req)
@@ -85,20 +85,20 @@ export class UserController {
     message: 'Not valid file',
     file: '.jpg',
   })
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: MessageResponse })
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: UploadFileBody })
   async editCover(
     @UploadedFile() file: Express.Multer.File,
-    @Req() req: RequestWithUser
+    @Req() req: RequestWithUser,
   ) {
     return this.userService.editCover(req, file)
   }
 
   @Delete('cover')
   @UseGuards(AuthGuard)
-  @ApiError()
+  @ApiError(500, 401, 400)
   @ApiResponse({ type: MessageResponse })
   async deleteCover(@Req() req: RequestWithUser) {
     return this.userService.deleteCover(req)

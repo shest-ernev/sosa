@@ -21,21 +21,21 @@ export class SignInController {
 
   @Post('create-token')
   @ApiResponse({ type: SignInCreateTokenData })
-  @ApiError()
+  @ApiError(500, 400, 404)
   async createToken(@Body() body: SignInCreateTokenBody) {
     return this.signInService.createToken(body)
   }
 
   @Post('check-code')
   @ApiResponse({ type: SignInCheckCodeData })
-  @ApiError()
+  @ApiError(500, 400)
   async checkCode(@Body() body: SignInCheckCodeBody) {
     return this.signInService.checkCode(body)
   }
 
   @Post('send-code')
   @ApiResponse({ type: MessageResponse })
-  @ApiError()
+  @ApiError(500, 404, 400)
   async sendCode(@Body() body: SignInSendCodeBody) {
     return this.signInService.sendCode(body)
   }

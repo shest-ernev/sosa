@@ -17,7 +17,7 @@ export class FavoritesController {
   @Patch('profile/:id')
   @UseGuards(AuthGuard)
   @ApiResponse({ type: MessageResponse })
-  @ApiError()
+  @ApiError(500, 401, 409, 404)
   async profile(@Param('id') id: string, @Req() req: RequestWithUser) {
     return this.favoritesService.profile(req, id)
   }
@@ -25,7 +25,7 @@ export class FavoritesController {
   @Patch('release/:id')
   @UseGuards(AuthGuard)
   @ApiResponse({ type: MessageResponse })
-  @ApiError()
+  @ApiError(500, 401, 403, 404)
   async release(@Param('id') id: string, @Req() req: RequestWithUser) {
     return this.favoritesService.release(req, id)
   }

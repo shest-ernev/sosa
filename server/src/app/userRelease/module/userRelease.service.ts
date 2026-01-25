@@ -182,7 +182,7 @@ export class UserReleaseService {
     return { message: 'Successful edit release' }
   }
 
-  async GetUserRelease(req: RequestWithUser, id: string) {
+  async getUserRelease(req: RequestWithUser, id: string) {
     const release = await this.releasesRepository
       .createQueryBuilder('release')
       .leftJoinAndSelect('release.genres', 'releaseGenre')
