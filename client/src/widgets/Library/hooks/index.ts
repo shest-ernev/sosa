@@ -7,7 +7,9 @@ import { getWidthLibrary } from '../lib'
 import { UseResizeLibraryParams } from '../types'
 
 export const useResizeLibrary = (params: UseResizeLibraryParams) => {
-  const [width, setWidth] = useState(getWidthLibrary(params.min))
+  const [width, setWidth] = useState(
+    getWidthLibrary(params.hiddenWidth, params.max),
+  )
   const [hidden, setHidden] = useState(width === params.hiddenWidth)
   const [startWidth, setStartWidth] = useState(0)
   const [startX, setStartX] = useState(0)

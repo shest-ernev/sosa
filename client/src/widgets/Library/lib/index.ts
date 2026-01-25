@@ -1,6 +1,6 @@
 import { ls } from '@/shared/config'
 
-export const getWidthLibrary = (min: number) => {
+export const getWidthLibrary = (min: number, max: number) => {
   const width = localStorage.getItem(ls.libraryWidth)
 
   if (!width) {
@@ -11,5 +11,11 @@ export const getWidthLibrary = (min: number) => {
     return min
   }
 
-  return Number(width)
+  const numWidth = Number(width)
+
+  if (numWidth <= max && numWidth >= min) {
+    return numWidth
+  }
+
+  return min
 }
