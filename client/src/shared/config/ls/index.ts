@@ -4,4 +4,5 @@ export const ls = {
   theme: 'theme',
   libraryWidth: 'libraryWidth',
   lang: 'lang',
+  signUpCodeTimer: 'signUpCodeTimer',
 } as const

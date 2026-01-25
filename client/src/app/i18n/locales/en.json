@@ -12,7 +12,13 @@
     "nicknamePlaceholder": "Enter your nickname...",
     "submit": "Create an account",
     "agree": "I consent to the processing of personal data",
-    "question": "Already have an account?"
+    "question": "Already have an account?",
+    "errors": {
+      "required": "Required field",
+      "minNameLength": "Minimum 2 characters",
+      "maxNameLength": "Maximum 300 characters",
+      "email": "Not valid email"
+    }
   },
   "signIn": {
     "title": "Sign in"
@@ -20,8 +26,9 @@
   "sendCode": {
     "title": "Confirm account",
     "description": "Enter the code sent to {{ email }}",
-    "submit": "Send",
     "question": "Want to change your email?",
-    "questionLink": "Go back"
+    "questionLink": "Go back",
+    "again": "Send code again via {{ time }}",
+    "againBtn": "Send code again"
   }
 }

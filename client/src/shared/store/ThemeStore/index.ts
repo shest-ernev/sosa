@@ -1,10 +1,9 @@
 import { makeAutoObservable } from 'mobx'
 
-import { ls } from '@/shared/config'
+import { getTheme } from './lib'
 
 export class ThemeStore {
-  activeTheme: 'light' | 'dark' =
-    (localStorage.getItem(ls.theme) as 'light' | 'dark') || 'dark'
+  activeTheme = getTheme()
 
   constructor() {
     makeAutoObservable(this)
