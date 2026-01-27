@@ -17,7 +17,11 @@
       "required": "Required field",
       "minNameLength": "Minimum 2 characters",
       "maxNameLength": "Maximum 300 characters",
-      "email": "Not valid email"
+      "email": "Not valid email",
+      "400": "Validation error",
+      "404": "Error sending code",
+      "409": "Such a user already exists",
+      "500": "Server error"
     }
   },
   "signIn": {
@@ -29,6 +33,11 @@
     "question": "Want to change your email?",
     "questionLink": "Go back",
     "again": "Send code again via {{ time }}",
-    "againBtn": "Send code again"
+    "againBtn": "Send code again",
+    "errors": {
+      "500": "Server error",
+      "400": "Wrong code",
+      "404": "User not found"
+    }
   }
 }

@@ -90,3 +90,55 @@
     }
   }
 }
+
+.loading {
+  background-color: rgb(var(--input-bg));
+  border-color: rgb(var(--input-bg));
+  animation: load 0.9s linear infinite;
+
+  &:focus {
+    border-color: rgb(var(--input-bg));
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgb(var(--input-bg));
+        border-color: rgb(var(--input-bg));
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        background-color: rgb(var(--input-bg));
+        border-color: rgb(var(--input-bg));
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--input-bg));
+      border-color: rgb(var(--input-bg));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--input-bg));
+      border-color: rgb(var(--input-bg));
+    }
+  }
+}
+
+@keyframes load {
+  from {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}

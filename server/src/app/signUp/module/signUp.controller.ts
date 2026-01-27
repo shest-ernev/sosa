@@ -28,7 +28,7 @@ export class SignUpContorller {
 
   @Post('check-code')
   @ApiResponse({ type: SignUpCheckCodeData })
-  @ApiError(500, 400)
+  @ApiError(500, 400, 404)
   async checkCode(@Body() body: SignUpCheckCodeBody) {
     return this.signUpService.checkCode(body)
   }

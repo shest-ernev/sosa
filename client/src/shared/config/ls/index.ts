@@ -2,7 +2,6 @@ export const ls = {
   accessToken: 'access-token',
   refreshToken: 'refresh-token',
   theme: 'theme',
-  libraryWidth: 'libraryWidth',
+  libraryWidth: 'library-width',
   lang: 'lang',
-  signUpCodeTimer: 'signUpCodeTimer',
 } as const

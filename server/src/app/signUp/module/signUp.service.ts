@@ -19,7 +19,7 @@ export class SignUpService {
     @InjectRepository(UserSettingsEntity)
     private readonly usersSettingsRepository: Repository<UserSettingsEntity>,
     private readonly jwtService: JwtService,
-    private readonly codeService: CodeService
+    private readonly codeService: CodeService,
   ) {}
 
   private canDelete(date: Date) {
@@ -27,7 +27,8 @@ export class SignUpService {
     const now = new Date().valueOf()
     const diffInMinutes = (now - createdAt) / (1000 * 60)
 
-    if (diffInMinutes > 10) {
+    // 5 минут
+    if (diffInMinutes > 5) {
       return true
     }
 
@@ -60,7 +61,7 @@ export class SignUpService {
 
     const token = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '10m' }
+      { expiresIn: '10m' },
     )
 
     const code = await this.codeService.update(user.id)
@@ -83,12 +84,12 @@ export class SignUpService {
 
     const accessToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '10m' }
+      { expiresIn: '10m' },
     )
 
     const refreshToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '30d' }
+      { expiresIn: '30d' },
     )
 
     const newSettings = this.usersSettingsRepository.create()
@@ -97,7 +98,7 @@ export class SignUpService {
 
     await this.usersRepository.update(
       { id: user.id },
-      { isActive: true, refreshToken, settingsId: settings.id, code: '' }
+      { isActive: true, refreshToken, settingsId: settings.id, code: '' },
     )
 
     return {

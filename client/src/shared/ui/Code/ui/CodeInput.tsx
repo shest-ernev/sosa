@@ -9,11 +9,16 @@ export const CodeInput = forwardRef<
   HTMLInputElement,
   OneTimePasswordField.OneTimePasswordFieldInputProps
 >(({ className, ...props }, ref) => {
-  const { error } = useCodeContext()
+  const { error, loading } = useCodeContext()
 
   return (
     <OneTimePasswordField.Input
-      className={cn(styles.input, error && styles.error, className)}
+      className={cn(
+        styles.input,
+        error && styles.error,
+        loading && styles.loading,
+        className,
+      )}
       ref={ref}
       {...props}
     />

@@ -12,13 +12,16 @@ export class AuthService {
     private readonly userSettingsRepository: Repository<UserSettingsEntity>,
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
   ) {}
 
   async getAuth(req: RequestWithUser) {
     const user = req.user
 
-    return user
+    return {
+      theme: user.settings.theme,
+      lang: user.settings.lang,
+    }
   }
 
   async logOut(req: RequestWithUser) {
@@ -58,7 +61,7 @@ export class AuthService {
 
     const accessToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '5m' }
+      { expiresIn: '5m' },
     )
 
     return { access_token: accessToken }

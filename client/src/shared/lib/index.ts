@@ -1,1 +1,1 @@
-export * from './getFormError'
+export * from './getTranslate'

@@ -13,6 +13,7 @@ export const SendCodeForm = ({
   backLink,
   email,
   error,
+  loading,
   onChange,
   onSubmit,
   onAgainSend,
@@ -47,6 +48,8 @@ export const SendCodeForm = ({
               value={value}
               autoSubmit={true}
               onValueChange={onChange}
+              disabled={loading}
+              loading={loading}
               error={error}
             >
               {[...new Array(6)].map((_, index) => (
@@ -62,7 +65,7 @@ export const SendCodeForm = ({
           {timer !== 0 ? (
             <Text>
               {t('sendCode.again', {
-                time: dayJs(0).millisecond(timer).format('mm:ss MMMM'),
+                time: dayJs(0).millisecond(timer).format('mm:ss'),
               })}
             </Text>
           ) : (

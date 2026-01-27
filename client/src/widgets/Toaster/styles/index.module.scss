@@ -1,0 +1,80 @@
+.viewport {
+  width: 20rem;
+  --viewport-padding: 0.625rem;
+  position: absolute;
+  bottom: 0.9375rem;
+  right: 0.9375rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  margin: 0;
+  list-style: none;
+  z-index: 100000;
+  outline: none;
+}
+
+.toast {
+  width: 100%;
+  padding: 0.625rem 0.625rem 0.625rem 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  border-radius: 10px;
+  transition:
+    translate 0.2s,
+    opacity 0.2s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  overflow: hidden;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  span {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.closed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.danger {
+  color: rgb(var(--text-danger));
+}
+
+.info {
+  color: rgb(var(--text-primary));
+}
+
+.success {
+  color: rgb(var(--text-succesfully));
+}
+
+.close {
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 0.3125rem;
+  flex-shrink: 0;
+
+  svg {
+    width: 50%;
+  }
+}

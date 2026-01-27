@@ -4,4 +4,5 @@ import { CodeContextValue } from '../types'
 
 export const CodeContext = createContext<CodeContextValue>({
   error: false,
+  loading: false,
 })

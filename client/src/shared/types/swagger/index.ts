@@ -366,39 +366,11 @@ export interface components {
         SignInSendCodeBody: {
             token: string;
         };
-        UserSettingsEntity: {
-            id: string;
+        GetAuthData: {
             /** @enum {string} */
             theme: "dark" | "light";
             /** @enum {string} */
             lang: "ru" | "en";
-            privateProfile: boolean;
-            privateSubscribers: boolean;
-            privateSubs: boolean;
-            privateLibrary: boolean;
-            notificationsNewSubscriber: boolean;
-            notificationsRepost: boolean;
-            notificationsLike: boolean;
-            notificationsComment: boolean;
-            notificationsNewRelease: boolean;
-            /** Format: date-time */
-            createdAt: string;
-            /** Format: date-time */
-            updateAt: string;
-        };
-        UserSchema: {
-            id: string;
-            email: string;
-            name: string;
-            description: string;
-            avatar: string;
-            cover: string;
-            role: string;
-            settings: components["schemas"]["UserSettingsEntity"] | null;
-            /** Format: date-time */
-            createdAt: string;
-            /** Format: date-time */
-            updateAt: string;
         };
         AuthRefreshData: {
             access_token: string;
@@ -507,6 +479,30 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -538,6 +534,14 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -569,6 +573,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -600,6 +620,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -631,6 +667,14 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -662,6 +706,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -689,6 +749,14 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -702,7 +770,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["UserSchema"];
+                    "application/json": components["schemas"]["GetAuthData"];
                 };
             };
         };
@@ -718,6 +786,14 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -745,7 +821,7 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            500: {
+            401: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -776,6 +852,30 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -807,6 +907,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -834,6 +950,22 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -865,6 +997,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -892,6 +1040,22 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -923,6 +1087,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -950,6 +1130,22 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -981,6 +1177,22 @@ export interface operations {
             };
         };
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1012,6 +1224,22 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1041,6 +1269,38 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1070,6 +1330,30 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1103,6 +1387,30 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1136,6 +1444,30 @@ export interface operations {
             };
         };
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1165,6 +1497,38 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1194,6 +1558,30 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1223,6 +1611,30 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
             500: {
                 headers: {
                     [name: string]: unknown;

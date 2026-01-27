@@ -7,9 +7,9 @@ import { CodeContext } from '../lib'
 import styles from '../styles/index.module.scss'
 
 export const CodeRoot = forwardRef<HTMLDivElement, CodeRootProps>(
-  ({ children, error, className, ...props }, ref) => {
+  ({ children, error, loading, className, ...props }, ref) => {
     return (
-      <CodeContext.Provider value={{ error }}>
+      <CodeContext.Provider value={{ error, loading }}>
         <OneTimePasswordField.Root
           className={cn(styles.root, className)}
           ref={ref}

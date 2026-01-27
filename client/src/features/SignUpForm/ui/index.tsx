@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 import { FormProvider } from 'react-hook-form'
+import { Navigate } from 'react-router'
+import { observer } from 'mobx-react-lite'
 
-import { useQS } from '@/shared/hooks'
+import { useQS, useStore } from '@/shared/hooks'
+import { routes } from '@/shared/config'
 
 import { useSignUpForm } from '../hooks'
 import { SignUpFormQS } from '../types'
@@ -10,8 +13,9 @@ import { signUpFormFields } from '../config'
 import { SignUpCreateTokenForm } from './parts/SignUpCreateTokenForm'
 import { SignUpSendCodeForm } from './parts/SignUpSendCodeForm'
 
-export const SignUpForm = () => {
+export const SignUpForm = observer(() => {
   const { searchParams } = useQS<SignUpFormQS>()
+  const { auth } = useStore()
   const form = useSignUpForm(searchParams.token)
 
   const { reset } = form
@@ -26,9 +30,18 @@ export const SignUpForm = () => {
     }
   }, [])
 
+  if (auth.isAuth) {
+    return (
+      <Navigate
+        to={routes.profile}
+        replace={true}
+      />
+    )
+  }
+
   return (
     <FormProvider {...form}>
       {searchParams.token ? <SignUpSendCodeForm /> : <SignUpCreateTokenForm />}
     </FormProvider>
   )
-}
+})

@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 
 import { Text, Input, Button, Checkbox } from '@/shared/ui'
-import { useQS } from '@/shared/hooks'
-import { getFormError } from '@/shared/lib'
+import { useQS, useStore } from '@/shared/hooks'
+import { getTranslate } from '@/shared/lib'
 import { routes } from '@/shared/config'
+import { useSignUpCreateTokenMutation } from '@/shared/api'
 import EmailIcon from '@/shared/assets/svg/email.svg?react'
 import PeopleIcon from '@/shared/assets/svg/people.svg?react'
 
@@ -17,14 +18,36 @@ import styles from '../../styles/index.module.scss'
 export const SignUpCreateTokenForm = () => {
   const { t } = useTranslation()
   const { control, handleSubmit } = useSignUpFormContext()
+  const { toast } = useStore()
   const { append } = useQS<SignUpFormQS>()
 
-  const submit = handleSubmit((v) => {
-    append({
-      token: 'token',
-      name: v[signUpFormFields.name],
-      email: v[signUpFormFields.email],
-    })
+  const { mutateAsync, isPending } = useSignUpCreateTokenMutation({
+    onError: (err) => {
+      toast.addToast({
+        type: 'danger',
+        text: t(getTranslate(`singUp.errors.${err.status}`), 'Error'),
+      })
+    },
+  })
+
+  const submit = handleSubmit(async (v) => {
+    try {
+      const { name, email } = v
+
+      if (!name || !email) {
+        return
+      }
+
+      const { data } = await mutateAsync({ name, email })
+
+      append({
+        token: data.token,
+        name,
+        email,
+      })
+    } catch (err) {
+      console.log(err)
+    }
   })
 
   return (
@@ -66,7 +89,7 @@ export const SignUpCreateTokenForm = () => {
                     color='danger'
                     size='s'
                   >
-                    {t(getFormError(error.message))}
+                    {t(getTranslate(error.message))}
                   </Text>
                 )}
               </div>
@@ -94,7 +117,7 @@ export const SignUpCreateTokenForm = () => {
                     color='danger'
                     size='s'
                   >
-                    {t(getFormError(error.message))}
+                    {t(getTranslate(error.message))}
                   </Text>
                 )}
               </div>
@@ -122,6 +145,7 @@ export const SignUpCreateTokenForm = () => {
           type='submit'
           color='primary'
           className={styles.submitBtn}
+          loading={isPending}
         >
           {t('singUp.submit')}
         </Button>
