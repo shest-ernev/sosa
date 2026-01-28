@@ -12,10 +12,13 @@ export const HeaderHomeLink = () => {
   const { t } = useTranslation()
 
   return (
-    <Tooltip.Provider>
+    <Tooltip.Provider delayDuration={350}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild={true}>
-          <Button className={styles.homeLinkBtn}>
+          <Button
+            className={styles.homeLinkBtn}
+            variant='contain'
+          >
             <NavLink
               to={routes.home}
               className={({ isActive }) =>
@@ -26,12 +29,7 @@ export const HeaderHomeLink = () => {
             </NavLink>
           </Button>
         </Tooltip.Trigger>
-        <Tooltip.Content
-          sideOffset={15}
-          className={styles.homeLinkTooltip}
-        >
-          {t('header.home')}
-        </Tooltip.Content>
+        <Tooltip.Content sideOffset={10}>{t('header.home')}</Tooltip.Content>
       </Tooltip.Root>
     </Tooltip.Provider>
   )

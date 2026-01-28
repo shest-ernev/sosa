@@ -1,5 +1,10 @@
 .content {
-  background-color: rgb(var(--tooltip-bg));
+  width: max-content;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.3125rem;
+  color: rgb(var(--text-primary));
+  font-size: var(--text-s);
+  background-color: rgb(var(--modal-bg));
   animation-duration: 0.1s;
   animation-timing-function: linear;
   box-shadow: var(--shadow);

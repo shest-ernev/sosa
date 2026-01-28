@@ -4,6 +4,7 @@ export const routes = {
   library: '/library',
   profile: '/profile',
   settings: '/settings',
+  notifications: '/notifications',
   signIn: '/sign-in',
   signUp: '/sign-up',
 } as const

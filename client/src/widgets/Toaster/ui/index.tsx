@@ -21,7 +21,7 @@ export const Toaster = observer(() => {
 
   const handleOpenChange = (v: boolean, id: string) => {
     if (!v) {
-      setTimeout(() => toast.removeToast(id), 150)
+      setTimeout(() => toast.remove(id), 150)
     }
   }
 
@@ -44,7 +44,10 @@ export const Toaster = observer(() => {
               <Text className={styles[obj.type]}>{obj.text}</Text>
             </div>
             <Toast.Close asChild={true}>
-              <Button className={styles.close}>
+              <Button
+                className={styles.close}
+                variant='text'
+              >
                 <CloseIcon />
               </Button>
             </Toast.Close>

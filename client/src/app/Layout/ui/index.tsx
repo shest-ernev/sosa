@@ -7,7 +7,7 @@ import styles from '../styles/index.module.scss'
 import { DefaultScreen } from './parts/DefaultScreen'
 import { FullScreen } from './parts/FullScreen'
 
-export const AppLayout = ({ children }: { children: ReactNode }) => {
+export const Layout = ({ children }: { children: ReactNode }) => {
   const [isFullScreen] = useFullScreen()
 
   return (
@@ -15,7 +15,7 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
       <div
         className={cn(
           styles.container,
-          isFullScreen && styles.containerFullScreen
+          isFullScreen && styles.containerFullScreen,
         )}
       >
         <DefaultScreen>{children}</DefaultScreen>

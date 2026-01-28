@@ -1,5 +1,5 @@
 .toast {
-  background-color: rgb(var(--tooltip-bg));
+  background-color: rgb(var(--modal-bg));
   box-shadow: rgb(var(--shadow));
 
   &[data-state='open'] {

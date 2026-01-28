@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios'
 
 import { MessageResponse } from '../MessageResponse'
 
-export type CustomUseMutationOptions<R = unknown, B = unknown> = Omit<
+export type CustomUseMutationOptions<R = unknown, B =  void> = Omit<
   UseMutationOptions<AxiosResponse<R>, MessageResponse, B>,
   'mutationFn' | 'mutationKey'
 >

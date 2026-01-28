@@ -28,7 +28,7 @@ export const SignUpSendCodeForm = observer(() => {
   const { mutateAsync: checkCodeMutation, isPending: isCheckCodePending } =
     useSignUpCheckCodeMutation({
       onError: (err) => {
-        toast.addToast({
+        toast.add({
           type: 'danger',
           text: t(getTranslate(`sendCode.errors.${err.status}`), 'Error'),
         })

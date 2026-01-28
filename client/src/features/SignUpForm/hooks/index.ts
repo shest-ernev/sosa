@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { signUpFormDefault } from '../constants'
 import { SignUpFormFields } from '../types'
-import { signUpCreateTokenSchema, signUpSendCodeSchema } from '../lib'
+import { signUpCreateTokenSchema, signUpSendCodeSchema } from '../validation'
 
 export const useSignUpForm = (token?: string) => {
   const resolver = token ? signUpSendCodeSchema : signUpCreateTokenSchema

@@ -186,17 +186,17 @@
 
   @media (hover: hover) {
     &:hover {
-      background-color: rgb(var(--button-primary-text-hover));
+      background-color: rgba(var(--button-primary-text-hover));
     }
 
     &:active {
-      background-color: rgb(var(--button-primary-text-active));
+      background-color: rgba(var(--button-primary-text-active));
     }
   }
 
   @media (hover: none) {
     &:active {
-      background-color: rgb(var(--button-primary-text-active));
+      background-color: rgba(var(--button-primary-text-active));
     }
   }
 }
@@ -206,11 +206,11 @@
   opacity: 0.5;
 
   &:hover {
-    background-color: rgb(var(--button-primary-text-bg));
+    background-color: rgba(var(--button-primary-text-bg));
   }
 
   &:active {
-    background-color: rgb(var(--button-primary-text-bg));
+    background-color: rgba(var(--button-primary-text-bg));
   }
 }
 

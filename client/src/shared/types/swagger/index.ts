@@ -148,6 +148,22 @@ export interface paths {
         patch: operations["AuthController_logOut"];
         trace?: never;
     };
+    "/api/user": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["UserController_getUser"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/user/name": {
         parameters: {
             query?: never;
@@ -375,6 +391,12 @@ export interface components {
         AuthRefreshData: {
             access_token: string;
         };
+        GetUserData: {
+            name: string;
+            avatar: string;
+            cover: string;
+            role: string;
+        };
         UserEditNameBody: {
             name: string;
         };
@@ -535,6 +557,14 @@ export interface operations {
         };
         responses: {
             400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            404: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -835,6 +865,41 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+        };
+    };
+    UserController_getUser: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["GetUserData"];
                 };
             };
         };

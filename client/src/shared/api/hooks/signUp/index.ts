@@ -1,8 +1,4 @@
 import { useMutation } from '@tanstack/react-query'
-import { useTranslation } from 'react-i18next'
-
-import { useStore } from '@/shared/hooks'
-import { getTranslate } from '@/shared/lib'
 
 import { api } from '../../lib'
 import { signUpCheckCodeKey, signUpCreateTokenKey } from '../../keys'

@@ -16,19 +16,19 @@ export const dark = {
   '--text-xl': '1.875rem',
   '--text-xxl': '3.4375rem',
 
-  '--button-secondary-contain-bg': '21, 21, 21',
-  '--button-secondary-contain-hover': '30, 30, 30',
-  '--button-secondary-contain-active': '35, 35, 35',
+  '--button-secondary-contain-bg': '30, 30, 30',
+  '--button-secondary-contain-hover': '40, 40, 40',
+  '--button-secondary-contain-active': '45, 45, 45',
   '--button-secondary-contain-color': '121, 121, 121',
 
-  '--button-secondary-text-bg': '17, 17, 17, 0',
-  '--button-secondary-text-hover': '17, 17, 17',
-  '--button-secondary-text-active': '20, 20, 20',
+  '--button-secondary-text-bg': '20, 20, 20, 0',
+  '--button-secondary-text-hover': '35, 35, 35',
+  '--button-secondary-text-active': '40, 40, 40',
   '--button-secondary-text-color': '121, 121, 121',
 
   '--button-secondary-outline-bg': '20, 20, 20, 0',
-  '--button-secondary-outline-hover': '21, 21, 21',
-  '--button-secondary-outline-active': '25, 25, 25',
+  '--button-secondary-outline-hover': '35, 35, 35',
+  '--button-secondary-outline-active': '40, 40, 40',
   '--button-secondary-outline-color': '121, 121, 121',
 
   '--button-primary-contain-bg': '255, 255, 255',
@@ -37,8 +37,8 @@ export const dark = {
   '--button-primary-contain-color': '0, 0, 0',
 
   '--button-primary-text-bg': '197, 197, 197, 0',
-  '--button-primary-text-hover': '17, 17, 17',
-  '--button-primary-text-active': '25, 25, 25',
+  '--button-primary-text-hover': '67, 67, 67',
+  '--button-primary-text-active': '100, 100, 100',
   '--button-primary-text-color': '255, 255, 255',
 
   '--button-primary-outline-bg': '197, 197, 197, 0',
@@ -47,13 +47,13 @@ export const dark = {
   '--button-primary-outline-color': '255, 255, 255',
 
   '--button-danger-contain-bg': '255, 77, 77',
-  '--button-danger-contain-hover': '255, 90, 90',
+  '--button-danger-contain-hover': '255, 100, 100',
   '--button-danger-contain-active': '255, 110, 110',
   '--button-danger-contain-color': '0, 0, 0',
 
   '--button-danger-text-bg': '197, 197, 197, 0',
   '--button-danger-text-hover': '59, 36, 36',
-  '--button-danger-text-active': '107, 54, 54',
+  '--button-danger-text-active': '78, 41, 41',
   '--button-danger-text-color': '255, 77, 77',
 
   '--button-danger-outline-bg': '197, 197, 197, 0',
@@ -76,14 +76,15 @@ export const dark = {
   '--button-succesfully-outline-active': '66, 106, 75',
   '--button-succesfully-outline-color': '77, 255, 116',
 
-  '--input-bg': '21, 21, 21',
-  '--input-hover': '30, 30, 30',
-  '--input-active': '35, 35, 35',
+  '--input-bg': '30, 30, 30',
+  '--input-hover': '40, 40, 40',
+  '--input-active': '45, 45, 45',
   '--input-focus': '255, 255, 255',
   '--input-error': '255, 77, 77',
   '--input-checkbox-icon': '0, 0, 0',
 
-  '--tooltip-bg': '22, 22, 22',
+  '--modal-bg': '20, 20, 20',
+  '--modal-overlay': '0, 0, 0, 0.7',
 
   '--scrollbar': '255, 255, 255, 0.07',
   '--scrollbar-hover': '255, 255, 255, 0.15',

@@ -1,0 +1,50 @@
+.dropdownItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.dropdownIcon {
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.dropdownSection {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.dropdownText {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logOut {
+  color: rgb(var(--text-danger));
+}
+
+.content {
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  gap: 0.625rem;
+  justify-content: flex-end;
+}
+
+.btn {
+  height: 2.1875rem;
+  border-radius: 0.3125rem;
+  padding: 0 0.625rem;
+}

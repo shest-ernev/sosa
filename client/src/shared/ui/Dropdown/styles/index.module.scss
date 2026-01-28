@@ -1,0 +1,69 @@
+.content {
+  height: max-content;
+  background-color: rgb(var(--modal-bg));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: 0.25rem;
+  border-radius: 0.3125rem;
+  animation-duration: 0.2s;
+  animation-delay: linear;
+
+  &[data-state='open'] {
+    animation-name: open;
+  }
+
+  &[data-state='closed'] {
+    animation-name: closed;
+  }
+}
+
+.item {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-size: var(--text-m);
+  cursor: pointer;
+  padding: 0 0.625rem;
+  gap: 0.625rem;
+  transition: 0.2s;
+  color: rgb(var(--text-primary));
+  border-radius: 0.3125rem;
+  background-color: rgba(var(--button-secondary-text-bg));
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: rgb(var(--button-secondary-text-hover));
+    }
+
+    &:active {
+      background-color: rgb(var(--button-secondary-text-active));
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background-color: rgb(var(--button-secondary-text-active));
+    }
+  }
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes closed {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

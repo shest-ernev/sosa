@@ -1,17 +1,16 @@
-import { AppLayout } from '@/layouts'
-
 import { Provirdes } from './Providers'
 import { Router } from './Router'
+import { Layout } from './Layout'
 
+import '@/shared/i18n'
 import './styles/index.scss'
-import './i18n'
 
 export const App = () => {
   return (
     <Provirdes>
-      <AppLayout>
+      <Layout>
         <Router />
-      </AppLayout>
+      </Layout>
     </Provirdes>
   )
 }

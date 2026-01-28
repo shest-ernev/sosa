@@ -23,7 +23,7 @@ export const SignUpCreateTokenForm = () => {
 
   const { mutateAsync, isPending } = useSignUpCreateTokenMutation({
     onError: (err) => {
-      toast.addToast({
+      toast.add({
         type: 'danger',
         text: t(getTranslate(`singUp.errors.${err.status}`), 'Error'),
       })

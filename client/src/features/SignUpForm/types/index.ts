@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { signUpCreateTokenSchema, signUpSendCodeSchema } from '../lib'
+import { signUpCreateTokenSchema, signUpSendCodeSchema } from '../validation'
 
 export type SignUpFormFields =
   | z.infer<typeof signUpCreateTokenSchema>

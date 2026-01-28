@@ -3,7 +3,11 @@
     "home": "Home",
     "signUp": "Sign up",
     "signIn": "Sing in",
-    "search": "Search..."
+    "search": "Search...",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logOut": "Log out",
+    "notifications": "Notifications"
   },
   "singUp": {
     "title": "Sign up",
@@ -39,5 +43,11 @@
       "400": "Wrong code",
       "404": "User not found"
     }
+  },
+  "logOut": {
+    "text": "Are you sure you want to log out?",
+    "yes": "Log out",
+    "cancel": "Cancel",
+    "error": "Error to log out"
   }
 }
