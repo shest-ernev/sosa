@@ -6,6 +6,7 @@ import {
   Body,
   UploadedFile,
   Delete,
+  Get,
 } from '@nestjs/common'
 import {
   ApiBearerAuth,
@@ -21,7 +22,11 @@ import { MessageResponse, UploadFileBody } from '@/shared/schemas'
 import { RequestWithUser } from '@/shared/types'
 import { Upload } from '@/shared/middlewares'
 
-import { UserEditDescriptionBody, UserEditNameBody } from '../schemas'
+import {
+  GetUserData,
+  UserEditDescriptionBody,
+  UserEditNameBody,
+} from '../schemas'
 
 import { UserService } from './user.service'
 
@@ -30,6 +35,14 @@ import { UserService } from './user.service'
 @ApiBearerAuth()
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Get()
+  @UseGuards(AuthGuard)
+  @ApiError(401, 500)
+  @ApiResponse({ type: GetUserData })
+  async getUser(@Req() req: RequestWithUser) {
+    return this.userService.getUser(req)
+  }
 
   @Patch('name')
   @UseGuards(AuthGuard)

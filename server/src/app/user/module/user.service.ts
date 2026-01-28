@@ -14,6 +14,12 @@ export class UserService {
     private readonly usersRepository: Repository<UserEntity>,
   ) {}
 
+  async getUser(req: RequestWithUser) {
+    const { name, avatar, cover, role } = req.user
+
+    return { name, avatar, cover, role }
+  }
+
   async editName(params: UserEditNameBody, req: RequestWithUser) {
     const name = params.name.trim()
     const userName = req.user.name
@@ -60,7 +66,7 @@ export class UserService {
 
     this.usersRepository.update(
       { id: user.id },
-      { avatar: `/users/avatars/${file.filename}` }
+      { avatar: `/users/avatars/${file.filename}` },
     )
 
     return { message: 'Successful change avatar' }
@@ -93,7 +99,7 @@ export class UserService {
 
     this.usersRepository.update(
       { id: user.id },
-      { cover: `/users/covers/${file.filename}` }
+      { cover: `/users/covers/${file.filename}` },
     )
 
     return { message: 'Successful change cover' }
