@@ -24,12 +24,20 @@
       "email": "Not valid email",
       "400": "Validation error",
       "404": "Error sending code",
-      "409": "Such a user already exists",
-      "500": "Server error"
+      "409": "Such a user already exists"
     }
   },
   "signIn": {
-    "title": "Sign in"
+    "title": "Sign in",
+    "description": "Enter your account details",
+    "emailPlaceholder": "Enter your email...",
+    "question": "Don't have an account yet?",
+    "errors": {
+      "required": "Required field",
+      "email": "Not valid email",
+      "400": "Validation error",
+      "404": "User not found"
+    }
   },
   "sendCode": {
     "title": "Confirm account",

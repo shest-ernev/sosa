@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba(var(--modal-overlay));
+  backdrop-filter: blur(0.25rem);
   z-index: 50;
   animation-duration: 0.2s;
   animation-delay: linear;

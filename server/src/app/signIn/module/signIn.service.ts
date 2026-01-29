@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { NotFoundException, UnauthorizedException } from '@nestjs/common'
+import { BadRequestException, NotFoundException } from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 
@@ -17,7 +17,7 @@ export class SignInService {
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
     private readonly jwtService: JwtService,
-    private readonly codeService: CodeService
+    private readonly codeService: CodeService,
   ) {}
 
   async createToken(params: SignInCreateTokenBody) {
@@ -33,7 +33,7 @@ export class SignInService {
 
     const token = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '10m' }
+      { expiresIn: '10m' },
     )
 
     const code = await this.codeService.update(user.id)
@@ -51,22 +51,22 @@ export class SignInService {
     const user = await this.codeService.compare(id, code)
 
     if (!user) {
-      throw new UnauthorizedException('Not correct code')
+      throw new BadRequestException('Wrong code')
     }
 
     const accessToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '10m' }
+      { expiresIn: '10m' },
     )
 
     const refreshToken = await this.jwtService.signAsync(
       { id: user.id },
-      { expiresIn: '30d' }
+      { expiresIn: '30d' },
     )
 
     await this.usersRepository.update(
       { id: user.id },
-      { refreshToken, code: '' }
+      { refreshToken, code: '' },
     )
 
     return {

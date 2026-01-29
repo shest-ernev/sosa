@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router'
 
 import { routes } from '@/shared/config'
-import { SignUpPage } from '@/pages'
+import { SignUpPage, SignInPage } from '@/pages'
 
 export const Router = () => {
   return (
@@ -13,6 +13,10 @@ export const Router = () => {
       <Route
         path={routes.signUp}
         element={<SignUpPage />}
+      />
+      <Route
+        path={routes.signIn}
+        element={<SignInPage />}
       />
     </Routes>
   )
