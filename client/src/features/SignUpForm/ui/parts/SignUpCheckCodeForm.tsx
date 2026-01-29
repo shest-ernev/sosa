@@ -1,4 +1,3 @@
-import { Navigate } from 'react-router'
 import { Controller } from 'react-hook-form'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router'
@@ -18,7 +17,7 @@ import { useSignUpFormContext } from '../../hooks'
 import { signUpFormFields } from '../../config'
 import { SignUpFormQS } from '../../types'
 
-export const SignUpSendCodeForm = observer(() => {
+export const SignUpCheckCodeForm = observer(() => {
   const navigate = useNavigate()
   const { searchParams } = useQS<SignUpFormQS>()
   const { t } = useTranslation()
@@ -68,15 +67,6 @@ export const SignUpSendCodeForm = observer(() => {
       console.log(err)
     }
   })
-
-  if (!searchParams.email || !searchParams.token) {
-    return (
-      <Navigate
-        to={routes.signUp}
-        replace={true}
-      />
-    )
-  }
 
   return (
     <Controller

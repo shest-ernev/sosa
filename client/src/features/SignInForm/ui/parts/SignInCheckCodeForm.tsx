@@ -1,7 +1,6 @@
 import { Controller } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
-import { Navigate } from 'react-router'
 import { observer } from 'mobx-react-lite'
 
 import { useQS } from '@/shared/hooks'
@@ -70,15 +69,6 @@ export const SignInCheckCodeForm = observer(() => {
       console.log(err)
     }
   })
-
-  if (!searchParams.email || !searchParams.token) {
-    return (
-      <Navigate
-        to={routes.signIn}
-        replace={true}
-      />
-    )
-  }
 
   return (
     <Controller

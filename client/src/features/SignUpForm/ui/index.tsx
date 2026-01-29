@@ -11,7 +11,7 @@ import { SignUpFormQS } from '../types'
 import { signUpFormFields } from '../config'
 
 import { SignUpCreateTokenForm } from './parts/SignUpCreateTokenForm'
-import { SignUpSendCodeForm } from './parts/SignUpSendCodeForm'
+import { SignUpCheckCodeForm } from './parts/SignUpCheckCodeForm'
 
 export const SignUpForm = observer(() => {
   const { searchParams } = useQS<SignUpFormQS>()
@@ -41,7 +41,7 @@ export const SignUpForm = observer(() => {
 
   return (
     <FormProvider {...form}>
-      {searchParams.token ? <SignUpSendCodeForm /> : <SignUpCreateTokenForm />}
+      {searchParams.token ? <SignUpCheckCodeForm /> : <SignUpCreateTokenForm />}
     </FormProvider>
   )
 })

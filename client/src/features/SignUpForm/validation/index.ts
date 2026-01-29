@@ -16,7 +16,7 @@ export const signUpCreateTokenSchema = z.object({
   [signUpFormFields.code]: z.string().optional(),
 })
 
-export const signUpSendCodeSchema = z.object({
+export const signUpCheckCodeSchema = z.object({
   [signUpFormFields.name]: z.string().optional(),
   [signUpFormFields.email]: z.string().optional(),
   [signUpFormFields.agree]: z.boolean().optional(),
