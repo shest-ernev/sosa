@@ -1,4 +1,4 @@
-import { useState, forwardRef, memo, useRef, SyntheticEvent } from 'react'
+import { useState, forwardRef, useRef, SyntheticEvent } from 'react'
 import ReactCrop, {
   PercentCrop,
   makeAspectCrop,
@@ -11,7 +11,7 @@ import styles from '../styles/index.module.scss'
 import 'react-image-crop/dist/ReactCrop.css'
 import '../styles/cropper.scss'
 
-const _Cropper = forwardRef<ReactCrop, CropperProps>(
+export const Cropper = forwardRef<ReactCrop, CropperProps>(
   ({ src, aspect = 1, onCompleate, ...props }, ref) => {
     const [crop, setCrop] = useState<PercentCrop>()
     const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -30,8 +30,8 @@ const _Cropper = forwardRef<ReactCrop, CropperProps>(
             },
             aspect,
             e.currentTarget.offsetWidth,
-            e.currentTarget.offsetHeight
-          )
+            e.currentTarget.offsetHeight,
+          ),
         )
       }
     }
@@ -67,7 +67,7 @@ const _Cropper = forwardRef<ReactCrop, CropperProps>(
         0,
         0,
         dWidth,
-        dHeight
+        dHeight,
       )
 
       onCompleate?.(canvasRef.current)
@@ -100,7 +100,5 @@ const _Cropper = forwardRef<ReactCrop, CropperProps>(
         />
       </>
     )
-  }
+  },
 )
-
-export const Cropper = memo(_Cropper)
