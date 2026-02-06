@@ -10,3 +10,6 @@ export const getAuthKey = 'getAuthKey'
 export const logOutKey = 'logOutKey'
 
 export const getUserKey = 'getUserKey'
+
+export const getUserSettingsKey = 'getUserSettingsKey'
+export const editUserSettingsKey = 'editUserSettingsKey'

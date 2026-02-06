@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
@@ -12,6 +13,7 @@ import { LogOutProps } from '../types'
 import styles from '../styles/index.module.scss'
 
 export const LogOut = observer(({ onClose }: LogOutProps) => {
+  const [open, setOpen] = useState(false)
   const { t } = useTranslation()
   const { toast, auth } = useStore()
 
@@ -37,8 +39,19 @@ export const LogOut = observer(({ onClose }: LogOutProps) => {
     }
   }
 
+  const handleOpenChange = (v: boolean) => {
+    if (!v) {
+      onClose?.()
+    }
+
+    setOpen(v)
+  }
+
   return (
-    <Modal.Provider>
+    <Modal.Provider
+      open={open}
+      onOpenChange={handleOpenChange}
+    >
       <Modal.Trigger asChild={true}>
         <Dropdown.Item className={cn(styles.dropdownItem, styles.logOut)}>
           <div className={styles.dropdownSection}>
@@ -55,7 +68,6 @@ export const LogOut = observer(({ onClose }: LogOutProps) => {
               variant='text'
               color='primary'
               className={styles.btn}
-              onClick={onClose}
             >
               Cancel
             </Button>

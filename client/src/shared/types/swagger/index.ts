@@ -414,7 +414,6 @@ export interface components {
             lang?: "ru" | "en";
             privateProfile?: boolean;
             privateSubscribers?: boolean;
-            privateSubs?: boolean;
             privateLibrary?: boolean;
             notificationsNewSubscriber?: boolean;
             notificationsRepost?: boolean;
@@ -430,7 +429,6 @@ export interface components {
             lang: "ru" | "en";
             privateProfile: boolean;
             privateSubscribers: boolean;
-            privateSubs: boolean;
             privateLibrary: boolean;
             notificationsNewSubscriber: boolean;
             notificationsRepost: boolean;

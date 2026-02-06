@@ -1,4 +1,4 @@
-export const lang = {
+export const langs = {
   ru: {
     name: 'ru',
     description: 'Русский',

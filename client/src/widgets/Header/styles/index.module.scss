@@ -29,9 +29,6 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
 }
 
 .right {
@@ -80,9 +77,6 @@
     height: 1rem;
     color: rgb(var(--text-secondary));
     transition: 0.2s;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
   }
 }
 

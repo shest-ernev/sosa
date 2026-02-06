@@ -22,9 +22,6 @@
   animation-timing-function: linear;
   animation-duration: 0.2s;
   transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -o-transition: 0.2s;
 
   &[data-orientation='vertical'] {
     height: 100%;
@@ -52,9 +49,6 @@
   background-color: rgba(var(--scrollbar));
   cursor: grab;
   transition: background-color 0.2s;
-  -webkit-transition: background-color 0.2s;
-  -moz-transition: background-color 0.2s;
-  -o-transition: background-color 0.2s;
 
   @media (hover: hover) {
     &:hover {

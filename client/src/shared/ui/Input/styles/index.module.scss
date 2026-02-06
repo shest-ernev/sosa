@@ -10,9 +10,6 @@
   padding: 0 0.9375rem;
   cursor: text;
   transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -o-transition: 0.2s;
 
   @media (hover: hover) {
     &:hover {
@@ -106,9 +103,6 @@
   border-radius: 50%;
   background-color: rgba(var(--button-secondary-text-bg));
   transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -o-transition: 0.2s;
 
   svg {
     width: 60%;

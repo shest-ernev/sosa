@@ -6,7 +6,7 @@
   left: 0;
   background-color: rgba(var(--modal-overlay));
   backdrop-filter: blur(0.25rem);
-  z-index: 50;
+  z-index: 100;
   animation-duration: 0.2s;
   animation-delay: linear;
 
@@ -30,7 +30,7 @@
   border-radius: 0.625rem;
   background-color: rgb(var(--modal-bg));
   box-shadow: var(--shadow);
-  z-index: 100;
+  z-index: 150;
   animation-duration: 0.2s;
   animation-delay: linear;
 

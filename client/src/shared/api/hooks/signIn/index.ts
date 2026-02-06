@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 
-import { api } from '../../lib'
+import { client } from '../../client'
 import { signInCheckCodeKey, signInCreateTokenKey } from '../../keys'
 
 import {
@@ -13,7 +13,7 @@ export const useSignInCreateTokenMutation = (
   options?: UseSignInCreateTokenMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => api.post('/sign-in/create-token', data),
+    mutationFn: (data) => client.post('/sign-in/create-token', data),
     mutationKey: [signInCreateTokenKey],
     ...options,
   })
@@ -23,7 +23,7 @@ export const useSignInCheckCodeMutation = (
   options?: UseSignInCheckCodeMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => api.post('/sign-in/check-code', data),
+    mutationFn: (data) => client.post('/sign-in/check-code', data),
     mutationKey: [signInCheckCodeKey],
     ...options,
   })
@@ -33,7 +33,7 @@ export const useSignInSendCodeMutation = (
   options?: UseSignInSendCodeMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => api.post('/sign-in/send-code', data),
+    mutationFn: (data) => client.post('/sign-in/send-code', data),
     mutationKey: [signInCheckCodeKey],
     ...options,
   })

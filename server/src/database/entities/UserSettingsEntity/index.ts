@@ -29,10 +29,6 @@ export class UserSettingsEntity {
   @ApiProperty()
   privateSubscribers: boolean
 
-  @Column({ default: false, name: 'private_subs' })
-  @ApiProperty()
-  privateSubs: boolean
-
   @Column({ default: false, name: 'private_library' })
   @ApiProperty()
   privateLibrary: boolean

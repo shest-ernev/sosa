@@ -1,5 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 
+import { ThemeVariants } from '@/shared/types'
+
 import { getTheme } from './lib'
 
 export class ThemeStore {
@@ -9,7 +11,7 @@ export class ThemeStore {
     makeAutoObservable(this)
   }
 
-  setTheme = (v: 'light' | 'dark') => {
+  setTheme = (v: ThemeVariants) => {
     this.activeTheme = v
   }
 }

@@ -1,6 +1,7 @@
 import { ls } from '@/shared/config'
+import { ThemeVariants } from '@/shared/types'
 
-export const getTheme = (): 'dark' | 'light' => {
+export const getTheme = (): ThemeVariants => {
   const theme = localStorage.getItem(ls.theme)
 
   if (!theme) {
@@ -8,7 +9,7 @@ export const getTheme = (): 'dark' | 'light' => {
   }
 
   if (['dark', 'light'].includes(theme)) {
-    return theme as 'dark' | 'light'
+    return theme as ThemeVariants
   }
 
   return 'dark'

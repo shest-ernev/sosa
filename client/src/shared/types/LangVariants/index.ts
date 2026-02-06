@@ -1,1 +1,3 @@
-export type LangVariants = 'ru' | 'en'
+import { langs } from '@/shared/config'
+
+export type LangVariants = keyof typeof langs

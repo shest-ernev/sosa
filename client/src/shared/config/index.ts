@@ -1,6 +1,6 @@
 export * from './ls'
 export * from './server'
 export * from './themes'
-export * from './lang'
+export * from './langs'
 export * from './routes'
 export * from './regs'

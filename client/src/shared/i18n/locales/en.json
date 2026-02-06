@@ -57,5 +57,21 @@
     "yes": "Log out",
     "cancel": "Cancel",
     "error": "Error to log out"
+  },
+  "userSettings": {
+    "viewTitle": "View",
+    "theme": "Choose an app theme",
+    "lang": "Choose your app language",
+    "light": "Light",
+    "dark": "Dark",
+    "selectThemePlaceholder": "Choose theme...",
+    "selectLangPlaceholder": "Choose language...",
+    "error": "Settings change error",
+    "notifications": "Notifications",
+    "notificationNewRelease": "Want to be notified when new releases from your favourite artists are released?",
+    "notitficationsNewSubs": "Want to be notified of new subscribers?",
+    "notificationsRepost": "Want to be notified when your releases are reposted?",
+    "notificationsLike": "Want to be notified of likes for your releases?",
+    "notificationsComment": "Want to be notified of new comments under your releases?"
   }
 }

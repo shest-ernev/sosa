@@ -1,4 +1,4 @@
-import { ls, lang } from '@/shared/config'
+import { ls, langs } from '@/shared/config'
 import { LangVariants } from '@/shared/types'
 
 export const getLang = (): LangVariants => {
@@ -8,7 +8,7 @@ export const getLang = (): LangVariants => {
     return 'en'
   }
 
-  if ([lang.en.name, lang.ru.name].includes(variant as LangVariants)) {
+  if ([langs.en.name, langs.ru.name].includes(variant as LangVariants)) {
     return variant as LangVariants
   }
 
