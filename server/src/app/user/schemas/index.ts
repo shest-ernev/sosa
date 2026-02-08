@@ -8,6 +8,7 @@ export class GetUserData extends PickType(UserEntity, [
   'avatar',
   'cover',
   'role',
+  'email',
 ]) {}
 
 export class UserEditNameBody {

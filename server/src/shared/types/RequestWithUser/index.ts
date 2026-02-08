@@ -14,5 +14,6 @@ export type RequestWithUser = Request & {
     | 'createdAt'
     | 'updateAt'
     | 'settings'
+    | 'password'
   >
 }

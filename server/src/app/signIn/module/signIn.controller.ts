@@ -7,9 +7,11 @@ import { MessageResponse } from '@/shared/schemas'
 import {
   SignInCheckCodeBody,
   SignInCheckCodeData,
+  SignInCheckPassBody,
   SignInCreateTokenBody,
   SignInCreateTokenData,
   SignInSendCodeBody,
+  SignInCheckPassData,
 } from '../schemas'
 
 import { SignInService } from './signIn.service'
@@ -31,6 +33,13 @@ export class SignInController {
   @ApiError(500, 400)
   async checkCode(@Body() body: SignInCheckCodeBody) {
     return this.signInService.checkCode(body)
+  }
+
+  @Post('check-pass')
+  @ApiResponse({ type: SignInCheckPassData })
+  @ApiError(500, 400)
+  async checkPass(@Body() body: SignInCheckPassBody) {
+    return this.signInService.checkPass(body)
   }
 
   @Post('send-code')

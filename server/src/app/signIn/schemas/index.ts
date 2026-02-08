@@ -26,12 +26,19 @@ export class SignInCheckCodeBody {
   code: string
 }
 
+export class SignInCheckCodePasswordData {
+  password: boolean
+}
+
 export class SignInCheckCodeData {
-  @ApiProperty()
+  @ApiProperty({ required: false })
   access_token: string
 
-  @ApiProperty()
+  @ApiProperty({ required: false })
   refresh_token: string
+
+  @ApiProperty({ required: false })
+  password?: string
 }
 
 export class SignInSendCodeBody {
@@ -39,4 +46,24 @@ export class SignInSendCodeBody {
   @IsJWT({ message: 'Please send jwt token' })
   @IsNotEmpty({ message: 'Please send token' })
   token: string
+}
+
+export class SignInCheckPassBody {
+  @ApiProperty()
+  @IsJWT({ message: 'Please send jwt token' })
+  @IsNotEmpty({ message: 'Please send token' })
+  token: string
+
+  @ApiProperty()
+  @IsString({ message: 'Plase send string' })
+  @IsNotEmpty({ message: 'Please send password' })
+  password: string
+}
+
+export class SignInCheckPassData {
+  @ApiProperty()
+  access_token: string
+
+  @ApiProperty()
+  refresh_token: string
 }

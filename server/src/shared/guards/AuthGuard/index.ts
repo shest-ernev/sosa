@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
   ) {}
 
   async canActivate(ctx: ExecutionContext): Promise<boolean> {
@@ -47,6 +47,7 @@ export class AuthGuard implements CanActivate {
         'name',
         'role',
         'settings',
+        'password',
         'updateAt',
       ],
     })

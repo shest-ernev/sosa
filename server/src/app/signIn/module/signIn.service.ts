@@ -2,12 +2,14 @@ import { InjectRepository } from '@nestjs/typeorm'
 import { BadRequestException, NotFoundException } from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
+import * as bcrypt from 'bcrypt'
 
 import { UserEntity } from '@/database/entities'
 import { CodeService } from '@/shared/services'
 
 import {
   SignInCheckCodeBody,
+  SignInCheckPassBody,
   SignInCreateTokenBody,
   SignInSendCodeBody,
 } from '../schemas'
@@ -52,6 +54,58 @@ export class SignInService {
 
     if (!user) {
       throw new BadRequestException('Wrong code')
+    }
+
+    if (user.password) {
+      const passwordToken = await this.jwtService.signAsync({
+        code: user.code,
+        id: user.id,
+      })
+
+      return {
+        password: passwordToken,
+      }
+    }
+
+    const accessToken = await this.jwtService.signAsync(
+      { id: user.id },
+      { expiresIn: '10m' },
+    )
+
+    const refreshToken = await this.jwtService.signAsync(
+      { id: user.id },
+      { expiresIn: '30d' },
+    )
+
+    await this.usersRepository.update(
+      { id: user.id },
+      { refreshToken, code: '' },
+    )
+
+    return {
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    }
+  }
+
+  async checkPass(params: SignInCheckPassBody) {
+    const { token, password } = params
+
+    const { id, code } = await this.jwtService.verifyAsync<{
+      id: string
+      code: string
+    }>(token)
+
+    const user = await this.codeService.compare(id, code)
+
+    if (!user) {
+      throw new BadRequestException('Wrong code')
+    }
+
+    const isCompareCode = await bcrypt.compare(password, user.password)
+
+    if (!isCompareCode) {
+      throw new BadRequestException('Wrong password')
     }
 
     const accessToken = await this.jwtService.signAsync(
