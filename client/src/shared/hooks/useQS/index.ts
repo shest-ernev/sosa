@@ -6,7 +6,7 @@ export const useQS = <T extends qs.ParsedQs>() => {
 
   const searchParams = qs.parse(query.toString()) as Partial<T>
 
-  const set = (value: T | string) => {
+  const set = (value: Partial<T> | string) => {
     if (typeof value === 'string') {
       return setQuery(value)
     }

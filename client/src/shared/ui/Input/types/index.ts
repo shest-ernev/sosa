@@ -25,7 +25,15 @@ export type InputProviderProps = {
 
 export type InpuLabelProps = LabelHTMLAttributes<HTMLLabelElement>
 
-export type InputTextProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>
+export type InputRootProps = LabelHTMLAttributes<HTMLLabelElement> & {
+  type?: InputTypes
+  error?: boolean
+}
+
+export type InputValueProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'type'
+>
 
 export type InputToggleClickEvent = Omit<
   MouseEvent<HTMLButtonElement>,

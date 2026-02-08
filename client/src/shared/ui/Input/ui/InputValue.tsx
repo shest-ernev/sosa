@@ -1,11 +1,11 @@
 import { forwardRef, FocusEvent } from 'react'
 import cn from 'clsx'
 
-import { InputTextProps } from '../types'
+import { InputValueProps } from '../types'
 import { useInputContext } from '../hooks'
 import styles from '../styles/index.module.scss'
 
-export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
+export const InputValue = forwardRef<HTMLInputElement, InputValueProps>(
   ({ className, onFocus, onBlur, ...props }, ref) => {
     const { type, setFocus } = useInputContext()
 

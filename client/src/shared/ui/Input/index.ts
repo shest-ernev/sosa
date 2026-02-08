@@ -1,11 +1,9 @@
-import { InputLabel } from './ui/InputLabel'
-import { InputText } from './ui/InputText'
-import { InputProvider } from './ui/InputProvider'
+import { InputValue } from './ui/InputValue'
 import { InputToggle } from './ui/InputToogle'
+import { InputRoot } from './ui/InputRoot'
 
 export const Input = {
-  Label: InputLabel,
-  Text: InputText,
-  Provider: InputProvider,
+  Root: InputRoot,
+  Value: InputValue,
   Toogle: InputToggle,
 }

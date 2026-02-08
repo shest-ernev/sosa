@@ -9,11 +9,12 @@ export const HeaderSearch = () => {
   const { t } = useTranslation()
 
   return (
-    <Input.Provider type='search'>
-      <Input.Label className={styles.input}>
-        <SearchIcon className={styles.searchIcon} />
-        <Input.Text placeholder={t('header.search')} />
-      </Input.Label>
-    </Input.Provider>
+    <Input.Root
+      className={styles.input}
+      type='search'
+    >
+      <SearchIcon className={styles.searchIcon} />
+      <Input.Value placeholder={t('header.search')} />
+    </Input.Root>
   )
 }

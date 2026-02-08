@@ -12,13 +12,20 @@ import { signInFormFields } from '../config'
 
 import { SignInCreateTokenForm } from './parts/SignInCreateTokenForm'
 import { SignInCheckCodeForm } from './parts/SignInCheckCodeForm'
+import { SignInPassForm } from './parts/SignInPassForm'
 
 export const SignInForm = observer(() => {
   const { searchParams } = useQS<SignInFormQS>()
   const { auth } = useStore()
-  const form = useSignInForm(searchParams.token)
+  const form = useSignInForm(searchParams.step)
 
   const { reset } = form
+
+  const Content = {
+    1: SignInCreateTokenForm,
+    2: SignInCheckCodeForm,
+    3: SignInPassForm,
+  }[searchParams.step || '1']
 
   useEffect(() => {
     if (searchParams.email) {
@@ -37,7 +44,7 @@ export const SignInForm = observer(() => {
 
   return (
     <FormProvider {...form}>
-      {searchParams.token ? <SignInCheckCodeForm /> : <SignInCreateTokenForm />}
+      <Content />
     </FormProvider>
   )
 })

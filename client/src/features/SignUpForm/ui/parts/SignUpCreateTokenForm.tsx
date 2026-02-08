@@ -71,19 +71,18 @@ export const SignUpCreateTokenForm = () => {
             name={signUpFormFields.name}
             render={({ field, fieldState: { error } }) => (
               <div className={styles.inputContainer}>
-                <Input.Provider
+                <Input.Root
+                  className={styles.input}
                   type='text'
                   error={!!error}
                 >
-                  <Input.Label className={styles.input}>
-                    <PeopleIcon className={styles.inputIcon} />
-                    <Input.Text
-                      maxLength={300}
-                      placeholder={t('singUp.nicknamePlaceholder')}
-                      {...field}
-                    />
-                  </Input.Label>
-                </Input.Provider>
+                  <PeopleIcon className={styles.inputIcon} />
+                  <Input.Value
+                    maxLength={300}
+                    placeholder={t('singUp.nicknamePlaceholder')}
+                    {...field}
+                  />
+                </Input.Root>
                 {error?.message && (
                   <Text
                     color='danger'
@@ -100,18 +99,17 @@ export const SignUpCreateTokenForm = () => {
             name={signUpFormFields.email}
             render={({ field, fieldState: { error } }) => (
               <div className={styles.inputContainer}>
-                <Input.Provider
+                <Input.Root
+                  className={styles.input}
                   type='text'
                   error={!!error}
                 >
-                  <Input.Label className={styles.input}>
-                    <EmailIcon className={styles.inputIcon} />
-                    <Input.Text
-                      placeholder={t('singUp.emailPlaceholder')}
-                      {...field}
-                    />
-                  </Input.Label>
-                </Input.Provider>
+                  <EmailIcon className={styles.inputIcon} />
+                  <Input.Value
+                    placeholder={t('singUp.emailPlaceholder')}
+                    {...field}
+                  />
+                </Input.Root>
                 {error?.message && (
                   <Text
                     color='danger'

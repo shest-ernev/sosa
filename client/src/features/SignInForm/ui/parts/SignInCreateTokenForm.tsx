@@ -38,6 +38,7 @@ export const SignInCreateTokenForm = () => {
       const { data } = await mutateAsync({ email })
 
       append({
+        step: '2',
         email,
         token: data.token,
       })
@@ -67,18 +68,17 @@ export const SignInCreateTokenForm = () => {
             name={signInFormFields.email}
             render={({ field, fieldState: { error } }) => (
               <div className={styles.inputContainer}>
-                <Input.Provider
+                <Input.Root
+                  className={styles.input}
                   type='text'
                   error={!!error}
                 >
-                  <Input.Label className={styles.input}>
-                    <EmailIcon className={styles.inputIcon} />
-                    <Input.Text
-                      placeholder={t('signIn.emailPlaceholder')}
-                      {...field}
-                    />
-                  </Input.Label>
-                </Input.Provider>
+                  <EmailIcon className={styles.inputIcon} />
+                  <Input.Value
+                    placeholder={t('signIn.emailPlaceholder')}
+                    {...field}
+                  />
+                </Input.Root>
                 {error?.message && (
                   <Text
                     color='danger'

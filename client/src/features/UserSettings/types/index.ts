@@ -18,3 +18,7 @@ export type UserSettingsNotificationsProps = {
   defaultNewRepost: boolean
   defaultNewSubs: boolean
 }
+
+export type UserSettingsSecurityProps = {
+  email: string
+}

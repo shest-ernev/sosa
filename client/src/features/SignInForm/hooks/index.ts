@@ -3,10 +3,18 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { signInFormDefault } from '../constants'
 import { SignInFormFields } from '../types'
-import { signInCheckCodeSchema, signInCreateTokenSchema } from '../validation'
+import {
+  signInCheckCodeSchema,
+  signInCreateTokenSchema,
+  signInCheckPassSchema,
+} from '../validation'
 
-export const useSignInForm = (token?: string) => {
-  const resolver = token ? signInCheckCodeSchema : signInCreateTokenSchema
+export const useSignInForm = (step?: '1' | '2' | '3') => {
+  const resolver = {
+    1: signInCreateTokenSchema,
+    2: signInCheckCodeSchema,
+    3: signInCheckPassSchema,
+  }[step || '1']
 
   return useForm<SignInFormFields>({
     defaultValues: signInFormDefault,

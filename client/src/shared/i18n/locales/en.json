@@ -32,8 +32,12 @@
     "description": "Enter your account details",
     "emailPlaceholder": "Enter your email...",
     "question": "Don't have an account yet?",
+    "password": "Password",
+    "passwordDescription": "Enter your account password",
+    "passwordPlaceholder": "Enter password...",
     "errors": {
       "required": "Required field",
+      "password": "Wrong password",
       "email": "Not valid email",
       "400": "Validation error",
       "404": "User not found"
@@ -72,6 +76,9 @@
     "notitficationsNewSubs": "Want to be notified of new subscribers?",
     "notificationsRepost": "Want to be notified when your releases are reposted?",
     "notificationsLike": "Want to be notified of likes for your releases?",
-    "notificationsComment": "Want to be notified of new comments under your releases?"
+    "notificationsComment": "Want to be notified of new comments under your releases?",
+    "security": "Security",
+    "email": "Want to change your account login email?",
+    "editEmail": "Edit email"
   }
 }

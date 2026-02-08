@@ -1,8 +1,4 @@
-import {
-  CustomUseMutationOptions,
-  MessageResponse,
-  components,
-} from '@/shared/types'
+import { CustomUseMutationOptions, components } from '@/shared/types'
 
 export type UseSignInCreateTokenMutationOptions = CustomUseMutationOptions<
   components['schemas']['SignInCreateTokenData'],
@@ -15,6 +11,11 @@ export type UseSignInCheckCodeMutationOptions = CustomUseMutationOptions<
 >
 
 export type UseSignInSendCodeMutationOptions = CustomUseMutationOptions<
-  MessageResponse,
+  components['schemas']['MessageResponse'],
   components['schemas']['SignInSendCodeBody']
+>
+
+export type UseSignInCheckPassMutationOptions = CustomUseMutationOptions<
+  components['schemas']['SignInCheckPassData'],
+  components['schemas']['SignInCheckPassBody']
 >

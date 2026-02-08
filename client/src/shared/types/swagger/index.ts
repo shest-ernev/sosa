@@ -84,6 +84,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/sign-in/check-pass": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["SignInController_checkPass"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/sign-in/send-code": {
         parameters: {
             query?: never;
@@ -376,6 +392,15 @@ export interface components {
             code: string;
         };
         SignInCheckCodeData: {
+            access_token?: string;
+            refresh_token?: string;
+            password?: string;
+        };
+        SignInCheckPassBody: {
+            token: string;
+            password: string;
+        };
+        SignInCheckPassData: {
             access_token: string;
             refresh_token: string;
         };
@@ -392,6 +417,7 @@ export interface components {
             access_token: string;
         };
         GetUserData: {
+            email: string;
             name: string;
             avatar: string;
             cover: string;
@@ -717,6 +743,45 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SignInCheckCodeData"];
+                };
+            };
+        };
+    };
+    SignInController_checkPass: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SignInCheckPassBody"];
+            };
+        };
+        responses: {
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MessageResponse"];
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SignInCheckPassData"];
                 };
             };
         };

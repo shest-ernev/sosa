@@ -19,7 +19,7 @@ import { SignInFormQS } from '../../types'
 
 export const SignInCheckCodeForm = observer(() => {
   const navigate = useNavigate()
-  const { searchParams } = useQS<SignInFormQS>()
+  const { searchParams, set } = useQS<SignInFormQS>()
   const { t } = useTranslation()
   const { control, reset, handleSubmit } = useSignInFormContext()
   const { auth, toast } = useStore()
@@ -50,8 +50,6 @@ export const SignInCheckCodeForm = observer(() => {
     try {
       const code = v.code
 
-      console.log('cerf')
-
       if (!code || !searchParams.token) return
 
       const { data } = await checkCodeMutation({
@@ -59,12 +57,21 @@ export const SignInCheckCodeForm = observer(() => {
         token: searchParams.token,
       })
 
-      localStorage.setItem(ls.accessToken, data.access_token)
-      localStorage.setItem(ls.refreshToken, data.refresh_token)
+      if (data.password) {
+        return set({
+          step: '3',
+          token: data.password,
+        })
+      }
 
-      auth.setIsAuth(true)
+      if (data.access_token && data.refresh_token) {
+        localStorage.setItem(ls.accessToken, data.access_token)
+        localStorage.setItem(ls.refreshToken, data.refresh_token)
 
-      navigate(routes.profile)
+        auth.setIsAuth(true)
+
+        navigate(routes.profile)
+      }
     } catch (err) {
       console.log(err)
     }
