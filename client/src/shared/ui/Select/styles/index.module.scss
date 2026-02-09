@@ -13,6 +13,9 @@
   transition: 0.2s;
   color: rgb(var(--text-primary));
   font-size: var(--text-m);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   &[data-placeholder] {
     color: rgb(var(--text-secondary));

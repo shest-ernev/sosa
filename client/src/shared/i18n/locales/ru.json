@@ -1,4 +1,7 @@
 {
+  "pages": {
+    "settings": "Настройки"
+  },
   "header": {
     "home": "Главная",
     "signUp": "Зарегистрироваться",
@@ -63,6 +66,7 @@
     "error": "Ошибка при выходе из аккаунта"
   },
   "userSettings": {
+    "title": "Настройки",
     "viewTitle": "Вид",
     "theme": "Выберите тему приложения",
     "lang": "Выберите язык приложения",
@@ -79,6 +83,33 @@
     "notificationsComment": "Хотите получать уведомления о новых комментариях под вашими релизами?",
     "security": "Безопасность",
     "email": "Хотите изменить ваш email для входа в аккаунт?",
-    "editEmail": "Изменить email"
+    "editEmail": "Изменить email",
+    "password": "Хотите установить пароль для вашего аккаунта?",
+    "addPassowrd": "Добавть пароль",
+    "changePassword": "Изменить пароль",
+    "privacy": "Приватность",
+    "privacyProfile": "Хотите чтобы у вас был приватный профиль?",
+    "privacyLibrary": "Хотите чтобы ваша библиотека была приватной?",
+    "privacySubscribers": "Хотите чтобы никто не видел кто на вас подписан?"
+  },
+  "footer": {
+    "authTitle": "Авторизация",
+    "authSignIn": "Войти",
+    "authSignUp": "Регистрация",
+    "myTitle": "Моё",
+    "myProfile": "Профиль",
+    "myNotifications": "Уведомления",
+    "mySettings": "Найтройки",
+    "security": "Безопасность",
+    "securityChangeEmail": "Изменить email",
+    "securityChangePassword": "Изменить пароль",
+    "general": "Общие",
+    "generalHome": "Главная",
+    "generalSearch": "Поиск",
+    "about": "О нас",
+    "support": "Поддержка",
+    "privacyPolicy": "Политика конфиденциальности",
+    "terms": "Условия пользования",
+    "view": "Вид"
   }
 }

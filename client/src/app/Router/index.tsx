@@ -1,7 +1,12 @@
 import { Route, Routes } from 'react-router'
 
 import { routes } from '@/shared/config'
-import { SignUpPage, SignInPage, SettingsPage } from '@/pages'
+import {
+  SignUpPage,
+  SignInPage,
+  SettingsPage,
+  ChangePasswordPage,
+} from '@/pages'
 
 export const Router = () => {
   return (
@@ -17,6 +22,10 @@ export const Router = () => {
       <Route
         path={routes.settings}
         element={<SettingsPage />}
+      />
+      <Route
+        path={routes.changePassword}
+        element={<ChangePasswordPage />}
       />
     </Routes>
   )

@@ -1,4 +1,7 @@
 {
+  "pages": {
+    "settings": "Settings"
+  },
   "header": {
     "home": "Home",
     "signUp": "Sign up",
@@ -63,6 +66,7 @@
     "error": "Error to log out"
   },
   "userSettings": {
+    "title": "Settings",
     "viewTitle": "View",
     "theme": "Choose an app theme",
     "lang": "Choose your app language",
@@ -79,6 +83,33 @@
     "notificationsComment": "Want to be notified of new comments under your releases?",
     "security": "Security",
     "email": "Want to change your account login email?",
-    "editEmail": "Edit email"
+    "editEmail": "Edit email",
+    "password": "Want to set a password for your account?",
+    "addPassowrd": "Add passowrd",
+    "changePassword": "Change password",
+    "privacy": "Privacy",
+    "privacyProfile": "Want to have a private profile?",
+    "privacyLibrary": "Want your library to be private?",
+    "privacySubscribers": "Do you want no one to see who is subscribed to you?"
+  },
+  "footer": {
+    "authTitle": "Authentication",
+    "authSignIn": "Sign in",
+    "authSignUp": "Sign up",
+    "myTitle": "My",
+    "myProfile": "Profile",
+    "myNotifications": "Notifications",
+    "mySettings": "Settings",
+    "security": "Security",
+    "securityChangeEmail": "Change email",
+    "securityChangePassword": "Change password",
+    "general": "General",
+    "generalHome": "Home",
+    "generalSearch": "Search",
+    "about": "About",
+    "support": "Support",
+    "privacyPolicy": "Privacy policy",
+    "terms": "Terms of use",
+    "view": "View"
   }
 }

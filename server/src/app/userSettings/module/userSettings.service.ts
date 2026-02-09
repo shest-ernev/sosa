@@ -10,7 +10,7 @@ import { EditUserSettingsBody } from '../schemas'
 export class UserSettingsService {
   constructor(
     @InjectRepository(UserSettingsEntity)
-    private readonly userSettingsRepository: Repository<UserSettingsEntity>
+    private readonly userSettingsRepository: Repository<UserSettingsEntity>,
   ) {}
 
   async editUserSettings(req: RequestWithUser, params: EditUserSettingsBody) {
@@ -36,6 +36,9 @@ export class UserSettingsService {
       throw new NotFoundException('Settings not found')
     }
 
-    return settings
+    return {
+      ...settings,
+      password: !!req.user.password,
+    }
   }
 }

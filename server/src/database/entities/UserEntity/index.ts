@@ -58,7 +58,7 @@ export class UserEntity {
   @ApiProperty()
   role: 'user' | 'admin' | 'moderator'
 
-  @Column({ nullable: true, default: null })
+  @Column({ default: '' })
   @ApiProperty()
   password: string
 

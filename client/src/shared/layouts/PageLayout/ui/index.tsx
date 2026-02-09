@@ -1,4 +1,5 @@
 import { forwardRef, useState, UIEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Helmet } from 'react-helmet'
 import cn from 'clsx'
 
@@ -14,7 +15,7 @@ export const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
     {
       children,
       className,
-      viewHeader = 100,
+      viewHeader = 1,
       title,
       play,
       onPlay,
@@ -26,6 +27,7 @@ export const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
     ref,
   ) => {
     const [isHidden, setIsHidden] = useState(!!viewHeader)
+    const { t } = useTranslation()
 
     const handleScroll = (e: UIEvent<HTMLDivElement>) => {
       if (e.currentTarget.scrollTop >= viewHeader) {
@@ -39,7 +41,7 @@ export const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
 
     return (
       <>
-        <Helmet title={title} />
+        <Helmet title={t(title)} />
         <PageLayoutHeader
           title={title}
           onBack={onBack}

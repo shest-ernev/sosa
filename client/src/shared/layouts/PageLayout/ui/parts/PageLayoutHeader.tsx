@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router'
 import cn from 'clsx'
 
@@ -17,6 +17,7 @@ export const PageLayoutHeader = ({
   onPause,
   onBack,
 }: PageLayoutHeaderProps) => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   return (
@@ -34,7 +35,7 @@ export const PageLayoutHeader = ({
           color='primary'
           className={styles.title}
         >
-          {title}
+          {t(title)}
         </Text>
       </div>
       {play !== undefined && (

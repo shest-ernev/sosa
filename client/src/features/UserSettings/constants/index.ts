@@ -1,13 +1,12 @@
-import { getTranslate } from '@/shared/lib'
 import { ThemesOptions } from '../types'
 
 export const themesOptions: ThemesOptions = [
   {
-    name: getTranslate('userSettings.light'),
+    name: 'userSettings.light',
     value: 'light',
   },
   {
-    name: getTranslate('userSettings.dark'),
+    name: 'userSettings.dark',
     value: 'dark',
   },
-]
+] as const

@@ -1,7 +1,8 @@
+import { ParseKeys } from 'i18next'
 import { ScrollArea } from 'radix-ui'
 
 export type PageLayoutProps = Omit<ScrollArea.ScrollAreaProps, 'title'> & {
-  title?: string
+  title: ParseKeys
   viewHeader?: number
   play?: boolean
   onBack?: () => void

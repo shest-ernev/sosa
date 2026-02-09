@@ -1,7 +1,9 @@
 import { observer } from 'mobx-react-lite'
+import { useTranslation } from 'react-i18next'
 import { Navigate } from 'react-router'
 
 import { useStore } from '@/shared/hooks'
+import { Text } from '@/shared/ui'
 import { useGetUserSettingsQuery } from '@/shared/api'
 import { routes } from '@/shared/config'
 
@@ -10,15 +12,14 @@ import styles from '../styles/index.module.scss'
 import { UserSettingsView } from './parts/UserSettingsView'
 import { UserSettingsNotifications } from './parts/UserSettingsNotifications'
 import { UserSettingsSecurity } from './parts/UserSettingsSecurity'
+import { UserSettingsPrivacy } from './parts/UserSettingsPrivacy'
 
 export const UserSettings = observer(() => {
   const { auth } = useStore()
-  const { data: settings, isLoading: isSettingsLoading } =
-    useGetUserSettingsQuery({
-      enabled: auth.isAuth,
-    })
-
-  const loading = isSettingsLoading || !settings?.data
+  const { t } = useTranslation()
+  const { data, isLoading } = useGetUserSettingsQuery({
+    enabled: auth.isAuth,
+  })
 
   if (!auth.isAuth) {
     return (
@@ -29,20 +30,34 @@ export const UserSettings = observer(() => {
     )
   }
 
-  if (loading) {
+  if (!data || isLoading) {
     return <>...loading</>
   }
 
   return (
     <div className={styles.container}>
-      <UserSettingsSecurity />
+      <Text
+        className={styles.title}
+        size='xl'
+        tag='h1'
+        color='primary'
+        weight={700}
+      >
+        {t('userSettings.title')}
+      </Text>
+      <UserSettingsSecurity password={data.data.password} />
       <UserSettingsView />
       <UserSettingsNotifications
-        defaultNewComment={settings.data.notificationsComment}
-        defaultNewLike={settings.data.notificationsLike}
-        defaultNewRelease={settings.data.notificationsNewRelease}
-        defaultNewRepost={settings.data.notificationsRepost}
-        defaultNewSubs={settings.data.notificationsNewSubscriber}
+        defaultNewComment={data.data.notificationsComment}
+        defaultNewLike={data.data.notificationsLike}
+        defaultNewRelease={data.data.notificationsNewRelease}
+        defaultNewRepost={data.data.notificationsRepost}
+        defaultNewSubs={data.data.notificationsNewSubscriber}
+      />
+      <UserSettingsPrivacy
+        defaultLibrary={data.data.privateLibrary}
+        defaultProfile={data.data.privateProfile}
+        defaultSubscribers={data.data.privateSubscribers}
       />
     </div>
   )

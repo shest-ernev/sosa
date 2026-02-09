@@ -465,6 +465,7 @@ export interface components {
             createdAt: string;
             /** Format: date-time */
             updateAt: string;
+            password: boolean;
         };
         UserReleaseCreateBody: {
             name: string;

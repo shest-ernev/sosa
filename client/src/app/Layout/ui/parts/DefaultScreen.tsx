@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 
-import { Header, Library, Toaster } from '@/widgets'
+import { Header, Library, Player, Toaster } from '@/widgets'
 import { useStore } from '@/shared/hooks'
 
 import { DefaultScreenProps } from '../../types'
@@ -19,6 +19,7 @@ export const DefaultScreen = observer(({ children }: DefaultScreenProps) => {
           <Toaster />
         </div>
       </div>
+      <Player />
     </div>
   )
 })

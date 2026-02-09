@@ -7,4 +7,10 @@ export const routes = {
   notifications: '/notifications',
   signIn: '/sign-in',
   signUp: '/sign-up',
+  changePassword: '/change-password',
+  changeEmail: '/change-email',
+  about: '/about',
+  support: '/support',
+  privacyPolicy: '/privacy-policy',
+  termsOfUse: '/terms-of-use',
 } as const

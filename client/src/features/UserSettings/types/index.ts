@@ -20,5 +20,11 @@ export type UserSettingsNotificationsProps = {
 }
 
 export type UserSettingsSecurityProps = {
-  email: string
+  password: boolean
+}
+
+export type UserSettingsPrivacyProps = {
+  defaultProfile: boolean
+  defaultSubscribers: boolean
+  defaultLibrary: boolean
 }

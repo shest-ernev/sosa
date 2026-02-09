@@ -1,3 +1,5 @@
 export * from './Library'
 export * from './Header'
 export * from './Toaster'
+export * from './Player'
+export * from './Footer'
