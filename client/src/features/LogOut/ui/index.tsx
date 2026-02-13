@@ -28,12 +28,11 @@ export const LogOut = observer(({ onClose }: LogOutProps) => {
 
   const handleLogOut = async () => {
     try {
+      await mutateAsync()
+
       localStorage.removeItem(ls.accessToken)
       localStorage.removeItem(ls.refreshToken)
-
       auth.setIsAuth(false)
-
-      await mutateAsync()
     } catch (err) {
       console.log(err)
     }

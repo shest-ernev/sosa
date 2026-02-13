@@ -1,6 +1,9 @@
 {
   "pages": {
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "signIn": "Войти",
+    "signUp": "Регистрация",
+    "changePassword": "Изменить пароль"
   },
   "header": {
     "home": "Главная",
@@ -100,9 +103,6 @@
     "myProfile": "Профиль",
     "myNotifications": "Уведомления",
     "mySettings": "Найтройки",
-    "security": "Безопасность",
-    "securityChangeEmail": "Изменить email",
-    "securityChangePassword": "Изменить пароль",
     "general": "Общие",
     "generalHome": "Главная",
     "generalSearch": "Поиск",
@@ -110,6 +110,25 @@
     "support": "Поддержка",
     "privacyPolicy": "Политика конфиденциальности",
     "terms": "Условия пользования",
-    "view": "Вид"
+    "theme": "Тема",
+    "lang": "Язык"
+  },
+  "changePassword": {
+    "emailTitle": "Изменить пароль",
+    "emailDescription": "Введите email вашего аккаунта",
+    "emailPlaceholder": "Введите email...",
+    "send": "Отправить",
+    "question": "Больше не хотите менять пароль?",
+    "back": "Вернуться назад",
+    "password": "Пароль",
+    "passwordDescription": "Придумайте новый пароль",
+    "passwordPlaceholder": "Введите пароль...",
+    "passwordBtn": "Сохранить",
+    "passwordQuestion": "Хотите изменить email?",
+    "errors": {
+      "required": "Обязательное поле",
+      "passwordMin": "Минимум 7 символов",
+      "passwordReg": "Латинские буквы, специальные символы и числа"
+    }
   }
 }

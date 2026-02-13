@@ -1,0 +1,19 @@
+.block {
+  border-radius: 0.625rem;
+  background-color: rgba(var(--text-secondary), 0.1);
+  animation: pulse 1s linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}

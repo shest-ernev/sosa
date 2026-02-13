@@ -7,6 +7,16 @@
   gap: 1.125rem;
 }
 
+.content {
+  width: 100%;
+  min-height: var(--page-height);
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.875rem;
+}
+
 .form {
   width: 100%;
   height: max-content;

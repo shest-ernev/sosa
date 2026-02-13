@@ -14,7 +14,7 @@ export const UserSettingsPrivacy = ({
   defaultSubscribers,
 }: UserSettingsPrivacyProps) => {
   const { t } = useTranslation()
-  const [edit, isLoading] = useEditSettings()
+  const [edit] = useEditSettings()
   const [settings, setSettings] = useState({
     library: defaultLibrary,
     profile: defaultProfile,
@@ -50,7 +50,6 @@ export const UserSettingsPrivacy = ({
         <Switch
           checked={settings.profile}
           onCheckedChange={(v) => handleChange('profile', v)}
-          disabled={isLoading}
         />
       </label>
       <label className={styles.item}>
@@ -58,7 +57,6 @@ export const UserSettingsPrivacy = ({
         <Switch
           checked={settings.library}
           onCheckedChange={(v) => handleChange('library', v)}
-          disabled={isLoading}
         />
       </label>
       <label className={styles.item}>
@@ -66,7 +64,6 @@ export const UserSettingsPrivacy = ({
         <Switch
           checked={settings.subs}
           onCheckedChange={(v) => handleChange('subs', v)}
-          disabled={isLoading}
         />
       </label>
     </div>

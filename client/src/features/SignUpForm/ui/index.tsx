@@ -9,6 +9,7 @@ import { routes } from '@/shared/config'
 import { useSignUpForm } from '../hooks'
 import { SignUpFormQS } from '../types'
 import { signUpFormFields } from '../config'
+import styles from '../styles/index.module.scss'
 
 import { SignUpCreateTokenForm } from './parts/SignUpCreateTokenForm'
 import { SignUpCheckCodeForm } from './parts/SignUpCheckCodeForm'
@@ -41,7 +42,13 @@ export const SignUpForm = observer(() => {
 
   return (
     <FormProvider {...form}>
-      {searchParams.token ? <SignUpCheckCodeForm /> : <SignUpCreateTokenForm />}
+      <div className={styles.content}>
+        {searchParams.token ? (
+          <SignUpCheckCodeForm />
+        ) : (
+          <SignUpCreateTokenForm />
+        )}
+      </div>
     </FormProvider>
   )
 })

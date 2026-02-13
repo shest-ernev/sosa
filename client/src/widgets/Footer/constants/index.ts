@@ -44,17 +44,6 @@ export const myLinks = [
   },
 ] as const
 
-export const securityLinks = [
-  {
-    name: 'footer.securityChangeEmail',
-    to: routes.changeEmail,
-  },
-  {
-    name: 'footer.securityChangePassword',
-    to: routes.changePassword,
-  },
-] as const
-
 export const generalLinks = [
   {
     name: 'footer.generalHome',

@@ -1,3 +1,13 @@
+.content {
+  width: 100%;
+  min-height: var(--page-height);
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.875rem;
+}
+
 .container {
   width: 100%;
   max-width: 500px;

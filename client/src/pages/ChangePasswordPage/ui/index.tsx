@@ -1,15 +1,23 @@
-import { ScrollArea } from '@/shared/ui'
+import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router'
+
+import { routes } from '@/shared/config'
+import { useStore } from '@/shared/hooks'
+import { PageLayout } from '@/shared/layouts'
 import { ChangePasswordForm } from '@/features'
+import { Footer } from '@/widgets'
 
-import styles from '../styles/index.module.scss'
+export const ChangePasswordPage = observer(() => {
+  const navigate = useNavigate()
+  const { auth } = useStore()
 
-export const ChangePasswordPage = () => {
   return (
-    <ScrollArea.Root className={styles.page}>
-      <div className={styles.container}>
-        <ChangePasswordForm />
-      </div>
-      <ScrollArea.Scrollbar orientation='vertical' />
-    </ScrollArea.Root>
+    <PageLayout
+      title='pages.changePassword'
+      onBack={() => navigate(auth.isAuth ? routes.settings : routes.signIn)}
+    >
+      <ChangePasswordForm />
+      <Footer />
+    </PageLayout>
   )
-}
+})

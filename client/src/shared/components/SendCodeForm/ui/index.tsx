@@ -83,6 +83,7 @@ export const SendCodeForm = ({
       <Text className={styles.question}>
         {t('sendCode.question')}{' '}
         <Link
+          replace={true}
           className='a'
           to={backLink}
         >

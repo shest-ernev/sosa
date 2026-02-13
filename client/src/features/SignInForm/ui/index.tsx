@@ -9,6 +9,7 @@ import { useQS, useStore } from '@/shared/hooks'
 import { useSignInForm } from '../hooks'
 import { SignInFormQS } from '../types'
 import { signInFormFields } from '../config'
+import styles from '../styles/index.module.scss'
 
 import { SignInCreateTokenForm } from './parts/SignInCreateTokenForm'
 import { SignInCheckCodeForm } from './parts/SignInCheckCodeForm'
@@ -44,7 +45,9 @@ export const SignInForm = observer(() => {
 
   return (
     <FormProvider {...form}>
-      <Content />
+      <div className={styles.content}>
+        <Content />
+      </div>
     </FormProvider>
   )
 })

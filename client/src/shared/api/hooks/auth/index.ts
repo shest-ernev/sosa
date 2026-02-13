@@ -15,7 +15,7 @@ export const useGetAuthQuery = (options: UseGetAuthQueryOptions) => {
 
 export const useLogOutMutation = (options: UseLogOutMutationOptions) => {
   return useMutation({
-    mutationFn: () => client.get('/auth/log-out'),
+    mutationFn: () => client.patch('/auth/log-out'),
     mutationKey: [logOutKey],
     ...options,
   })

@@ -1,15 +1,12 @@
-import { ScrollArea } from '@/shared/ui'
+import { PageLayout } from '@/shared/layouts'
 import { SignUpForm } from '@/features'
-
-import styles from '../styles/index.module.scss'
+import { Footer } from '@/widgets'
 
 export const SignUpPage = () => {
   return (
-    <ScrollArea.Root className={styles.page}>
-      <div className={styles.container}>
-        <SignUpForm />
-      </div>
-      <ScrollArea.Scrollbar orientation='vertical' />
-    </ScrollArea.Root>
+    <PageLayout title='pages.signUp'>
+      <SignUpForm />
+      <Footer />
+    </PageLayout>
   )
 }

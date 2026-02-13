@@ -13,6 +13,7 @@ import { UserSettingsView } from './parts/UserSettingsView'
 import { UserSettingsNotifications } from './parts/UserSettingsNotifications'
 import { UserSettingsSecurity } from './parts/UserSettingsSecurity'
 import { UserSettingsPrivacy } from './parts/UserSettingsPrivacy'
+import { UserSettingsLoading } from './parts/UserSettingsLoading'
 
 export const UserSettings = observer(() => {
   const { auth } = useStore()
@@ -30,8 +31,8 @@ export const UserSettings = observer(() => {
     )
   }
 
-  if (!data || isLoading) {
-    return <>...loading</>
+  if (isLoading || !data?.data) {
+    return <UserSettingsLoading />
   }
 
   return (

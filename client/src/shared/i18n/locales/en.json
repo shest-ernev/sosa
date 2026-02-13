@@ -1,6 +1,9 @@
 {
   "pages": {
-    "settings": "Settings"
+    "settings": "Settings",
+    "signIn": "Sing in",
+    "signUp": "Sign up",
+    "changePassword": "Change password"
   },
   "header": {
     "home": "Home",
@@ -100,9 +103,6 @@
     "myProfile": "Profile",
     "myNotifications": "Notifications",
     "mySettings": "Settings",
-    "security": "Security",
-    "securityChangeEmail": "Change email",
-    "securityChangePassword": "Change password",
     "general": "General",
     "generalHome": "Home",
     "generalSearch": "Search",
@@ -110,6 +110,25 @@
     "support": "Support",
     "privacyPolicy": "Privacy policy",
     "terms": "Terms of use",
-    "view": "View"
+    "theme": "Theme",
+    "lang": "Language"
+  },
+  "changePassword": {
+    "emailTitle": "Change password",
+    "emailDescription": "Enter your account email",
+    "emailPlaceholder": "Enter email...",
+    "send": "Send",
+    "question": "Don't want to change your password any more?",
+    "back": "Back",
+    "password": "Password",
+    "passwordDescription": "Create a new password",
+    "passwordPlaceholder": "Enter password...",
+    "passwordBtn": "Save",
+    "passwordQuestion": "Want to change your email?",
+    "errors": {
+      "required": "Required field",
+      "passwordMin": "Minimum 7 characters",
+      "passwordReg": "Latin letters, special sybmvols and numbers"
+    }
   }
 }

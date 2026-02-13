@@ -57,7 +57,6 @@ export const UserSettingsNotifications = ({
           <Switch
             checked={settings.newRelease}
             onCheckedChange={(v) => handleChange('newRelease', v)}
-            disabled={isEditPending}
           />
         </label>
         <label className={styles.item}>
@@ -65,7 +64,6 @@ export const UserSettingsNotifications = ({
           <Switch
             checked={settings.newComment}
             onCheckedChange={(v) => handleChange('newComment', v)}
-            disabled={isEditPending}
           />
         </label>
         <label className={styles.item}>
@@ -73,7 +71,6 @@ export const UserSettingsNotifications = ({
           <Switch
             checked={settings.newLike}
             onCheckedChange={(v) => handleChange('newLike', v)}
-            disabled={isEditPending}
           />
         </label>
         <label className={styles.item}>
@@ -81,7 +78,6 @@ export const UserSettingsNotifications = ({
           <Switch
             checked={settings.newRepost}
             onCheckedChange={(v) => handleChange('newRepost', v)}
-            disabled={isEditPending}
           />
         </label>
         <label className={styles.item}>
@@ -89,7 +85,6 @@ export const UserSettingsNotifications = ({
           <Switch
             checked={settings.newSubs}
             onCheckedChange={(v) => handleChange('newSubs', v)}
-            disabled={isEditPending}
           />
         </label>
       </div>
