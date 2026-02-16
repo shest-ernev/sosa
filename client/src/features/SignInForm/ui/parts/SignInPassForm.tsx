@@ -1,5 +1,5 @@
 import { Controller } from 'react-hook-form'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
 import { Button, Input, Text } from '@/shared/ui'
@@ -33,11 +33,12 @@ export const SignInPassForm = () => {
   const submit = handleSubmit(async (v) => {
     try {
       const { token } = searchParams
+      const { password } = v
 
-      if (!v.password || !token) return
+      if (!password || !token) return
 
       const { data } = await mutateAsync({
-        password: v.password,
+        password,
         token,
       })
 
@@ -105,6 +106,14 @@ export const SignInPassForm = () => {
           {t('signIn.title')}
         </Button>
       </form>
+      <Text className={styles.question}>
+        <Link
+          className='a'
+          to={routes.changePassword}
+        >
+          {t('signIn.passwordQuestion')}
+        </Link>
+      </Text>
     </div>
   )
 }

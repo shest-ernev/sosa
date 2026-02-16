@@ -7,6 +7,7 @@ import { UserModule } from './user'
 import { UserSettingsModule } from './userSettings'
 import { ReleaseModule } from './userRelease'
 import { FavoritesModule } from './favorites'
+import { ChangePasswordModule } from './changePassword'
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FavoritesModule } from './favorites'
     UserSettingsModule,
     ReleaseModule,
     FavoritesModule,
+    ChangePasswordModule,
   ],
 })
 export class AppModule {}

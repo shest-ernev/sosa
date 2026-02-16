@@ -63,7 +63,7 @@ export class SignInService {
       })
 
       return {
-        password: passwordToken,
+        token: passwordToken,
       }
     }
 

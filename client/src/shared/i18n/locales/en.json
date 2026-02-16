@@ -41,6 +41,7 @@
     "password": "Password",
     "passwordDescription": "Enter your account password",
     "passwordPlaceholder": "Enter password...",
+    "passwordQuestion": "Forgot password?",
     "errors": {
       "required": "Required field",
       "password": "Wrong password",
@@ -86,10 +87,11 @@
     "notificationsComment": "Want to be notified of new comments under your releases?",
     "security": "Security",
     "email": "Want to change your account login email?",
-    "editEmail": "Edit email",
-    "password": "Want to set a password for your account?",
-    "addPassowrd": "Add passowrd",
-    "changePassword": "Change password",
+    "editEmail": "Change",
+    "password": "Want to change the password for your account?",
+    "addPassowrd": "Add",
+    "changePassword": "Change",
+    "deletePassword": "Delete",
     "privacy": "Privacy",
     "privacyProfile": "Want to have a private profile?",
     "privacyLibrary": "Want your library to be private?",
@@ -125,6 +127,14 @@
     "passwordPlaceholder": "Enter password...",
     "passwordBtn": "Save",
     "passwordQuestion": "Want to change your email?",
+    "emailErrors": {
+      "400": "Validation error",
+      "404": "Wrong email"
+    },
+    "passwordErrors": {
+      "400": "Validation error",
+      "404": "User not found"
+    },
     "errors": {
       "required": "Required field",
       "passwordMin": "Minimum 7 characters",

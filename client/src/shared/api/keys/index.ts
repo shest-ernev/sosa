@@ -14,3 +14,8 @@ export const getUserKey = 'getUserKey'
 
 export const getUserSettingsKey = 'getUserSettingsKey'
 export const editUserSettingsKey = 'editUserSettingsKey'
+
+export const changePasswordEmailKey = 'changePasswordEmailKey'
+export const changePasswordCodeKey = 'changePasswordCodeKey'
+export const changePasswordNewKey = 'changePasswordNewKey'
+export const changePasswordSendCodeKey = 'changePasswordSendCodeKey'

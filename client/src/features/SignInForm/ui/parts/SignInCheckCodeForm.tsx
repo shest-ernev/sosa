@@ -57,10 +57,10 @@ export const SignInCheckCodeForm = observer(() => {
         token: searchParams.token,
       })
 
-      if (data.password) {
+      if (data.token) {
         return set({
           step: '3',
-          token: data.password,
+          token: data.token,
         })
       }
 

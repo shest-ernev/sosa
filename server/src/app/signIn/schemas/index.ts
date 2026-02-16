@@ -38,7 +38,7 @@ export class SignInCheckCodeData {
   refresh_token: string
 
   @ApiProperty({ required: false })
-  password?: string
+  token?: string
 }
 
 export class SignInSendCodeBody {

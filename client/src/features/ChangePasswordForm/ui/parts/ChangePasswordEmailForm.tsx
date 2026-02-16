@@ -9,6 +9,7 @@ import { useStore, useQS } from '@/shared/hooks'
 import { useGetUserQuery } from '@/shared/api'
 import { getTranslate } from '@/shared/lib'
 import { routes } from '@/shared/config'
+import { useChangePasswordEmailMutation } from '@/shared/api'
 import EmailIcon from '@/shared/assets/svg/email.svg?react'
 
 import { changePasswordFormFields } from '../../config'
@@ -18,7 +19,7 @@ import styles from '../../styles/index.module.scss'
 
 export const ChangePasswordEmailForm = observer(() => {
   const { t } = useTranslation()
-  const { auth } = useStore()
+  const { auth, toast } = useStore()
   const { append } = useQS<ChangePasswordFormQS>()
   const { control, handleSubmit, reset } = useChangePasswordFormContext()
 
@@ -26,14 +27,32 @@ export const ChangePasswordEmailForm = observer(() => {
     enabled: auth.isAuth,
   })
 
+  const { mutateAsync, isPending } = useChangePasswordEmailMutation({
+    onError: (err) => {
+      if (err.code) {
+        toast.add({
+          type: 'danger',
+          text: t(
+            getTranslate(`changePassword.emailErrors.${err.status}`),
+            'Error',
+          ),
+        })
+      }
+    },
+  })
+
   const submit = handleSubmit(async (v) => {
     try {
-      if (!v.email) return
+      const { email } = v
+
+      if (!email) return
+
+      const { data } = await mutateAsync({ email })
 
       append({
         step: '2',
-        email: v.email,
-        token: 'token',
+        email: email,
+        token: data.token,
       })
     } catch (err) {
       console.log(err)
@@ -92,6 +111,7 @@ export const ChangePasswordEmailForm = observer(() => {
         </div>
         <Button
           color='primary'
+          loading={isPending}
           className={styles.submitBtn}
         >
           {t('changePassword.send')}

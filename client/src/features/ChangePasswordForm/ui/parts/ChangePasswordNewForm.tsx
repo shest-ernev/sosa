@@ -1,21 +1,41 @@
 import { Link } from 'react-router'
 import { Controller } from 'react-hook-form'
+import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router'
 import { useTranslation } from 'react-i18next'
 
 import { Input, Text, Button } from '@/shared/ui'
-import { useQS } from '@/shared/hooks'
+import { useQS, useStore } from '@/shared/hooks'
 import { getTranslate } from '@/shared/lib'
 import { routes } from '@/shared/config'
+import {
+  useChangePasswordNewMutation,
+  queryClient,
+  getUserSettingsKey,
+} from '@/shared/api'
 
 import { ChangePasswordFormQS } from '../../types'
 import { changePasswordFormFields } from '../../config'
 import { useChangePasswordFormContext } from '../../hooks'
 import styles from '../../styles/index.module.scss'
 
-export const ChangePasswordNewForm = () => {
+export const ChangePasswordNewForm = observer(() => {
+  const navigate = useNavigate()
   const { t } = useTranslation()
+  const { toast, auth } = useStore()
   const { searchParams } = useQS<ChangePasswordFormQS>()
   const { control, handleSubmit } = useChangePasswordFormContext()
+
+  const { mutateAsync, isPending } = useChangePasswordNewMutation({
+    onError: (err) => {
+      if (err.status) {
+        toast.add({
+          type: 'danger',
+          text: t(getTranslate(`changePassword.passwordErrors.${err.status}`)),
+        })
+      }
+    },
+  })
 
   const submit = handleSubmit(async (v) => {
     try {
@@ -24,7 +44,17 @@ export const ChangePasswordNewForm = () => {
 
       if (!password || !token) return
 
-      console.log(password, token)
+      await mutateAsync({ token, password })
+
+      if (auth.isAuth) {
+        await queryClient.invalidateQueries({
+          queryKey: [getUserSettingsKey],
+        })
+
+        navigate(routes.settings)
+      } else {
+        navigate(routes.signIn)
+      }
     } catch (err) {
       console.log(err)
     }
@@ -78,6 +108,7 @@ export const ChangePasswordNewForm = () => {
         <Button
           className={styles.submitBtn}
           color='primary'
+          loading={isPending}
         >
           {t('changePassword.passwordBtn')}
         </Button>
@@ -94,4 +125,4 @@ export const ChangePasswordNewForm = () => {
       </Text>
     </div>
   )
-}
+})
