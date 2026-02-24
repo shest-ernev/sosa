@@ -35,7 +35,7 @@
   },
   "signIn": {
     "title": "Sign in",
-    "description": "Enter your account details",
+    "description": "Enter your account email",
     "emailPlaceholder": "Enter your email...",
     "question": "Don't have an account yet?",
     "password": "Password",
@@ -95,7 +95,16 @@
     "privacy": "Privacy",
     "privacyProfile": "Want to have a private profile?",
     "privacyLibrary": "Want your library to be private?",
-    "privacySubscribers": "Do you want no one to see who is subscribed to you?"
+    "privacySubscribers": "Do you want no one to see who is subscribed to you?",
+    "deletePasswordDescription": "Enter your account password",
+    "deletePasswordPlaceholder": "Enter password...",
+    "deletePasswordSubmit": "Delete",
+    "deletePasswordCancel": "Cancel",
+    "errors": {
+      "required": "Required field",
+      "400": "Wrong password",
+      "404": "User not found"
+    }
   },
   "footer": {
     "authTitle": "Authentication",

@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: max-content;
+  min-height: var(--page-height);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -76,4 +77,59 @@
   display: flex;
   align-items: center;
   gap: 0.625rem;
+}
+
+.modal {
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modalText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.modalForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8125rem;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.input {
+  width: 100%;
+  height: 2.625rem;
+  border-radius: 0.5rem;
+  padding: 0 0.625rem;
+}
+
+.modalBtns {
+  width: 100%;
+  display: flex;
+  gap: 0.625rem;
+  justify-content: flex-end;
+}
+
+.modalBtn {
+  height: 2.1875rem;
+  border-radius: 0.3125rem;
+  padding: 0 0.625rem;
 }

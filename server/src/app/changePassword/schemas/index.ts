@@ -56,3 +56,10 @@ export class ChangePasswordSendCodeBody {
   @ApiProperty()
   token: string
 }
+
+export class ChangePasswordDeleteBody {
+  @IsString({ message: 'Send string' })
+  @IsNotEmpty({ message: 'Send password' })
+  @ApiProperty()
+  password: string
+}

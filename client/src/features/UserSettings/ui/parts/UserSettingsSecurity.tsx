@@ -4,10 +4,11 @@ import { Link } from 'react-router'
 import { Text, Button } from '@/shared/ui'
 import { routes } from '@/shared/config'
 import PencilIcon from '@/shared/assets/svg/pencil.svg?react'
-import TrashIcon from '@/shared/assets/svg/trash.svg?react'
 
 import { UserSettingsSecurityProps } from '../../types'
 import styles from '../../styles/index.module.scss'
+
+import { UserSettingsDeletePassword } from './UserSettingsDeletePassword'
 
 export const UserSettingsSecurity = ({
   password,
@@ -51,15 +52,7 @@ export const UserSettingsSecurity = ({
               <PencilIcon />
             </Link>
           </Button>
-          {password && (
-            <Button
-              className={styles.editEmailBtn}
-              color='danger'
-            >
-              <span>{t('userSettings.deletePassword')}</span>
-              <TrashIcon />
-            </Button>
-          )}
+          {password && <UserSettingsDeletePassword />}
         </div>
       </label>
     </div>

@@ -35,7 +35,7 @@
   },
   "signIn": {
     "title": "Войти",
-    "description": "Введите данные вашего аккаунта",
+    "description": "Введите email вашего аккаунта",
     "emailPlaceholder": "Введите ваш email...",
     "question": "Ещё нет аккаунта?",
     "password": "Пароль",
@@ -44,7 +44,7 @@
     "passwordQuestion": "Забыли пароль?",
     "errors": {
       "required": "Обязательное поле",
-      "password": "Не правльный пароль",
+      "password": "Не правельный пароль",
       "email": "Не валидный email",
       "400": "Ошибка валидации",
       "404": "Пользователь не найден"
@@ -94,7 +94,16 @@
     "privacy": "Приватность",
     "privacyProfile": "Хотите чтобы у вас был приватный профиль?",
     "privacyLibrary": "Хотите чтобы ваша библиотека была приватной?",
-    "privacySubscribers": "Хотите чтобы никто не видел кто на вас подписан?"
+    "privacySubscribers": "Хотите чтобы никто не видел кто на вас подписан?",
+    "deletePasswordDescription": "Введите ваш пароль аккаунта",
+    "deletePasswordPlaceholder": "Введите пароль...",
+    "deletePasswordSubmit": "Удалить",
+    "deletePasswordCancel": "Закрыть",
+    "errors": {
+      "required": "Обязательное поле",
+      "400": "Не правельный пароль",
+      "404": "Пользователь не найден"
+    }
   },
   "footer": {
     "authTitle": "Авторизация",

@@ -1,5 +1,10 @@
+import { z } from 'zod'
 import { ParseKeys } from 'i18next'
+
+import { deletePasswordFormSchema } from '../validations'
 import { LangVariants, ThemeVariants } from '@/shared/types'
+
+export type DeletePasswordFormFields = z.infer<typeof deletePasswordFormSchema>
 
 export type ThemesOptions = {
   name: ParseKeys

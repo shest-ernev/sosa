@@ -6,9 +6,11 @@ import * as bcrypt from 'bcrypt'
 
 import { CodeService } from '@/shared/services'
 import { UserEntity } from '@/database/entities'
+import { RequestWithUser } from '@/shared/types'
 
 import {
   ChangePasswordCheckCodeBody,
+  ChangePasswordDeleteBody,
   ChangePasswordEmailBody,
   ChangePasswordNewBody,
   ChangePasswordSendCodeBody,
@@ -105,5 +107,26 @@ export class ChangePasswordService {
     await this.codeService.send(id, code)
 
     return { message: 'Email send' }
+  }
+
+  async deletePassword(req: RequestWithUser, params: ChangePasswordDeleteBody) {
+    const { password } = params
+    const userPassword = req.user.password
+
+    if (!userPassword) {
+      throw new NotFoundException(`User havn't password`)
+    }
+
+    const isCompare = await bcrypt.compare(password, userPassword)
+
+    if (!isCompare) {
+      throw new BadRequestException('Wrong code')
+    }
+
+    await this.usersRepository.update({ id: req.user.id }, { password: '' })
+
+    return {
+      message: 'Successful delete password',
+    }
   }
 }

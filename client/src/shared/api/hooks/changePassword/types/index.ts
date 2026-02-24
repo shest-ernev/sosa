@@ -19,3 +19,8 @@ export type UseChangePasswordSendCodeMutationOptions = CustomUseMutationOptions<
   components['schemas']['MessageResponse'],
   components['schemas']['ChangePasswordSendCodeBody']
 >
+
+export type UseChangePasswordDeleteMutationOptions = CustomUseMutationOptions<
+  components['schemas']['MessageResponse'],
+  components['schemas']['ChangePasswordDeleteBody']
+>
