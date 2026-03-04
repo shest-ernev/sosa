@@ -5,7 +5,7 @@ import { useCodeContext } from '../hooks'
 import { CodeInputProps } from '../types'
 import styles from '../styles/index.module.scss'
 
-export const CodeInput = ({ className, ...props }: CodeInputProps) => {
+export const CodeInput = ({ className, ref, ...props }: CodeInputProps) => {
   const { error, loading } = useCodeContext()
 
   return (
@@ -16,6 +16,7 @@ export const CodeInput = ({ className, ...props }: CodeInputProps) => {
         loading && styles.loading,
         className,
       )}
+      ref={ref}
       {...props}
     />
   )

@@ -1,5 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { BadRequestException, ConflictException } from '@nestjs/common'
+import {
+  BadRequestException,
+  ConflictException,
+  UnauthorizedException,
+} from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 
@@ -64,9 +68,7 @@ export class SignUpService {
       { expiresIn: '10m' },
     )
 
-    const code = await this.codeService.update(user.id)
-
-    await this.codeService.send(user.id, code)
+    await this.codeService.send(user.id)
 
     return { token }
   }
@@ -74,7 +76,11 @@ export class SignUpService {
   async checkCode(params: SignUpCheckCodeBody) {
     const { token, code } = params
 
-    const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
+    const { id } = await this.jwtService
+      .verifyAsync<{ id: string }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
     const user = await this.codeService.compare(id, code)
 
@@ -110,11 +116,13 @@ export class SignUpService {
   async sendCode(params: SignUpSendCodeBody) {
     const { token } = params
 
-    const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
+    const { id } = await this.jwtService
+      .verifyAsync<{ id: string }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
-    const code = await this.codeService.update(id)
-
-    await this.codeService.send(id, code)
+    await this.codeService.send(id)
 
     return { message: 'Email send' }
   }

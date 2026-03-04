@@ -35,9 +35,7 @@ export class ChangePasswordService {
       throw new NotFoundException('User not found')
     }
 
-    const code = await this.codeService.update(user.id)
-
-    await this.codeService.send(user.id, code)
+    await this.codeService.send(user.id)
 
     const token = await this.jwtService.signAsync({ id: user.id })
 
@@ -102,9 +100,7 @@ export class ChangePasswordService {
 
     const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
 
-    const code = await this.codeService.update(id)
-
-    await this.codeService.send(id, code)
+    await this.codeService.send(id)
 
     return { message: 'Email send' }
   }

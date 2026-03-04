@@ -1,4 +1,3 @@
-import { Ref } from 'react'
 import { unstable_OneTimePasswordField as OneTimePasswordField } from 'radix-ui'
 
 export type CodeContextValue = {
@@ -6,12 +5,7 @@ export type CodeContextValue = {
   loading?: boolean
 }
 
-export type CodeInputProps =
-  OneTimePasswordField.OneTimePasswordFieldInputProps & {
-    ref?: Ref<HTMLDivElement>
-  }
+export type CodeInputProps = OneTimePasswordField.OneTimePasswordFieldInputProps
 
 export type CodeRootProps = OneTimePasswordField.OneTimePasswordFieldProps &
-  CodeContextValue & {
-    ref?: Ref<HTMLDivElement>
-  }
+  CodeContextValue

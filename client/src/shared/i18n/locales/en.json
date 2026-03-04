@@ -58,9 +58,9 @@
     "again": "Send code again via {{ time }}",
     "againBtn": "Send code again",
     "errors": {
-      "500": "Server error",
       "400": "Wrong code",
-      "404": "User not found"
+      "404": "User not found",
+      "401": "The code has expired"
     }
   },
   "logOut": {

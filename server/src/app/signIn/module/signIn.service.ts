@@ -1,5 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { BadRequestException, NotFoundException } from '@nestjs/common'
+import {
+  BadRequestException,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common'
 import { Repository, ILike } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 import * as bcrypt from 'bcrypt'
@@ -38,9 +42,9 @@ export class SignInService {
       { expiresIn: '10m' },
     )
 
-    const code = await this.codeService.update(user.id)
+    await this.codeService.update(user.id)
 
-    await this.codeService.send(user.id, code)
+    await this.codeService.send(user.id)
 
     return { token }
   }
@@ -48,7 +52,11 @@ export class SignInService {
   async checkCode(params: SignInCheckCodeBody) {
     const { code, token } = params
 
-    const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
+    const { id } = await this.jwtService
+      .verifyAsync<{ id: string }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
     const user = await this.codeService.compare(id, code)
 
@@ -91,10 +99,14 @@ export class SignInService {
   async checkPass(params: SignInCheckPassBody) {
     const { token, password } = params
 
-    const { id, code } = await this.jwtService.verifyAsync<{
-      id: string
-      code: string
-    }>(token)
+    const { id, code } = await this.jwtService
+      .verifyAsync<{
+        id: string
+        code: string
+      }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
     const user = await this.codeService.compare(id, code)
 
@@ -132,11 +144,13 @@ export class SignInService {
   async sendCode(params: SignInSendCodeBody) {
     const { token } = params
 
-    const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
+    const { id } = await this.jwtService
+      .verifyAsync<{ id: string }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
-    const code = await this.codeService.update(id)
-
-    await this.codeService.send(id, code)
+    await this.codeService.send(id)
 
     return { message: 'Email send' }
   }

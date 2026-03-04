@@ -1,15 +1,25 @@
 import { InjectRepository } from '@nestjs/typeorm'
-import { NotFoundException, InternalServerErrorException } from '@nestjs/common'
+import {
+  NotFoundException,
+  InternalServerErrorException,
+  UnauthorizedException,
+} from '@nestjs/common'
 import { Repository } from 'typeorm'
+import { JwtService } from '@nestjs/jwt'
 
 import { UserEntity } from '@/database/entities'
 import { email } from '@/shared/api'
 import { transporter } from '@/shared/config'
 import { randomCode } from '@/shared/lib'
 
+import { UserJwtCode } from './types'
+
 export class CodeService {
-  @InjectRepository(UserEntity)
-  private readonly usersRepository: Repository<UserEntity>
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly usersRepository: Repository<UserEntity>,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async update(id: string) {
     const user = await this.usersRepository.findOne({ where: { id } })
@@ -18,7 +28,10 @@ export class CodeService {
       throw new NotFoundException('User not found')
     }
 
-    const code = randomCode(6)
+    const code = await this.jwtService.signAsync(
+      { code: randomCode(6) },
+      { expiresIn: '5m' },
+    )
 
     await this.usersRepository.update({ id }, { code })
 
@@ -32,15 +45,27 @@ export class CodeService {
       throw new NotFoundException('User not found')
     }
 
-    return user.code === code ? user : false
+    const { code: userCode } = await this.jwtService
+      .verifyAsync<UserJwtCode>(user.code)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid code')
+      })
+
+    return userCode === code ? user : false
   }
 
-  async send(id: string, code: string) {
+  async send(id: string) {
     const user = await this.usersRepository.findOne({ where: { id } })
 
     if (!user) {
       throw new NotFoundException('User not found')
     }
+
+    const { code } = await this.jwtService
+      .verifyAsync<UserJwtCode>(user.code)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid code')
+      })
 
     await email
       .sendMail({

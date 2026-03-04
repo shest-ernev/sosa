@@ -15,9 +15,9 @@ export class UserService {
   ) {}
 
   async getUser(req: RequestWithUser) {
-    const { name, avatar, cover, role, email } = req.user
+    const { name, avatar, cover, role, email, description } = req.user
 
-    return { name, avatar, cover, role, email }
+    return { name, avatar, cover, role, email, description }
   }
 
   async editName(params: UserEditNameBody, req: RequestWithUser) {

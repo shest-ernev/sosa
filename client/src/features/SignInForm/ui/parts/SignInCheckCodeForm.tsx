@@ -34,7 +34,14 @@ export const SignInCheckCodeForm = observer(() => {
       },
     })
 
-  const { mutateAsync: sendCodeAsync } = useSignInSendCodeMutation()
+  const { mutateAsync: sendCodeAsync } = useSignInSendCodeMutation({
+    onError: (err) => {
+      toast.add({
+        type: 'danger',
+        text: t(getTranslate(`sendCode.errors.${err.status}`), 'Error'),
+      })
+    },
+  })
 
   const handleSendCodeAgain = async () => {
     try {

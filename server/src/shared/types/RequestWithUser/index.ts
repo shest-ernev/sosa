@@ -15,5 +15,6 @@ export type RequestWithUser = Request & {
     | 'updateAt'
     | 'settings'
     | 'password'
+    | 'description'
   >
 }
