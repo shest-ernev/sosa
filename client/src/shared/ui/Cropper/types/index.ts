@@ -1,4 +1,5 @@
-import { ReactCropProps } from 'react-image-crop'
+import { Ref } from 'react'
+import ReactCrop, { ReactCropProps } from 'react-image-crop'
 
 export type CropperProps = Omit<
   ReactCropProps,
@@ -6,4 +7,5 @@ export type CropperProps = Omit<
 > & {
   src?: string
   onCompleate?: (canvas: HTMLCanvasElement) => void
+  ref?: Ref<ReactCrop>
 }

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, Ref } from 'react'
 
 export type ButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -8,4 +8,5 @@ export type ButtonProps = Omit<
   variant?: 'contain' | 'outline' | 'text'
   asChild?: boolean
   loading?: boolean
+  ref?: Ref<HTMLButtonElement>
 }

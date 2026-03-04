@@ -1,21 +1,21 @@
-import { forwardRef } from 'react'
 import { Select } from 'radix-ui'
 import cn from 'clsx'
 
 import ChevronUpIcon from '@/shared/assets/svg/chevronUp.svg?react'
 import ChevronDownIcon from '@/shared/assets/svg/chevronDown.svg?react'
 
+import { SelectContentProps } from '../types'
 import styles from '../styles/index.module.scss'
 
-export const SelectContent = forwardRef<
-  HTMLDivElement,
-  Select.SelectContentProps
->(({ className, children, ...props }, ref) => {
+export const SelectContent = ({
+  className,
+  children,
+  ...props
+}: SelectContentProps) => {
   return (
     <Select.Portal>
       <Select.Content
         className={cn(styles.content, className)}
-        ref={ref}
         {...props}
       >
         <Select.ScrollUpButton className={styles.scrollButton}>
@@ -30,4 +30,4 @@ export const SelectContent = forwardRef<
       </Select.Content>
     </Select.Portal>
   )
-})
+}

@@ -1,22 +1,22 @@
-import { forwardRef } from 'react'
 import { DropdownMenu } from 'radix-ui'
 import cn from 'clsx'
 
 import styles from '../styles/index.module.scss'
+import { DropdownContentProps } from '../types'
 
-export const DropdownContent = forwardRef<
-  HTMLDivElement,
-  DropdownMenu.DropdownMenuContentProps
->(({ className, children, ...props }, ref) => {
+export const DropdownContent = ({
+  className,
+  children,
+  ...props
+}: DropdownContentProps) => {
   return (
     <DropdownMenu.Portal>
       <DropdownMenu.Content
         className={cn(styles.content, className)}
-        ref={ref}
         {...props}
       >
         {children}
       </DropdownMenu.Content>
     </DropdownMenu.Portal>
   )
-})
+}

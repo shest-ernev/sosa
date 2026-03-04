@@ -26,8 +26,8 @@
     "openapi-typescript": "^7.10.1",
     "qs": "^6.14.1",
     "radix-ui": "^1.4.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.71.1",
     "react-i18next": "^16.5.3",
@@ -48,6 +48,9 @@
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^8.0.0-beta.13"
+  },
+  "overrides": {
+    "vite": "^8.0.0-beta.13"
   }
 }

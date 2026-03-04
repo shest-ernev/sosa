@@ -4,6 +4,7 @@ import {
   LabelHTMLAttributes,
   ReactNode,
   MouseEvent,
+  Ref,
 } from 'react'
 
 export type InputTypes = 'text' | 'password' | 'number' | 'search'
@@ -23,17 +24,22 @@ export type InputProviderProps = {
   type?: InputTypes
 }
 
-export type InpuLabelProps = LabelHTMLAttributes<HTMLLabelElement>
+export type InpuLabelProps = LabelHTMLAttributes<HTMLLabelElement> & {
+  ref?: Ref<HTMLLabelElement>
+}
 
 export type InputRootProps = LabelHTMLAttributes<HTMLLabelElement> & {
   type?: InputTypes
   error?: boolean
+  ref?: Ref<HTMLLabelElement>
 }
 
 export type InputValueProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'type'
->
+> & {
+  ref?: Ref<HTMLInputElement>
+}
 
 export type InputToggleClickEvent = Omit<
   MouseEvent<HTMLButtonElement>,
@@ -47,4 +53,5 @@ export type InputToggleProps = Omit<
   'type' | 'onClick' | 'children'
 > & {
   onClick?: (e: InputToggleClickEvent) => void
+  ref?: Ref<HTMLButtonElement>
 }

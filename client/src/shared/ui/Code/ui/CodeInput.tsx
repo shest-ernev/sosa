@@ -1,14 +1,11 @@
-import { forwardRef } from 'react'
 import { unstable_OneTimePasswordField as OneTimePasswordField } from 'radix-ui'
 import cn from 'clsx'
 
 import { useCodeContext } from '../hooks'
+import { CodeInputProps } from '../types'
 import styles from '../styles/index.module.scss'
 
-export const CodeInput = forwardRef<
-  HTMLInputElement,
-  OneTimePasswordField.OneTimePasswordFieldInputProps
->(({ className, ...props }, ref) => {
+export const CodeInput = ({ className, ...props }: CodeInputProps) => {
   const { error, loading } = useCodeContext()
 
   return (
@@ -19,8 +16,7 @@ export const CodeInput = forwardRef<
         loading && styles.loading,
         className,
       )}
-      ref={ref}
       {...props}
     />
   )
-})
+}

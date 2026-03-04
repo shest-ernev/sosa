@@ -1,17 +1,13 @@
-import { forwardRef, HTMLAttributes } from 'react'
 import cn from 'clsx'
 
+import { SkeletonProps } from '../types'
 import styles from '../styles/index.module.scss'
 
-export const Skeleton = forwardRef<
-  HTMLDivElement,
-  HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+export const Skeleton = ({ className, ...props }: SkeletonProps) => {
   return (
     <div
       className={cn(styles.block, className)}
-      ref={ref}
       {...props}
     />
   )
-})
+}
