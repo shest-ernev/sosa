@@ -52,11 +52,12 @@
   },
   "sendCode": {
     "title": "Confirm account",
-    "description": "Enter the code sent to {{ email }}",
+    "description": "We've sent the code to {{ email }}",
     "question": "Want to change your email?",
     "questionLink": "Go back",
     "again": "Send code again via {{ time }}",
     "againBtn": "Send code again",
+    "placeholder": "Enter code...",
     "errors": {
       "400": "Wrong code",
       "404": "User not found",

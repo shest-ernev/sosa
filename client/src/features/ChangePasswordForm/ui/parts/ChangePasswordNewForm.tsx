@@ -31,7 +31,10 @@ export const ChangePasswordNewForm = observer(() => {
       if (err.status) {
         toast.add({
           type: 'danger',
-          text: t(getTranslate(`changePassword.passwordErrors.${err.status}`)),
+          text: t(
+            getTranslate(`changePassword.passwordErrors.${err.status}`),
+            'Error',
+          ),
         })
       }
     },

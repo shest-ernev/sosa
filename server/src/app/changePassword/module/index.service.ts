@@ -35,6 +35,8 @@ export class ChangePasswordService {
       throw new NotFoundException('User not found')
     }
 
+    await this.codeService.update(user.id)
+
     await this.codeService.send(user.id)
 
     const token = await this.jwtService.signAsync({ id: user.id })

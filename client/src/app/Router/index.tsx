@@ -6,11 +6,16 @@ import {
   SignInPage,
   SettingsPage,
   ChangePasswordPage,
+  HomePage,
 } from '@/pages'
 
 export const Router = () => {
   return (
     <Routes>
+      <Route
+        index={true}
+        element={<HomePage />}
+      />
       <Route
         path={routes.signUp}
         element={<SignUpPage />}
