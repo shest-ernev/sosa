@@ -12,9 +12,9 @@ import { UserEntity } from '@/database/entities'
 import { CodeService } from '@/shared/services'
 
 import {
-  SignInCheckCodeBody,
-  SignInCheckPassBody,
-  SignInCreateTokenBody,
+  SignInCodeBody,
+  SignInPasswordBody,
+  SignInEmailBody,
   SignInSendCodeBody,
 } from '../schemas'
 
@@ -26,7 +26,7 @@ export class SignInService {
     private readonly codeService: CodeService,
   ) {}
 
-  async createToken(params: SignInCreateTokenBody) {
+  async createToken(params: SignInEmailBody) {
     const email = params.email.trim()
 
     const user = await this.usersRepository.findOne({
@@ -49,7 +49,7 @@ export class SignInService {
     return { token }
   }
 
-  async checkCode(params: SignInCheckCodeBody) {
+  async checkCode(params: SignInCodeBody) {
     const { code, token } = params
 
     const { id } = await this.jwtService
@@ -66,7 +66,7 @@ export class SignInService {
 
     if (user.password) {
       const passwordToken = await this.jwtService.signAsync({
-        code: user.code,
+        code: code,
         id: user.id,
       })
 
@@ -96,7 +96,7 @@ export class SignInService {
     }
   }
 
-  async checkPass(params: SignInCheckPassBody) {
+  async checkPass(params: SignInPasswordBody) {
     const { token, password } = params
 
     const { id, code } = await this.jwtService
@@ -111,7 +111,7 @@ export class SignInService {
     const user = await this.codeService.compare(id, code)
 
     if (!user) {
-      throw new BadRequestException('Wrong code')
+      throw new BadRequestException('User not found')
     }
 
     const isCompareCode = await bcrypt.compare(password, user.password)

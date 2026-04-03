@@ -11,8 +11,8 @@ import { SignInFormQS } from '../types'
 import { signInFormFields } from '../config'
 import styles from '../styles/index.module.scss'
 
-import { SignInCreateTokenForm } from './parts/SignInCreateTokenForm'
-import { SignInCheckCodeForm } from './parts/SignInCheckCodeForm'
+import { SignInEmailForm } from './parts/SignInEmailForm'
+import { SignInCodeForm } from './parts/SignInCodeForm'
 import { SignInPassForm } from './parts/SignInPassForm'
 
 export const SignInForm = observer(() => {
@@ -23,8 +23,8 @@ export const SignInForm = observer(() => {
   const { reset } = form
 
   const Content = {
-    1: SignInCreateTokenForm,
-    2: SignInCheckCodeForm,
+    1: SignInEmailForm,
+    2: SignInCodeForm,
     3: SignInPassForm,
   }[searchParams.step || '1']
 

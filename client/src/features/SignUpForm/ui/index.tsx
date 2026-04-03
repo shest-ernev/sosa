@@ -11,8 +11,8 @@ import { SignUpFormQS } from '../types'
 import { signUpFormFields } from '../config'
 import styles from '../styles/index.module.scss'
 
-import { SignUpCreateTokenForm } from './parts/SignUpCreateTokenForm'
-import { SignUpCheckCodeForm } from './parts/SignUpCheckCodeForm'
+import { SignUpDataForm } from './parts/SignUpDataForm'
+import { SignUpCodeForm } from './parts/SignUpCodeForm'
 
 export const SignUpForm = observer(() => {
   const { searchParams } = useQS<SignUpFormQS>()
@@ -43,11 +43,7 @@ export const SignUpForm = observer(() => {
   return (
     <FormProvider {...form}>
       <div className={styles.content}>
-        {searchParams.token ? (
-          <SignUpCheckCodeForm />
-        ) : (
-          <SignUpCreateTokenForm />
-        )}
+        {searchParams.token ? <SignUpCodeForm /> : <SignUpDataForm />}
       </div>
     </FormProvider>
   )

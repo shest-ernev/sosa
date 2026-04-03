@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/api/sign-up/create-token": {
+    "/api/sign-up/data": {
         parameters: {
             query?: never;
             header?: never;
@@ -20,7 +20,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/sign-up/check-code": {
+    "/api/sign-up/code": {
         parameters: {
             query?: never;
             header?: never;
@@ -52,7 +52,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/sign-in/create-token": {
+    "/api/sign-in/email": {
         parameters: {
             query?: never;
             header?: never;
@@ -68,7 +68,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/sign-in/check-code": {
+    "/api/sign-in/code": {
         parameters: {
             query?: never;
             header?: never;
@@ -84,7 +84,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/sign-in/check-pass": {
+    "/api/sign-in/password": {
         parameters: {
             query?: never;
             header?: never;
@@ -420,67 +420,51 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/change-password": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete: operations["ChangePasswordController_deletePassword"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        SignUpCreateTokenBody: {
+        SignUpDataBody: {
             name: string;
             email: string;
         };
         MessageResponse: {
             message: string;
         };
-        SignUpCreateTokenData: {
+        SignUpDataData: {
             token: string;
         };
-        SignUpCheckCodeBody: {
+        SignUpCodeBody: {
             token: string;
             code: string;
         };
-        SignUpCheckCodeData: {
+        SignUpCodeData: {
             access_token: string;
             refresh_token: string;
         };
         SignUpSendCodeBody: {
             token: string;
         };
-        SignInCreateTokenBody: {
+        SignInEmailBody: {
             email: string;
         };
-        SignInCreateTokenData: {
+        SignInEmailData: {
             token: string;
         };
-        SignInCheckCodeBody: {
+        SignInCodeBody: {
             token: string;
             code: string;
         };
-        SignInCheckCodeData: {
+        SignInCodeData: {
             access_token?: string;
             refresh_token?: string;
             token?: string;
         };
-        SignInCheckPassBody: {
+        SignInPasswordBody: {
             token: string;
             password: string;
         };
-        SignInCheckPassData: {
+        SignInPasswordData: {
             access_token: string;
             refresh_token: string;
         };
@@ -499,6 +483,7 @@ export interface components {
         GetUserData: {
             email: string;
             name: string;
+            description: string;
             avatar: string;
             cover: string;
             role: string;
@@ -604,9 +589,6 @@ export interface components {
         ChangePasswordSendCodeBody: {
             token: string;
         };
-        ChangePasswordDeleteBody: {
-            password: string;
-        };
     };
     responses: never;
     parameters: never;
@@ -625,7 +607,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SignUpCreateTokenBody"];
+                "application/json": components["schemas"]["SignUpDataBody"];
             };
         };
         responses: {
@@ -666,7 +648,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SignUpCreateTokenData"];
+                    "application/json": components["schemas"]["SignUpDataData"];
                 };
             };
         };
@@ -680,7 +662,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SignUpCheckCodeBody"];
+                "application/json": components["schemas"]["SignUpCodeBody"];
             };
         };
         responses: {
@@ -713,7 +695,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SignUpCheckCodeData"];
+                    "application/json": components["schemas"]["SignUpCodeData"];
                 };
             };
         };
@@ -774,7 +756,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SignInCreateTokenBody"];
+                "application/json": components["schemas"]["SignInEmailBody"];
             };
         };
         responses: {
@@ -807,7 +789,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SignInCreateTokenData"];
+                    "application/json": components["schemas"]["SignInEmailData"];
                 };
             };
         };
@@ -821,7 +803,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SignInCheckCodeBody"];
+                "application/json": components["schemas"]["SignInCodeBody"];
             };
         };
         responses: {
@@ -846,7 +828,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SignInCheckCodeData"];
+                    "application/json": components["schemas"]["SignInCodeData"];
                 };
             };
         };
@@ -860,7 +842,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["SignInCheckPassBody"];
+                "application/json": components["schemas"]["SignInPasswordBody"];
             };
         };
         responses: {
@@ -885,7 +867,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SignInCheckPassData"];
+                    "application/json": components["schemas"]["SignInPasswordData"];
                 };
             };
         };
@@ -2036,53 +2018,6 @@ export interface operations {
         requestBody: {
             content: {
                 "application/json": components["schemas"]["ChangePasswordSendCodeBody"];
-            };
-        };
-        responses: {
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MessageResponse"];
-                };
-            };
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MessageResponse"];
-                };
-            };
-            500: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MessageResponse"];
-                };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MessageResponse"];
-                };
-            };
-        };
-    };
-    ChangePasswordController_deletePassword: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ChangePasswordDeleteBody"];
             };
         };
         responses: {

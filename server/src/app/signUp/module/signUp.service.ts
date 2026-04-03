@@ -10,11 +10,7 @@ import { JwtService } from '@nestjs/jwt'
 import { UserEntity, UserSettingsEntity } from '@/database/entities'
 import { CodeService } from '@/shared/services'
 
-import {
-  SignUpCheckCodeBody,
-  SignUpCreateTokenBody,
-  SignUpSendCodeBody,
-} from '../schemas'
+import { SignUpCodeBody, SignUpDataBody, SignUpSendCodeBody } from '../schemas'
 
 export class SignUpService {
   constructor(
@@ -39,7 +35,7 @@ export class SignUpService {
     return false
   }
 
-  async createToken(params: SignUpCreateTokenBody) {
+  async createToken(params: SignUpDataBody) {
     const { name, email } = params
 
     const userConflict = await this.usersRepository.findOne({
@@ -73,7 +69,7 @@ export class SignUpService {
     return { token }
   }
 
-  async checkCode(params: SignUpCheckCodeBody) {
+  async checkCode(params: SignUpCodeBody) {
     const { token, code } = params
 
     const { id } = await this.jwtService

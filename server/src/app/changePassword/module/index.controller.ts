@@ -1,23 +1,12 @@
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger'
-import {
-  Body,
-  Controller,
-  Delete,
-  Patch,
-  Post,
-  Req,
-  UseGuards,
-} from '@nestjs/common'
+import { ApiResponse, ApiTags } from '@nestjs/swagger'
+import { Body, Controller, Patch, Post } from '@nestjs/common'
 
 import { ApiError } from '@/shared/decorators'
 import { MessageResponse } from '@/shared/schemas'
-import { AuthGuard } from '@/shared/guards'
-import { RequestWithUser } from '@/shared/types'
 
 import {
   ChangePasswordCheckCodeBody,
   ChangePasswordCheckCodeData,
-  ChangePasswordDeleteBody,
   ChangePasswordEmailBody,
   ChangePasswordEmailData,
   ChangePasswordNewBody,
@@ -57,17 +46,5 @@ export class ChangePasswordController {
   @ApiResponse({ type: MessageResponse })
   async sendCode(@Body() body: ChangePasswordSendCodeBody) {
     return this.changePasswordService.sendCode(body)
-  }
-
-  @Delete()
-  @UseGuards(AuthGuard)
-  @ApiBearerAuth()
-  @ApiError(500, 404, 400)
-  @ApiResponse({ type: MessageResponse })
-  async deletePassword(
-    @Req() req: RequestWithUser,
-    @Body() body: ChangePasswordDeleteBody,
-  ) {
-    return this.changePasswordService.deletePassword(req, body)
   }
 }

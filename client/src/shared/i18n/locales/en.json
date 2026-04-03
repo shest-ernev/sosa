@@ -132,7 +132,7 @@
     "send": "Send",
     "question": "Don't want to change your password any more?",
     "back": "Back",
-    "password": "Password",
+    "password": "New password",
     "passwordDescription": "Create a new password",
     "passwordPlaceholder": "Enter password...",
     "passwordBtn": "Save",

@@ -8,8 +8,6 @@ import PencilIcon from '@/shared/assets/svg/pencil.svg?react'
 import { UserSettingsSecurityProps } from '../../types'
 import styles from '../../styles/index.module.scss'
 
-import { UserSettingsDeletePassword } from './UserSettingsDeletePassword'
-
 export const UserSettingsSecurity = ({
   password,
 }: UserSettingsSecurityProps) => {
@@ -52,7 +50,7 @@ export const UserSettingsSecurity = ({
               <PencilIcon />
             </Link>
           </Button>
-          {password && <UserSettingsDeletePassword />}
+          {password && <>delete</>}
         </div>
       </label>
     </div>

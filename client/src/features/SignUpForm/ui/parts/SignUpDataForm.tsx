@@ -15,7 +15,7 @@ import { signUpFormFields } from '../../config'
 import { useSignUpFormContext } from '../../hooks'
 import styles from '../../styles/index.module.scss'
 
-export const SignUpCreateTokenForm = () => {
+export const SignUpDataForm = () => {
   const { t } = useTranslation()
   const { control, handleSubmit } = useSignUpFormContext()
   const { toast } = useStore()

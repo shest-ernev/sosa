@@ -5,13 +5,13 @@ import {
 } from '@/shared/types'
 
 export type UseSignUpCreateTokenMutationOptions = CustomUseMutationOptions<
-  components['schemas']['SignUpCreateTokenData'],
-  components['schemas']['SignUpCreateTokenBody']
+  components['schemas']['SignUpDataData'],
+  components['schemas']['SignUpDataBody']
 >
 
 export type UseSignUpCheckCodeMutationOptions = CustomUseMutationOptions<
-  components['schemas']['SignUpCheckCodeData'],
-  components['schemas']['SignUpCheckCodeBody']
+  components['schemas']['SignUpCodeData'],
+  components['schemas']['SignUpCodeBody']
 >
 
 export type UseSignUpSendCodeMutationOptions = CustomUseMutationOptions<

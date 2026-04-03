@@ -6,7 +6,7 @@ import { Button, Input, Text } from '@/shared/ui'
 import { useStore } from '@/shared/hooks'
 import { useQS } from '@/shared/hooks'
 import { getTranslate } from '@/shared/lib'
-import { useSignInCheckPassMutation } from '@/shared/api'
+import { useSignInPasswordMutation } from '@/shared/api'
 import { ls, routes } from '@/shared/config'
 
 import { SignInFormQS } from '../../types'
@@ -21,7 +21,7 @@ export const SignInPassForm = () => {
   const { toast, auth } = useStore()
   const { control, handleSubmit } = useSignInFormContext()
 
-  const { mutateAsync, isPending } = useSignInCheckPassMutation({
+  const { mutateAsync, isPending } = useSignInPasswordMutation({
     onError: () => {
       toast.add({
         type: 'danger',
@@ -106,14 +106,26 @@ export const SignInPassForm = () => {
           {t('signIn.title')}
         </Button>
       </form>
-      <Text className={styles.question}>
-        <Link
-          className='a'
-          to={routes.changePassword}
-        >
-          {t('signIn.passwordQuestion')}
-        </Link>
-      </Text>
+      <div className={styles.buttomForm}>
+        <Text className={styles.question}>
+          {t('sendCode.question')}{' '}
+          <Link
+            replace={true}
+            className='a'
+            to={routes.signIn}
+          >
+            {t('sendCode.questionLink')}
+          </Link>
+        </Text>
+        <Text className={styles.question}>
+          <Link
+            className='a'
+            to={routes.changePassword}
+          >
+            {t('signIn.passwordQuestion')}
+          </Link>
+        </Text>
+      </div>
     </div>
   )
 }

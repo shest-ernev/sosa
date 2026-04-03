@@ -5,10 +5,7 @@ import { observer } from 'mobx-react-lite'
 
 import { useQS } from '@/shared/hooks'
 import { getTranslate } from '@/shared/lib'
-import {
-  useSignInSendCodeMutation,
-  useSignInCheckCodeMutation,
-} from '@/shared/api'
+import { useSignInSendCodeMutation, useSignInCodeMutation } from '@/shared/api'
 import { routes, ls } from '@/shared/config'
 import { useStore } from '@/shared/hooks'
 import { SendCodeForm } from '@/shared/components'
@@ -17,7 +14,7 @@ import { useSignInFormContext } from '../../hooks'
 import { signInFormFields } from '../../config'
 import { SignInFormQS } from '../../types'
 
-export const SignInCheckCodeForm = observer(() => {
+export const SignInCodeForm = observer(() => {
   const navigate = useNavigate()
   const { searchParams, set } = useQS<SignInFormQS>()
   const { t } = useTranslation()
@@ -25,7 +22,7 @@ export const SignInCheckCodeForm = observer(() => {
   const { auth, toast } = useStore()
 
   const { mutateAsync: checkCodeMutation, isPending: isCheckCodePending } =
-    useSignInCheckCodeMutation({
+    useSignInCodeMutation({
       onError: (err) => {
         toast.add({
           type: 'danger',

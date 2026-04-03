@@ -17,7 +17,7 @@ import { useSignUpFormContext } from '../../hooks'
 import { signUpFormFields } from '../../config'
 import { SignUpFormQS } from '../../types'
 
-export const SignUpCheckCodeForm = observer(() => {
+export const SignUpCodeForm = observer(() => {
   const navigate = useNavigate()
   const { searchParams } = useQS<SignUpFormQS>()
   const { t } = useTranslation()

@@ -13,7 +13,7 @@ export const useSignUpCreateTokenMutation = (
   options?: UseSignUpCreateTokenMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => client.post('/sign-up/create-token', data),
+    mutationFn: (data) => client.post('/sign-up/data', data),
     mutationKey: [signUpCreateTokenKey],
     ...options,
   })
@@ -23,7 +23,7 @@ export const useSignUpCheckCodeMutation = (
   options?: UseSignUpCheckCodeMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => client.post('/sign-up/check-code', data),
+    mutationFn: (data) => client.post('/sign-up/code', data),
     mutationKey: [signUpCheckCodeKey],
     ...options,
   })

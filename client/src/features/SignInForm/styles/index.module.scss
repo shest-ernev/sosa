@@ -79,6 +79,13 @@
   margin-top: 0.25rem;
 }
 
+.buttomForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  align-items: center;
+}
+
 .question {
   a {
     margin-left: 0.625rem;

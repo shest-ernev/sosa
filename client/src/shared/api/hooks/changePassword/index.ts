@@ -6,7 +6,6 @@ import {
   changePasswordCodeKey,
   changePasswordNewKey,
   changePasswordSendCodeKey,
-  changePasswordDeleteKey,
 } from '../../keys'
 
 import {
@@ -14,7 +13,6 @@ import {
   UseChangePasswordCodeMutationOptions,
   UseChangePasswordNewMutationOptions,
   UseChangePasswordSendCodeMutationOptions,
-  UseChangePasswordDeleteMutationOptions,
 } from './types'
 
 export const useChangePasswordEmailMutation = (
@@ -53,16 +51,6 @@ export const useChangePasswordSendCodeMutation = (
   return useMutation({
     mutationFn: (data) => client.post('/change-password/send-code', data),
     mutationKey: [changePasswordSendCodeKey],
-    ...options,
-  })
-}
-
-export const useChangePasswordDeleteMutation = (
-  options?: UseChangePasswordDeleteMutationOptions,
-) => {
-  return useMutation({
-    mutationFn: (data) => client.delete('/change-password', { data }),
-    mutationKey: [changePasswordDeleteKey],
     ...options,
   })
 }

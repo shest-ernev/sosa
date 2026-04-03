@@ -5,13 +5,13 @@ import { ApiError } from '@/shared/decorators'
 import { MessageResponse } from '@/shared/schemas'
 
 import {
-  SignInCheckCodeBody,
-  SignInCheckCodeData,
-  SignInCheckPassBody,
-  SignInCreateTokenBody,
-  SignInCreateTokenData,
+  SignInCodeBody,
+  SignInCodeData,
+  SignInPasswordBody,
+  SignInEmailBody,
+  SignInEmailData,
   SignInSendCodeBody,
-  SignInCheckPassData,
+  SignInPasswordData,
 } from '../schemas'
 
 import { SignInService } from './signIn.service'
@@ -21,24 +21,24 @@ import { SignInService } from './signIn.service'
 export class SignInController {
   constructor(private readonly signInService: SignInService) {}
 
-  @Post('create-token')
-  @ApiResponse({ type: SignInCreateTokenData })
+  @Post('email')
+  @ApiResponse({ type: SignInEmailData })
   @ApiError(500, 400, 404)
-  async createToken(@Body() body: SignInCreateTokenBody) {
+  async createToken(@Body() body: SignInEmailBody) {
     return this.signInService.createToken(body)
   }
 
-  @Post('check-code')
-  @ApiResponse({ type: SignInCheckCodeData })
+  @Post('code')
+  @ApiResponse({ type: SignInCodeData })
   @ApiError(500, 400)
-  async checkCode(@Body() body: SignInCheckCodeBody) {
+  async checkCode(@Body() body: SignInCodeBody) {
     return this.signInService.checkCode(body)
   }
 
-  @Post('check-pass')
-  @ApiResponse({ type: SignInCheckPassData })
+  @Post('password')
+  @ApiResponse({ type: SignInPasswordData })
   @ApiError(500, 400)
-  async checkPass(@Body() body: SignInCheckPassBody) {
+  async checkPass(@Body() body: SignInPasswordBody) {
     return this.signInService.checkPass(body)
   }
 

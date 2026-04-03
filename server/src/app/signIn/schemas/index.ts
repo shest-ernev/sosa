@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { IsEmail, IsString, IsNotEmpty, IsJWT } from 'class-validator'
 
-export class SignInCreateTokenBody {
+export class SignInEmailBody {
   @IsEmail({}, { message: 'Please send correct email' })
   @IsString({ message: 'Please send string' })
   @IsNotEmpty({ message: 'Please send email' })
@@ -9,12 +9,12 @@ export class SignInCreateTokenBody {
   email: string
 }
 
-export class SignInCreateTokenData {
+export class SignInEmailData {
   @ApiProperty()
   token: string
 }
 
-export class SignInCheckCodeBody {
+export class SignInCodeBody {
   @ApiProperty()
   @IsJWT({ message: 'Please send jwt token' })
   @IsNotEmpty({ message: 'Please send token' })
@@ -30,7 +30,7 @@ export class SignInCheckCodePasswordData {
   password: boolean
 }
 
-export class SignInCheckCodeData {
+export class SignInCodeData {
   @ApiProperty({ required: false })
   access_token: string
 
@@ -48,7 +48,7 @@ export class SignInSendCodeBody {
   token: string
 }
 
-export class SignInCheckPassBody {
+export class SignInPasswordBody {
   @ApiProperty()
   @IsJWT({ message: 'Please send jwt token' })
   @IsNotEmpty({ message: 'Please send token' })
@@ -60,7 +60,7 @@ export class SignInCheckPassBody {
   password: string
 }
 
-export class SignInCheckPassData {
+export class SignInPasswordData {
   @ApiProperty()
   access_token: string
 

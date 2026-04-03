@@ -1,13 +1,13 @@
 import { CustomUseMutationOptions, components } from '@/shared/types'
 
-export type UseSignInCreateTokenMutationOptions = CustomUseMutationOptions<
-  components['schemas']['SignInCreateTokenData'],
-  components['schemas']['SignInCreateTokenBody']
+export type UseSignInEmailMutationOptions = CustomUseMutationOptions<
+  components['schemas']['SignInEmailData'],
+  components['schemas']['SignInEmailBody']
 >
 
-export type UseSignInCheckCodeMutationOptions = CustomUseMutationOptions<
-  components['schemas']['SignInCheckCodeData'],
-  components['schemas']['SignInCheckCodeBody']
+export type UseSignInCodeMutationOptions = CustomUseMutationOptions<
+  components['schemas']['SignInCodeData'],
+  components['schemas']['SignInCodeBody']
 >
 
 export type UseSignInSendCodeMutationOptions = CustomUseMutationOptions<
@@ -15,7 +15,7 @@ export type UseSignInSendCodeMutationOptions = CustomUseMutationOptions<
   components['schemas']['SignInSendCodeBody']
 >
 
-export type UseSignInCheckPassMutationOptions = CustomUseMutationOptions<
-  components['schemas']['SignInCheckPassData'],
-  components['schemas']['SignInCheckPassBody']
+export type UseSignInPasswordMutationOptions = CustomUseMutationOptions<
+  components['schemas']['SignInPasswordData'],
+  components['schemas']['SignInPasswordBody']
 >

@@ -5,10 +5,10 @@ import { ApiError } from '@/shared/decorators'
 import { MessageResponse } from '@/shared/schemas'
 
 import {
-  SignUpCheckCodeBody,
-  SignUpCheckCodeData,
-  SignUpCreateTokenBody,
-  SignUpCreateTokenData,
+  SignUpCodeBody,
+  SignUpCodeData,
+  SignUpDataBody,
+  SignUpDataData,
   SignUpSendCodeBody,
 } from '../schemas'
 
@@ -19,17 +19,17 @@ import { SignUpService } from './signUp.service'
 export class SignUpContorller {
   constructor(private readonly signUpService: SignUpService) {}
 
-  @Post('create-token')
-  @ApiResponse({ type: SignUpCreateTokenData })
+  @Post('data')
+  @ApiResponse({ type: SignUpDataData })
   @ApiError(500, 409, 404, 400)
-  async createToken(@Body() body: SignUpCreateTokenBody) {
+  async createToken(@Body() body: SignUpDataBody) {
     return this.signUpService.createToken(body)
   }
 
-  @Post('check-code')
-  @ApiResponse({ type: SignUpCheckCodeData })
+  @Post('code')
+  @ApiResponse({ type: SignUpCodeData })
   @ApiError(500, 400, 404)
-  async checkCode(@Body() body: SignUpCheckCodeBody) {
+  async checkCode(@Body() body: SignUpCodeBody) {
     return this.signUpService.checkCode(body)
   }
 

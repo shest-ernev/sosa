@@ -2,34 +2,35 @@ import { useMutation } from '@tanstack/react-query'
 
 import { client } from '../../client'
 import {
-  signInCheckCodeKey,
-  signInCheckPassKey,
-  signInCreateTokenKey,
+  signInCodeKey,
+  signInPasswordKey,
+  signInEmailKey,
+  signInSendCodeKey,
 } from '../../keys'
 
 import {
-  UseSignInCreateTokenMutationOptions,
-  UseSignInCheckCodeMutationOptions,
+  UseSignInEmailMutationOptions,
+  UseSignInCodeMutationOptions,
   UseSignInSendCodeMutationOptions,
-  UseSignInCheckPassMutationOptions,
+  UseSignInPasswordMutationOptions,
 } from './types'
 
-export const useSignInCreateTokenMutation = (
-  options?: UseSignInCreateTokenMutationOptions,
+export const useSignInEmailMutation = (
+  options?: UseSignInEmailMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => client.post('/sign-in/create-token', data),
-    mutationKey: [signInCreateTokenKey],
+    mutationFn: (data) => client.post('/sign-in/email', data),
+    mutationKey: [signInEmailKey],
     ...options,
   })
 }
 
-export const useSignInCheckCodeMutation = (
-  options?: UseSignInCheckCodeMutationOptions,
+export const useSignInCodeMutation = (
+  options?: UseSignInCodeMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => client.post('/sign-in/check-code', data),
-    mutationKey: [signInCheckCodeKey],
+    mutationFn: (data) => client.post('/sign-in/code', data),
+    mutationKey: [signInCodeKey],
     ...options,
   })
 }
@@ -39,17 +40,17 @@ export const useSignInSendCodeMutation = (
 ) => {
   return useMutation({
     mutationFn: (data) => client.post('/sign-in/send-code', data),
-    mutationKey: [signInCheckCodeKey],
+    mutationKey: [signInSendCodeKey],
     ...options,
   })
 }
 
-export const useSignInCheckPassMutation = (
-  options?: UseSignInCheckPassMutationOptions,
+export const useSignInPasswordMutation = (
+  options?: UseSignInPasswordMutationOptions,
 ) => {
   return useMutation({
-    mutationFn: (data) => client.post('/sign-in/check-pass', data),
-    mutationKey: [signInCheckPassKey],
+    mutationFn: (data) => client.post('/sign-in/password', data),
+    mutationKey: [signInPasswordKey],
     ...options,
   })
 }

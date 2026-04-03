@@ -6,7 +6,7 @@ import { Text, Input, Button } from '@/shared/ui'
 import { getTranslate } from '@/shared/lib'
 import { routes } from '@/shared/config'
 import { useQS, useStore } from '@/shared/hooks'
-import { useSignInCreateTokenMutation } from '@/shared/api'
+import { useSignInEmailMutation } from '@/shared/api'
 import EmailIcon from '@/shared/assets/svg/email.svg?react'
 
 import { signInFormFields } from '../../config'
@@ -14,13 +14,13 @@ import { useSignInFormContext } from '../../hooks'
 import { SignInFormQS } from '../../types'
 import styles from '../../styles/index.module.scss'
 
-export const SignInCreateTokenForm = () => {
+export const SignInEmailForm = () => {
   const { t } = useTranslation()
   const { append } = useQS<SignInFormQS>()
   const { toast } = useStore()
   const { handleSubmit, control } = useSignInFormContext()
 
-  const { mutateAsync, isPending } = useSignInCreateTokenMutation({
+  const { mutateAsync, isPending } = useSignInEmailMutation({
     onError: (err) => {
       toast.add({
         type: 'danger',
