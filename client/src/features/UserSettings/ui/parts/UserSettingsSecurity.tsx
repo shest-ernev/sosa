@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { Text, Button } from '@/shared/ui'
 import { routes } from '@/shared/config'
 import PencilIcon from '@/shared/assets/svg/pencil.svg?react'
+import TrashIcon from '@/shared/assets/svg/trash.svg?react'
 
 import { UserSettingsSecurityProps } from '../../types'
 import styles from '../../styles/index.module.scss'
@@ -25,7 +26,7 @@ export const UserSettingsSecurity = ({
       <label className={styles.item}>
         <Text>{t('userSettings.email')}</Text>
         <Button
-          className={styles.editEmailBtn}
+          className={styles.editBtn}
           asChild={true}
         >
           <Link to={routes.changeEmail}>
@@ -38,7 +39,7 @@ export const UserSettingsSecurity = ({
         <Text>{t('userSettings.password')}</Text>
         <div className={styles.btns}>
           <Button
-            className={styles.editEmailBtn}
+            className={styles.editBtn}
             asChild={true}
           >
             <Link to={routes.changePassword}>
@@ -50,7 +51,18 @@ export const UserSettingsSecurity = ({
               <PencilIcon />
             </Link>
           </Button>
-          {password && <>delete</>}
+          {password && (
+            <Button
+              className={styles.editBtn}
+              asChild={true}
+              color='danger'
+            >
+              <Link to={routes.deletePassword}>
+                <span>{t('userSettings.deletePassword')}</span>
+                <TrashIcon />
+              </Link>
+            </Button>
+          )}
         </div>
       </label>
     </div>

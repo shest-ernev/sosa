@@ -5,7 +5,7 @@ export const useDebounce = (
   ms?: number,
   dep?: unknown[],
 ) => {
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const timeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (timeoutRef.current) {

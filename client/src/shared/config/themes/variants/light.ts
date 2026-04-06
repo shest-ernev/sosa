@@ -6,7 +6,7 @@ export const light = {
   '--shadow': '0.0625rem 0.25rem 0.5rem 0.125rem rgba(107, 107, 107, 0.17)',
 
   '--text-primary': '0, 0, 0',
-  '--text-secondary': '90, 90, 90',
+  '--text-secondary': '120, 120, 120',
   '--text-succesfully': '0, 221, 81',
   '--text-danger': '220, 0, 0',
 
@@ -16,9 +16,9 @@ export const light = {
   '--text-xl': '1.875rem',
   '--text-xxl': '3.4375rem',
 
-  '--button-secondary-contain-bg': '185, 185, 185',
-  '--button-secondary-contain-hover': '170, 170, 170',
-  '--button-secondary-contain-active': '165, 165, 165',
+  '--button-secondary-contain-bg': '200, 200, 200',
+  '--button-secondary-contain-hover': '180, 180, 180',
+  '--button-secondary-contain-active': '170, 170, 170',
   '--button-secondary-contain-color': '95, 95, 95',
 
   '--button-secondary-text-bg': '210, 210, 210, 0',
@@ -76,9 +76,9 @@ export const light = {
   '--button-succesfully-outline-active': '155, 255, 192',
   '--button-succesfully-outline-color': '0, 221, 81',
 
-  '--input-bg': '185, 185, 185',
-  '--input-hover': '170, 170, 170',
-  '--input-active': '165, 165, 165',
+  '--input-bg': '195, 195, 195',
+  '--input-hover': '180, 180, 180',
+  '--input-active': '170, 170, 170',
   '--input-focus': '0, 0, 0',
   '--input-error': '255, 77, 77',
   '--input-checkbox-icon': '255, 255, 255',

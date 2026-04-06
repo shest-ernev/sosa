@@ -1,5 +1,4 @@
 import { ThemesOptions } from '../types'
-import { deletePasswordFormFields } from '../config'
 
 export const themesOptions: ThemesOptions = [
   {
@@ -11,7 +10,3 @@ export const themesOptions: ThemesOptions = [
     value: 'dark',
   },
 ] as const
-
-export const deletePasswordFormDefault = {
-  [deletePasswordFormFields.password]: '',
-} as const

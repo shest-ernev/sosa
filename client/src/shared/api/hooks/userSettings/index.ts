@@ -5,7 +5,7 @@ import { client } from '../../client'
 
 import {
   UseGetUserSettingsQueryOptions,
-  UseEditUserSettingsMutationOptions,
+  useEditSettingsUserSettingsMutationOptions,
 } from './types'
 
 export const useGetUserSettingsQuery = (
@@ -18,8 +18,8 @@ export const useGetUserSettingsQuery = (
   })
 }
 
-export const useEditUserSettingsMutation = (
-  options?: UseEditUserSettingsMutationOptions,
+export const useEditSettingsUserSettingsMutation = (
+  options?: useEditSettingsUserSettingsMutationOptions,
 ) => {
   return useMutation({
     mutationFn: (data) => client.patch('/user-settings', data),

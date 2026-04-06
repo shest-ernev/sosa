@@ -8,6 +8,7 @@ export const routes = {
   signIn: '/sign-in',
   signUp: '/sign-up',
   changePassword: '/change-password',
+  deletePassword: '/delete-password',
   changeEmail: '/change-email',
   about: '/about',
   support: '/support',

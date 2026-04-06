@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Switch, Text } from '@/shared/ui'
-import { useDebounce } from '@/shared/hooks'
 
 import { useEditSettings } from '../../hooks'
 import { UserSettingsPrivacyProps } from '../../types'
@@ -14,26 +12,20 @@ export const UserSettingsPrivacy = ({
   defaultSubscribers,
 }: UserSettingsPrivacyProps) => {
   const { t } = useTranslation()
-  const [edit] = useEditSettings()
-  const [settings, setSettings] = useState({
-    library: defaultLibrary,
-    profile: defaultProfile,
-    subs: defaultSubscribers,
-  })
 
-  const handleChange = (key: keyof typeof settings, v: boolean) => {
-    setSettings((prev) => ({ ...prev, [key]: v }))
-  }
+  const [library, setLibrary, isLibraryPending] = useEditSettings(
+    'privateLibrary',
+    defaultLibrary,
+  )
 
-  useDebounce(
-    async () =>
-      await edit({
-        privateLibrary: settings.library,
-        privateProfile: settings.profile,
-        privateSubscribers: settings.subs,
-      }),
-    600,
-    [settings],
+  const [profile, setProfile, isProfilePending] = useEditSettings(
+    'privateProfile',
+    defaultProfile,
+  )
+
+  const [subscribers, setSubscribers, isSubscribersPending] = useEditSettings(
+    'privateSubscribers',
+    defaultSubscribers,
   )
 
   return (
@@ -43,27 +35,30 @@ export const UserSettingsPrivacy = ({
         color='primary'
         size='l'
       >
-        {t('userSettings.security')}
+        {t('userSettings.privacy')}
       </Text>
       <label className={styles.item}>
         <Text>{t('userSettings.privacyProfile')}</Text>
         <Switch
-          checked={settings.profile}
-          onCheckedChange={(v) => handleChange('profile', v)}
+          checked={profile}
+          onCheckedChange={(v) => setProfile(v)}
+          disabled={isProfilePending}
         />
       </label>
       <label className={styles.item}>
         <Text>{t('userSettings.privacyLibrary')}</Text>
         <Switch
-          checked={settings.library}
-          onCheckedChange={(v) => handleChange('library', v)}
+          checked={library}
+          disabled={isLibraryPending}
+          onCheckedChange={(v) => setLibrary(v)}
         />
       </label>
       <label className={styles.item}>
         <Text>{t('userSettings.privacySubscribers')}</Text>
         <Switch
-          checked={settings.subs}
-          onCheckedChange={(v) => handleChange('subs', v)}
+          checked={subscribers}
+          onCheckedChange={(v) => setSubscribers(v)}
+          disabled={isSubscribersPending}
         />
       </label>
     </div>

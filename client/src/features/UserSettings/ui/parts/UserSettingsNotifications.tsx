@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Text, Switch } from '@/shared/ui'
-import { useDebounce } from '@/shared/hooks'
 
 import { useEditSettings } from '../../hooks'
 import { UserSettingsNotificationsProps } from '../../types'
@@ -16,30 +14,30 @@ export const UserSettingsNotifications = ({
   defaultNewSubs,
 }: UserSettingsNotificationsProps) => {
   const { t } = useTranslation()
-  const [edit, isEditPending] = useEditSettings()
-  const [settings, setSettings] = useState({
-    newRelease: defaultNewRelease,
-    newComment: defaultNewComment,
-    newLike: defaultNewLike,
-    newRepost: defaultNewRepost,
-    newSubs: defaultNewSubs,
-  })
 
-  const handleChange = (key: keyof typeof settings, v: boolean) => {
-    setSettings((prev) => ({ ...prev, [key]: v }))
-  }
+  const [release, setRelease, isReleasePending] = useEditSettings(
+    'notificationsNewRelease',
+    defaultNewRelease,
+  )
 
-  useDebounce(
-    async () =>
-      await edit({
-        notificationsComment: settings.newComment,
-        notificationsLike: settings.newLike,
-        notificationsNewRelease: settings.newRelease,
-        notificationsNewSubscriber: settings.newSubs,
-        notificationsRepost: settings.newRepost,
-      }),
-    600,
-    [settings],
+  const [comment, setComment, isCommentPending] = useEditSettings(
+    'notificationsComment',
+    defaultNewComment,
+  )
+
+  const [like, setLike, isLikePending] = useEditSettings(
+    'notificationsLike',
+    defaultNewLike,
+  )
+
+  const [repost, setRepost, isRepostPending] = useEditSettings(
+    'notificationsRepost',
+    defaultNewRepost,
+  )
+
+  const [subs, setSubs, isSubsPending] = useEditSettings(
+    'notificationsRepost',
+    defaultNewSubs,
   )
 
   return (
@@ -55,36 +53,41 @@ export const UserSettingsNotifications = ({
         <label className={styles.item}>
           <Text>{t('userSettings.notificationNewRelease')}</Text>
           <Switch
-            checked={settings.newRelease}
-            onCheckedChange={(v) => handleChange('newRelease', v)}
+            checked={release}
+            onCheckedChange={(v) => setRelease(v)}
+            disabled={isReleasePending}
           />
         </label>
         <label className={styles.item}>
           <Text>{t('userSettings.notificationsComment')}</Text>
           <Switch
-            checked={settings.newComment}
-            onCheckedChange={(v) => handleChange('newComment', v)}
+            checked={comment}
+            onCheckedChange={(v) => setComment(v)}
+            disabled={isCommentPending}
           />
         </label>
         <label className={styles.item}>
           <Text>{t('userSettings.notificationsLike')}</Text>
           <Switch
-            checked={settings.newLike}
-            onCheckedChange={(v) => handleChange('newLike', v)}
+            checked={like}
+            onCheckedChange={(v) => setLike(v)}
+            disabled={isLikePending}
           />
         </label>
         <label className={styles.item}>
           <Text>{t('userSettings.notificationsRepost')}</Text>
           <Switch
-            checked={settings.newRepost}
-            onCheckedChange={(v) => handleChange('newRepost', v)}
+            checked={repost}
+            onCheckedChange={(v) => setRepost(v)}
+            disabled={isRepostPending}
           />
         </label>
         <label className={styles.item}>
           <Text>{t('userSettings.notitficationsNewSubs')}</Text>
           <Switch
-            checked={settings.newSubs}
-            onCheckedChange={(v) => handleChange('newSubs', v)}
+            checked={subs}
+            onCheckedChange={(v) => setSubs(v)}
+            disabled={isSubsPending}
           />
         </label>
       </div>

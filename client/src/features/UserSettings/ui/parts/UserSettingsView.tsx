@@ -11,21 +11,27 @@ import { themesOptions } from '../../constants'
 import styles from '../../styles/index.module.scss'
 
 export const UserSettingsView = observer(() => {
-  const [editThemeAsync, isEditThemePending] = useEditSettings()
-  const [editLangAsync, isEditLangPending] = useEditSettings()
   const { t } = useTranslation()
   const { lang, theme } = useStore()
 
+  const [activeTheme, setActiveTheme, isActiveThemePending] = useEditSettings(
+    'theme',
+    theme.activeTheme,
+  )
+
+  const [activeLang, setActiveLang, isActiveLengPending] = useEditSettings(
+    'lang',
+    lang.activeLang,
+  )
+
   const handleEditTheme = async (v: ThemeVariants) => {
     theme.setTheme(v)
-
-    await editThemeAsync({ theme: v })
+    setActiveTheme(v)
   }
 
   const handleEditLang = async (v: LangVariants) => {
     lang.setLang(v)
-
-    await editLangAsync({ lang: v })
+    setActiveLang(v)
   }
 
   return (
@@ -41,9 +47,9 @@ export const UserSettingsView = observer(() => {
         <label className={styles.item}>
           <Text>{t('userSettings.theme')}</Text>
           <Select.Root
-            value={theme.activeTheme}
+            value={activeTheme}
             onValueChange={handleEditTheme}
-            disabled={isEditThemePending}
+            disabled={isActiveThemePending}
           >
             <Select.Trigger className={styles.select}>
               <Select.Value
@@ -65,9 +71,9 @@ export const UserSettingsView = observer(() => {
         <label className={styles.item}>
           <Text>{t('userSettings.lang')}</Text>
           <Select.Root
-            value={lang.activeLang}
+            value={activeLang}
             onValueChange={handleEditLang}
-            disabled={isEditLangPending}
+            disabled={isActiveLengPending}
           >
             <Select.Trigger className={styles.select}>
               <Select.Value
