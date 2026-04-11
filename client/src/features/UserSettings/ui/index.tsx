@@ -4,7 +4,7 @@ import { Navigate } from 'react-router'
 
 import { useStore } from '@/shared/hooks'
 import { Text } from '@/shared/ui'
-import { useGetUserSettingsQuery } from '@/shared/api'
+import { useGetUserQuery, useGetUserSettingsQuery } from '@/shared/api'
 import { routes } from '@/shared/config'
 
 import styles from '../styles/index.module.scss'
@@ -18,9 +18,13 @@ import { UserSettingsLoading } from './parts/UserSettingsLoading'
 export const UserSettings = observer(() => {
   const { auth } = useStore()
   const { t } = useTranslation()
-  const { data, isLoading } = useGetUserSettingsQuery({
-    enabled: auth.isAuth,
-  })
+
+  const { data: user, isLoading: isUserLoading } = useGetUserQuery()
+
+  const { data: settings, isLoading: isSettingsLoading } =
+    useGetUserSettingsQuery({
+      enabled: auth.isAuth,
+    })
 
   if (!auth.isAuth) {
     return (
@@ -31,7 +35,7 @@ export const UserSettings = observer(() => {
     )
   }
 
-  if (isLoading || !data?.data) {
+  if (isSettingsLoading || !settings?.data || isUserLoading || !user?.data) {
     return <UserSettingsLoading />
   }
 
@@ -46,19 +50,22 @@ export const UserSettings = observer(() => {
       >
         {t('userSettings.title')}
       </Text>
-      <UserSettingsSecurity password={data.data.password} />
+      <UserSettingsSecurity
+        password={settings.data.password}
+        email={user.data.email}
+      />
       <UserSettingsView />
       <UserSettingsNotifications
-        defaultNewComment={data.data.notificationsComment}
-        defaultNewLike={data.data.notificationsLike}
-        defaultNewRelease={data.data.notificationsNewRelease}
-        defaultNewRepost={data.data.notificationsRepost}
-        defaultNewSubs={data.data.notificationsNewSubscriber}
+        defaultNewComment={settings.data.notificationsComment}
+        defaultNewLike={settings.data.notificationsLike}
+        defaultNewRelease={settings.data.notificationsNewRelease}
+        defaultNewRepost={settings.data.notificationsRepost}
+        defaultNewSubs={settings.data.notificationsNewSubscriber}
       />
       <UserSettingsPrivacy
-        defaultLibrary={data.data.privateLibrary}
-        defaultProfile={data.data.privateProfile}
-        defaultSubscribers={data.data.privateSubscribers}
+        defaultLibrary={settings.data.privateLibrary}
+        defaultProfile={settings.data.privateProfile}
+        defaultSubscribers={settings.data.privateSubscribers}
       />
     </div>
   )

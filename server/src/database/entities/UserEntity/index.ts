@@ -14,68 +14,68 @@ import { UserSettingsEntity } from '../UserSettingsEntity'
 export class UserEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column({ unique: true })
   @ApiProperty()
-  email: string
+  email!: string
 
   @Column({ unique: true })
   @ApiProperty()
-  name: string
+  name!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  description: string
+  description!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  avatar: string
+  avatar!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  cover: string
+  cover!: string
 
   @Column({
     default: '',
     name: 'refresh_token',
   })
   @ApiProperty()
-  refreshToken: string
+  refreshToken!: string
 
   @Column({
     default: false,
     name: 'is_active',
   })
   @ApiProperty()
-  isActive: boolean
+  isActive!: boolean
 
   @Column({ default: '' })
   @ApiProperty()
-  code: string
+  code!: string
 
   @Column({ default: 'user' })
   @ApiProperty()
-  role: 'user' | 'admin' | 'moderator'
+  role!: 'user' | 'admin' | 'moderator'
 
   @Column({ default: '' })
   @ApiProperty()
-  password: string
+  password!: string
 
   @Column({ name: 'settings_id', nullable: true, default: null })
   @ApiProperty({ nullable: true })
-  settingsId: string | null
+  settingsId!: string | null
 
   @OneToOne(() => UserSettingsEntity, { nullable: true })
   @JoinColumn({ name: 'settings_id' })
   @ApiProperty({ type: UserSettingsEntity, nullable: true })
-  settings: UserSettingsEntity
+  settings!: UserSettingsEntity
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
-  createdAt: Date
+  createdAt!: Date
 
   @UpdateDateColumn({ name: 'update_at' })
   @ApiProperty()
-  updateAt: Date
+  updateAt!: Date
 }

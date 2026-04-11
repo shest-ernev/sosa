@@ -1,0 +1,26 @@
+.content {
+  width: 100%;
+  min-height: var(--page-height);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.875rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-radius: 1rem;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+}

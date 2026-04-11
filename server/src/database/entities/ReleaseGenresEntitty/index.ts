@@ -14,23 +14,23 @@ import { GenreEntity } from '../GenreEntity'
 export class ReleaseGenresEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column({ name: 'release_id' })
   @ApiProperty()
-  releaseId: string
+  releaseId!: string
 
   @Column({ name: 'genre_id' })
   @ApiProperty()
-  genreId: string
+  genreId!: string
 
   @ManyToOne(() => ReleaseEntity)
   @JoinColumn({ name: 'release_id' })
   @ApiProperty({ type: () => ReleaseEntity })
-  release: ReleaseEntity
+  release!: ReleaseEntity
 
   @ManyToOne(() => GenreEntity)
   @JoinColumn({ name: 'genre_id' })
   @ApiProperty({ type: () => GenreEntity })
-  genre: GenreEntity
+  genre!: GenreEntity
 }

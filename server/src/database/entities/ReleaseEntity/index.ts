@@ -17,50 +17,50 @@ import { ReleaseGenresEntity } from '../ReleaseGenresEntitty'
 export class ReleaseEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column()
   @ApiProperty()
-  name: string
+  name!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  cover: string
+  cover!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  description: string
+  description!: string
 
   @Column({ default: '' })
   @ApiProperty()
-  color: string
+  color!: string
 
   @Column({ default: false })
   @ApiProperty()
-  public: boolean
+  public!: boolean
 
   @Column({ nullable: true })
   @ApiProperty()
-  date: Date
+  date!: Date
 
   @Column({ name: 'user_id' })
   @ApiProperty()
-  userId: string
+  userId!: string
 
   @ManyToOne(() => UserEntity)
   @JoinColumn({ name: 'user_id' })
   @ApiProperty({ type: UserEntity })
-  user: UserEntity
+  user!: UserEntity
 
   @OneToMany(() => ReleaseGenresEntity, (entity) => entity.release)
   @ApiProperty({ type: () => [ReleaseGenresEntity] })
-  genres: ReleaseGenresEntity[]
+  genres!: ReleaseGenresEntity[]
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
-  createdAt: Date
+  createdAt!: Date
 
   @UpdateDateColumn({ name: 'update_at' })
   @ApiProperty()
-  updateAt: Date
+  updateAt!: Date
 }

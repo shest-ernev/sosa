@@ -1,8 +1,11 @@
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router'
 import { Link } from 'react-router'
 
 import { Text, Button } from '@/shared/ui'
 import { routes } from '@/shared/config'
+import { useDeletePasswordCreateMutation } from '@/shared/api'
+import { useStore } from '@/shared/hooks'
 import PencilIcon from '@/shared/assets/svg/pencil.svg?react'
 import TrashIcon from '@/shared/assets/svg/trash.svg?react'
 
@@ -11,8 +14,30 @@ import styles from '../../styles/index.module.scss'
 
 export const UserSettingsSecurity = ({
   password,
+  email,
 }: UserSettingsSecurityProps) => {
   const { t } = useTranslation()
+  const { toast } = useStore()
+  const navigate = useNavigate()
+
+  const { mutateAsync, isPending } = useDeletePasswordCreateMutation({
+    onError: () => {
+      toast.add({
+        type: 'danger',
+        text: t('userSettings.deletePasswordError'),
+      })
+    },
+  })
+
+  const handleDelete = async () => {
+    try {
+      const { data } = await mutateAsync()
+
+      navigate(`${routes.deletePassword}?token=${data.token}&email=${email}`)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <div className={styles.section}>
@@ -54,13 +79,12 @@ export const UserSettingsSecurity = ({
           {password && (
             <Button
               className={styles.editBtn}
-              asChild={true}
+              onClick={handleDelete}
+              loading={isPending}
               color='danger'
             >
-              <Link to={routes.deletePassword}>
-                <span>{t('userSettings.deletePassword')}</span>
-                <TrashIcon />
-              </Link>
+              <span>{t('userSettings.deletePassword')}</span>
+              <TrashIcon />
             </Button>
           )}
         </div>

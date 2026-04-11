@@ -11,53 +11,53 @@ import {
 export class UserSettingsEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column({ default: 'dark' })
   @ApiProperty({ enum: ['dark', 'light'] })
-  theme: 'dark' | 'light'
+  theme!: 'dark' | 'light'
 
   @Column({ default: 'en' })
   @ApiProperty({ enum: ['ru', 'en'] })
-  lang: 'ru' | 'en'
+  lang!: 'ru' | 'en'
 
   @Column({ name: 'private_profile', default: false })
   @ApiProperty()
-  privateProfile: boolean
+  privateProfile!: boolean
 
   @Column({ default: false, name: 'private_subscribers' })
   @ApiProperty()
-  privateSubscribers: boolean
+  privateSubscribers!: boolean
 
   @Column({ default: false, name: 'private_library' })
   @ApiProperty()
-  privateLibrary: boolean
+  privateLibrary!: boolean
 
   @Column({ default: true, name: 'notifications_new_subscriber' })
   @ApiProperty()
-  notificationsNewSubscriber: boolean
+  notificationsNewSubscriber!: boolean
 
   @Column({ default: true, name: 'notifications_repost' })
   @ApiProperty()
-  notificationsRepost: boolean
+  notificationsRepost!: boolean
 
   @Column({ default: true, name: 'notifications_like' })
   @ApiProperty()
-  notificationsLike: boolean
+  notificationsLike!: boolean
 
   @Column({ default: true, name: 'notifications_comment' })
   @ApiProperty()
-  notificationsComment: boolean
+  notificationsComment!: boolean
 
   @Column({ default: true, name: 'notifications_new_release' })
   @ApiProperty()
-  notificationsNewRelease: boolean
+  notificationsNewRelease!: boolean
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
-  createdAt?: Date
+  createdAt!: Date
 
   @UpdateDateColumn({ name: 'update_at' })
   @ApiProperty()
-  updateAt?: Date
+  updateAt!: Date
 }

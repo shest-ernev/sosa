@@ -19,3 +19,7 @@ export const changePasswordEmailKey = 'changePasswordEmailKey'
 export const changePasswordCodeKey = 'changePasswordCodeKey'
 export const changePasswordNewKey = 'changePasswordNewKey'
 export const changePasswordSendCodeKey = 'changePasswordSendCodeKey'
+
+export const deletePasswordCreateKey = 'deletePasswordCreateKey'
+export const deletePasswordSendCodeKey = 'deletePasswordSendCodeKey'
+export const deletePasswordCodeKey = 'deletePasswordCodeKey'

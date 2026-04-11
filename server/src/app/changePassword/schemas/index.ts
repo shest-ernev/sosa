@@ -13,33 +13,33 @@ export class ChangePasswordEmailBody {
   @IsString({ message: 'Please send string' })
   @IsNotEmpty({ message: 'Please send email' })
   @ApiProperty()
-  email: string
+  email!: string
 }
 
 export class ChangePasswordEmailData {
   @ApiProperty()
-  token: string
+  token!: string
 }
 
 export class ChangePasswordCheckCodeBody {
   @IsJWT({ message: 'Send JWT token' })
   @ApiProperty()
-  token: string
+  token!: string
 
   @IsString({ message: 'Send string for code' })
   @ApiProperty()
-  code: string
+  code!: string
 }
 
 export class ChangePasswordCheckCodeData {
   @ApiProperty()
-  token: string
+  token!: string
 }
 
 export class ChangePasswordNewBody {
   @ApiProperty()
   @IsJWT({ message: 'Send JWT token' })
-  token: string
+  token!: string
 
   @Matches(/[A-Za-z\d@$!%*?&]+/, {
     message:
@@ -48,11 +48,11 @@ export class ChangePasswordNewBody {
   @IsString()
   @MinLength(7, { message: 'Minimum length password 7 characters' })
   @ApiProperty()
-  password: string
+  password!: string
 }
 
 export class ChangePasswordSendCodeBody {
   @IsJWT({ message: 'Send JWT token' })
   @ApiProperty()
-  token: string
+  token!: string
 }

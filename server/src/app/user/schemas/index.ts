@@ -18,12 +18,12 @@ export class UserEditNameBody {
   @IsNotEmpty({ message: 'Please enter name' })
   @MinLength(2, { message: 'Minimum length name 2 characters' })
   @MaxLength(300, { message: 'Maximum length name 300 characters' })
-  name: string
+  name!: string
 }
 
 export class UserEditDescriptionBody {
   @ApiProperty()
   @IsString({ message: 'Please enter string for description' })
   @MaxLength(1000, { message: 'Maximum length description 1000 characters' })
-  description: string
+  description!: string
 }

@@ -3,7 +3,9 @@
     "settings": "Settings",
     "signIn": "Sing in",
     "signUp": "Sign up",
-    "changePassword": "Change password"
+    "changePassword": "Change password",
+    "deletePassword": "Delete password",
+    "privacyPolicy": "Privacy policy"
   },
   "header": {
     "home": "Home",
@@ -53,7 +55,7 @@
   "sendCode": {
     "title": "Confirm account",
     "description": "We've sent the code to {{ email }}",
-    "question": "Want to change your email?",
+    "question": "Want to go back?",
     "questionLink": "Go back",
     "again": "Send code again via {{ time }}",
     "againBtn": "Send code again",
@@ -93,6 +95,7 @@
     "addPassowrd": "Add",
     "changePassword": "Change",
     "deletePassword": "Delete",
+    "deletePasswordError": "Password deletion error",
     "privacy": "Privacy",
     "privacyProfile": "Want to have a private profile?",
     "privacyLibrary": "Want your library to be private?",
@@ -150,5 +153,30 @@
       "passwordMin": "Minimum 7 characters",
       "passwordReg": "Latin letters, special sybmvols and numbers"
     }
+  },
+  "deletePasswordForm": {
+    "errors": {
+      "required": "Required field"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Privacy policy",
+    "description": "This policy explains how our track publishing and listening service processes personal data. We aim to collect only what is necessary, use it transparently, and protect it with reasonable safeguards.",
+    "section1Title": "1. What data we collect",
+    "section1Text": "When you register, we ask for your email, which is used as your account identifier and communication channel. While using the service, you may voluntarily add profile information such as name, description, avatar, cover image, tracks, and related materials. We also process limited technical data required for stable operation, including session details, access tokens, and basic account activity logs.",
+    "section2Title": "2. Why we process your data",
+    "section2Text": "We use your email for sign in, important action confirmations, security codes, and account recovery. Profile and uploaded content data are used to display your page, build your library, and enable interactions with other users. Technical data helps us detect abuse, maintain security, troubleshoot issues, and improve product quality.",
+    "section3Title": "3. Content publication and visibility",
+    "section3Text": "Tracks, covers, descriptions, and other materials you publish may be visible to other users depending on your privacy settings and how the service sections work. Before publishing, you are responsible for ensuring your content is lawful and that you hold the required rights. You can edit release details, update metadata, or remove content at any time through your account tools.",
+    "section4Title": "4. Storage and protection",
+    "section4Text": "We apply organizational and technical measures to protect data from unauthorized access, alteration, loss, or disclosure. Access to data is limited to processes and components that need it to provide functionality. No online system can guarantee absolute security, so we recommend using a strong password, keeping credentials private, and updating security settings when needed.",
+    "section5Title": "5. Sharing with third parties",
+    "section5Text": "We do not sell your personal data and do not share it for third-party marketing purposes. Data may be shared only when technically necessary to operate the service (for example, with infrastructure providers) under confidentiality and security requirements. We may also disclose data when required by applicable law or valid requests from authorized authorities.",
+    "section6Title": "6. Data retention",
+    "section6Text": "We keep data for as long as needed to provide service features, fulfill obligations to users, and comply with legal requirements. If you delete content or update profile details, the updated state is applied in the interface after processing. Some technical logs may be retained for a limited period for diagnostics, fraud prevention, and service reliability.",
+    "section7Title": "7. Your rights and controls",
+    "section7Text": "You can manage profile information, change email, update privacy settings, and control account access in the relevant app sections. If you no longer want to use a password, you can remove it through the dedicated verified flow. You can also contact support to ask how your data is processed, clarify what information is used, and get help with account access issues.",
+    "section8Title": "8. Policy updates and contact",
+    "section8Text": "We may update this policy from time to time to reflect feature changes, security improvements, or legal requirements. The current version is always published in the app on the privacy policy page. By continuing to use the service after updates, you acknowledge the latest version. If you have questions or suggestions, contact us through support channels listed in the app."
   }
 }

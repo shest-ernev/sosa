@@ -11,17 +11,17 @@ import {
 export class GenreEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column({ unique: true })
   @ApiProperty()
-  name: string
+  name!: string
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
-  createdAt: Date
+  createdAt!: Date
 
   @UpdateDateColumn({ name: 'update_at' })
   @ApiProperty()
-  updateAt: Date
+  updateAt!: Date
 }

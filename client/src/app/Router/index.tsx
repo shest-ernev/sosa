@@ -2,11 +2,13 @@ import { Route, Routes } from 'react-router'
 
 import { routes } from '@/shared/config'
 import {
-  SignUpPage,
-  SignInPage,
-  SettingsPage,
   ChangePasswordPage,
   HomePage,
+  PrivacyPolicyPage,
+  SignInPage,
+  SignUpPage,
+  SettingsPage,
+  DeletePasswordPage,
 } from '@/pages'
 
 export const Router = () => {
@@ -31,6 +33,14 @@ export const Router = () => {
       <Route
         path={routes.changePassword}
         element={<ChangePasswordPage />}
+      />
+      <Route
+        path={routes.privacyPolicy}
+        element={<PrivacyPolicyPage />}
+      />
+      <Route
+        path={routes.deletePassword}
+        element={<DeletePasswordPage />}
       />
     </Routes>
   )

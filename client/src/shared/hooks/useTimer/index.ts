@@ -4,7 +4,7 @@ export const useTimer = (
   value: number,
 ): [number, Dispatch<SetStateAction<number>>] => {
   const [timer, setTimer] = useState(value)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     if (timer === 0) {

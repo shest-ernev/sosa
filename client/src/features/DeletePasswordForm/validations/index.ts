@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { deletePasswordFormFields } from '../config'
 
 export const deletePasswordFormSchema = z.object({
-  [deletePasswordFormFields.password]: z
+  [deletePasswordFormFields.code]: z
     .string()
-    .min(1, 'userSettings.errors.required'),
+    .min(1, 'deletePasswordForm.errors.required'),
 })

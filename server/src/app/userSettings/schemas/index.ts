@@ -8,5 +8,5 @@ export class EditUserSettingsBody extends PartialType(
 
 export class GetUserSettings extends UserSettingsEntity {
   @ApiProperty()
-  password: boolean
+  password!: boolean
 }

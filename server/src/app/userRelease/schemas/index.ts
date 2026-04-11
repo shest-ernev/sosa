@@ -16,7 +16,7 @@ export class UserReleaseCreateBody {
   @MaxLength(200, { message: 'Maximum 200 characters for name album' })
   @MinLength(1, { message: 'Minimum 1 character for name album' })
   @ApiProperty()
-  name: string
+  name!: string
 
   @IsArray()
   @IsOptional()
@@ -28,7 +28,7 @@ export class UserReleaseCreateBody {
 
 export class UserReleaseCreateData {
   @ApiProperty()
-  id: string
+  id!: string
 }
 
 export class UserReleaseEditBody {
@@ -70,8 +70,8 @@ export class GetUserRelease extends PickType(ReleaseEntity, [
   'updateAt',
 ]) {
   @ApiProperty({ type: ReleaseUser })
-  user: ReleaseUser
+  user!: ReleaseUser
 
   @ApiProperty({ type: [ReleaseGenre] })
-  genres: ReleaseGenre[]
+  genres!: ReleaseGenre[]
 }

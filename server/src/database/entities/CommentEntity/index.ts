@@ -16,35 +16,35 @@ import { UserEntity } from '../UserEntity'
 export class CommentEntity {
   @PrimaryGeneratedColumn('uuid')
   @ApiProperty()
-  id: string
+  id!: string
 
   @Column()
   @ApiProperty()
-  text: string
+  text!: string
 
   @Column({ name: 'user_id' })
   @ApiProperty()
-  userId: string
+  userId!: string
 
   @ManyToOne(() => UserEntity)
   @JoinColumn({ name: 'user_id' })
   @ApiProperty({ type: UserEntity })
-  user: UserEntity
+  user!: UserEntity
 
   @Column({ name: 'release_id' })
   @ApiProperty()
-  releaseId: string
+  releaseId!: string
 
   @ManyToOne(() => ReleaseEntity)
   @JoinColumn({ name: 'release_id' })
   @ApiProperty()
-  release: ReleaseEntity
+  release!: ReleaseEntity
 
   @CreateDateColumn({ name: 'created_at' })
   @ApiProperty()
-  createdAt: Date
+  createdAt!: Date
 
   @UpdateDateColumn({ name: 'update_at' })
   @ApiProperty()
-  updateAt: Date
+  updateAt!: Date
 }
