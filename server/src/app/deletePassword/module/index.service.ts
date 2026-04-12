@@ -27,7 +27,7 @@ export class DeletePasswordService {
 
     const token = await this.jwtService.signAsync(
       { id: req.user.id },
-      { expiresIn: '10m' },
+      { expiresIn: '5m' },
     )
 
     return { token }

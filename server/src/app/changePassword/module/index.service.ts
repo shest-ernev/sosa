@@ -1,7 +1,11 @@
 import { ILike, Repository } from 'typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { JwtService } from '@nestjs/jwt'
-import { BadRequestException, NotFoundException } from '@nestjs/common'
+import {
+  BadRequestException,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common'
 import * as bcrypt from 'bcrypt'
 
 import { CodeService } from '@/shared/services'
@@ -37,7 +41,10 @@ export class ChangePasswordService {
 
     await this.codeService.send(user.id)
 
-    const token = await this.jwtService.signAsync({ id: user.id })
+    const token = await this.jwtService.signAsync(
+      { id: user.id },
+      { expiresIn: '5m' },
+    )
 
     return { token }
   }
@@ -48,7 +55,7 @@ export class ChangePasswordService {
     const { id } = await this.jwtService
       .verifyAsync<{ id: string }>(token)
       .catch(() => {
-        throw new BadRequestException('Invalid token')
+        throw new UnauthorizedException('Invalid token')
       })
 
     const user = await this.codeService.compare(id, code)
@@ -57,10 +64,13 @@ export class ChangePasswordService {
       throw new BadRequestException('Wrong code')
     }
 
-    const newToken = await this.jwtService.signAsync({
-      id: user.id,
-      code,
-    })
+    const newToken = await this.jwtService.signAsync(
+      {
+        id: user.id,
+        code,
+      },
+      { expiresIn: '5m' },
+    )
 
     return { token: newToken }
   }
@@ -68,10 +78,14 @@ export class ChangePasswordService {
   async newPass(paarms: ChangePasswordNewBody) {
     const { token, password } = paarms
 
-    const { id, code } = await this.jwtService.verifyAsync<{
-      id: string
-      code: string
-    }>(token)
+    const { id, code } = await this.jwtService
+      .verifyAsync<{
+        id: string
+        code: string
+      }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
     const user = await this.codeService.compare(id, code)
 
@@ -98,7 +112,11 @@ export class ChangePasswordService {
   async sendCode(params: ChangePasswordSendCodeBody) {
     const { token } = params
 
-    const { id } = await this.jwtService.verifyAsync<{ id: string }>(token)
+    const { id } = await this.jwtService
+      .verifyAsync<{ id: string }>(token)
+      .catch(() => {
+        throw new UnauthorizedException('Invalid token')
+      })
 
     await this.codeService.send(id)
 

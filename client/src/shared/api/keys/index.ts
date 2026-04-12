@@ -23,3 +23,8 @@ export const changePasswordSendCodeKey = 'changePasswordSendCodeKey'
 export const deletePasswordCreateKey = 'deletePasswordCreateKey'
 export const deletePasswordSendCodeKey = 'deletePasswordSendCodeKey'
 export const deletePasswordCodeKey = 'deletePasswordCodeKey'
+
+export const changeEmailEmailKey = 'changeEmailEmailKey'
+export const changeEmailSendCodeKey = 'changeEmailSendCodeKey'
+export const changeEmailCodeKey = 'changeEmailCodeKey'
+export const changeEmailNewKey = 'changeEmailNewKey'

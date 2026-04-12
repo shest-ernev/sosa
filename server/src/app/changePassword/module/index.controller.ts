@@ -28,21 +28,21 @@ export class ChangePasswordController {
   }
 
   @Post('code')
-  @ApiError(500, 404, 400)
+  @ApiError(500, 404, 401, 400)
   @ApiResponse({ type: ChangePasswordCheckCodeData })
   async code(@Body() body: ChangePasswordCheckCodeBody) {
     return this.changePasswordService.checkCode(body)
   }
 
   @Patch('password')
-  @ApiError(500, 404, 400)
+  @ApiError(500, 404, 401, 400)
   @ApiResponse({ type: MessageResponse })
   async password(@Body() body: ChangePasswordNewBody) {
     return this.changePasswordService.newPass(body)
   }
 
   @Post('send-code')
-  @ApiError(500, 404, 400)
+  @ApiError(500, 404, 401, 400)
   @ApiResponse({ type: MessageResponse })
   async sendCode(@Body() body: ChangePasswordSendCodeBody) {
     return this.changePasswordService.sendCode(body)
