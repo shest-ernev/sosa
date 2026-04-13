@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router'
 
 import { routes } from '@/shared/config'
 import {
+  ChangeEmailPage,
   ChangePasswordPage,
   HomePage,
   PrivacyPolicyPage,
@@ -41,6 +42,10 @@ export const Router = () => {
       <Route
         path={routes.deletePassword}
         element={<DeletePasswordPage />}
+      />
+      <Route
+        path={routes.changeEmail}
+        element={<ChangeEmailPage />}
       />
     </Routes>
   )

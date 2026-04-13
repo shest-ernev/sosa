@@ -1,15 +1,15 @@
 import { InjectRepository } from '@nestjs/typeorm'
 import {
   NotFoundException,
-  //InternalServerErrorException,
+  InternalServerErrorException,
   UnauthorizedException,
 } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { JwtService } from '@nestjs/jwt'
 
 import { UserEntity } from '@/database/entities'
-//import { email } from '@/shared/api'
-//import { transporter } from '@/shared/config'
+import { email } from '@/shared/api'
+import { transporter } from '@/shared/config'
 import { randomCode } from '@/shared/lib'
 
 import { UserJwtCode } from './types'
@@ -67,17 +67,15 @@ export class CodeService {
         throw new UnauthorizedException('Invalid code')
       })
 
-    return code
-
-    //await email
-    //  .sendMail({
-    //    from: transporter.user,
-    //    to: user.email,
-    //    subject: 'Код подтверждения',
-    //    text: code,
-    //  })
-    //  .catch((err) => {
-    //    throw new InternalServerErrorException(`Email Sending Error ${err}`)
-    //  })
+    await email
+      .sendMail({
+        from: transporter.user,
+        to: user.email,
+        subject: 'Код подтверждения',
+        text: code,
+      })
+      .catch((err) => {
+        throw new InternalServerErrorException(`Email Sending Error ${err}`)
+      })
   }
 }

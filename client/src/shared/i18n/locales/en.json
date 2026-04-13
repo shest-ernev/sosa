@@ -5,7 +5,8 @@
     "signUp": "Sign up",
     "changePassword": "Change password",
     "deletePassword": "Delete password",
-    "privacyPolicy": "Privacy policy"
+    "privacyPolicy": "Privacy policy",
+    "changeEmail": "Change email"
   },
   "header": {
     "home": "Home",
@@ -152,6 +153,34 @@
       "required": "Required field",
       "passwordMin": "Minimum 7 characters",
       "passwordReg": "Latin letters, special sybmvols and numbers"
+    }
+  },
+  "changeEmail": {
+    "emailTitle": "Change email",
+    "emailDescription": "Enter your current account email",
+    "emailPlaceholder": "Enter email...",
+    "send": "Send",
+    "question": "Don't want to change your email any more?",
+    "back": "Back",
+    "newEmail": "New email",
+    "newEmailDescription": "Enter a new email for account sign in",
+    "newEmailPlaceholder": "Enter new email...",
+    "newEmailBtn": "Save",
+    "newEmailQuestion": "Want to change your password?",
+    "emailErrors": {
+      "400": "Validation error",
+      "404": "User not found",
+      "401": "Token expired"
+    },
+    "newEmailErrors": {
+      "400": "Validation error",
+      "404": "User not found",
+      "409": "This email is already taken",
+      "401": "Token expired"
+    },
+    "errors": {
+      "required": "Required field",
+      "email": "Invalid email"
     }
   },
   "deletePasswordForm": {

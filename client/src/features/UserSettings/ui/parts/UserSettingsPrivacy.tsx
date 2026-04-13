@@ -1,3 +1,4 @@
+import cn from 'clsx'
 import { useTranslation } from 'react-i18next'
 
 import { Switch, Text } from '@/shared/ui'
@@ -40,6 +41,7 @@ export const UserSettingsPrivacy = ({
       <label className={styles.item}>
         <Text>{t('userSettings.privacyProfile')}</Text>
         <Switch
+          className={cn(isProfilePending && styles.switchLoading)}
           checked={profile}
           onCheckedChange={(v) => setProfile(v)}
           disabled={isProfilePending}
@@ -48,6 +50,7 @@ export const UserSettingsPrivacy = ({
       <label className={styles.item}>
         <Text>{t('userSettings.privacyLibrary')}</Text>
         <Switch
+          className={cn(isLibraryPending && styles.switchLoading)}
           checked={library}
           disabled={isLibraryPending}
           onCheckedChange={(v) => setLibrary(v)}
@@ -56,6 +59,7 @@ export const UserSettingsPrivacy = ({
       <label className={styles.item}>
         <Text>{t('userSettings.privacySubscribers')}</Text>
         <Switch
+          className={cn(isSubscribersPending && styles.switchLoading)}
           checked={subscribers}
           onCheckedChange={(v) => setSubscribers(v)}
           disabled={isSubscribersPending}

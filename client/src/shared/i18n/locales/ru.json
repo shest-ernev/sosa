@@ -5,7 +5,8 @@
     "signUp": "Регистрация",
     "changePassword": "Изменить пароль",
     "deletePassword": "Удалить пароль",
-    "privacyPolicy": "Политика конфиденциальности"
+    "privacyPolicy": "Политика конфиденциальности",
+    "changeEmail": "Изменить email"
   },
   "header": {
     "home": "Главная",
@@ -152,6 +153,34 @@
       "required": "Обязательное поле",
       "passwordMin": "Минимум 7 символов",
       "passwordReg": "Латинские буквы, специальные символы и числа"
+    }
+  },
+  "changeEmail": {
+    "emailTitle": "Изменить email",
+    "emailDescription": "Введите текущий email вашего аккаунта",
+    "emailPlaceholder": "Введите email...",
+    "send": "Отправить",
+    "question": "Больше не хотите менять email?",
+    "back": "Вернуться назад",
+    "newEmail": "Новый email",
+    "newEmailDescription": "Введите новый email для входа в аккаунт",
+    "newEmailPlaceholder": "Введите новый email...",
+    "newEmailBtn": "Сохранить",
+    "newEmailQuestion": "Хотите изменить пароль?",
+    "emailErrors": {
+      "400": "Ошибка валидации",
+      "404": "Пользователь не найден",
+      "401": "Токен истек"
+    },
+    "newEmailErrors": {
+      "400": "Ошибка валидации",
+      "404": "Пользователь не найден",
+      "409": "Такой email уже занят",
+      "401": "Токен истек"
+    },
+    "errors": {
+      "required": "Обязательное поле",
+      "email": "Не валидный email"
     }
   },
   "deletePasswordForm": {
