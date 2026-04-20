@@ -31,7 +31,10 @@ export const ChangeEmailNewEmailForm = observer(() => {
       if (err.status) {
         toast.add({
           type: 'danger',
-          text: t(getTranslate(`changeEmail.newEmailErrors.${err.status}`), 'Error'),
+          text: t(
+            getTranslate(`changeEmail.newEmailErrors.${err.status}`),
+            'Error',
+          ),
         })
       }
     },
@@ -54,9 +57,9 @@ export const ChangeEmailNewEmailForm = observer(() => {
           queryKey: [getUserKey],
         })
 
-        navigate(routes.settings)
+        navigate(routes.settings, { replace: true })
       } else {
-        navigate(routes.signIn)
+        navigate(routes.signIn, { replace: true })
       }
     } catch (err) {
       console.log(err)

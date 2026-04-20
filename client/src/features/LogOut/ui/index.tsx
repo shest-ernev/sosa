@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { observer } from 'mobx-react-lite'
 import cn from 'clsx'
@@ -16,7 +16,6 @@ export const LogOut = observer(({ onClose }: LogOutProps) => {
   const [open, setOpen] = useState(false)
   const { t } = useTranslation()
   const { toast, auth } = useStore()
-  const modalRef = useRef<HTMLDivElement>(null)
 
   const { mutateAsync } = useLogOutMutation({
     onError: () => {
@@ -60,10 +59,7 @@ export const LogOut = observer(({ onClose }: LogOutProps) => {
           </div>
         </Dropdown.Item>
       </Modal.Trigger>
-      <Modal.Content
-        className={styles.content}
-        ref={modalRef}
-      >
+      <Modal.Content className={styles.content}>
         <Text color='primary'>{t('logOut.text')}</Text>
         <div className={styles.btns}>
           <Modal.Close asChild={true}>

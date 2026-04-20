@@ -4,6 +4,7 @@ import ReactCrop, {
   makeAspectCrop,
   ReactCropProps,
 } from 'react-image-crop'
+import cn from 'clsx'
 
 import { CropperProps } from '../types'
 import styles from '../styles/index.module.scss'
@@ -15,6 +16,7 @@ export const Cropper = ({
   src,
   aspect = 1,
   onCompleate,
+  className,
   ...props
 }: CropperProps) => {
   const [crop, setCrop] = useState<PercentCrop>()
@@ -29,8 +31,7 @@ export const Cropper = ({
             unit: '%',
             x: 0,
             y: 0,
-            height: 20,
-            width: 20,
+            width: 50,
           },
           aspect,
           e.currentTarget.offsetWidth,
@@ -85,17 +86,16 @@ export const Cropper = ({
         crop={crop}
         aspect={aspect}
         onComplete={handleCompleate}
+        className={cn(styles.container, className)}
         onChange={(_, percentCrop) => setCrop(percentCrop)}
         {...props}
       >
-        <div className={styles.container}>
-          <img
-            src={src}
-            ref={imgRef}
-            onLoad={handleLoad}
-            className={styles.img}
-          />
-        </div>
+        <img
+          src={src}
+          ref={imgRef}
+          onLoad={handleLoad}
+          className={styles.img}
+        />
       </ReactCrop>
       <canvas
         style={{ display: 'none' }}

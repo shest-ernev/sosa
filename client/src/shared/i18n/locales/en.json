@@ -6,7 +6,8 @@
     "changePassword": "Change password",
     "deletePassword": "Delete password",
     "privacyPolicy": "Privacy policy",
-    "changeEmail": "Change email"
+    "changeEmail": "Change email",
+    "profile": "Profile"
   },
   "header": {
     "home": "Home",
@@ -72,6 +73,53 @@
     "yes": "Log out",
     "cancel": "Cancel",
     "error": "Error to log out"
+  },
+  "profile": {
+    "edit": "Edit",
+    "avatar": "Avatar",
+    "cover": "Cover",
+    "name": "Name",
+    "description": "Description",
+    "editAvatar": {
+      "title": "Edit avatar",
+      "description": "Upload a new image for your avatar",
+      "uploadHint": "Upload image (png, jpeg, jpg, avif, webp)",
+      "success": "Avatar updated",
+      "deleted": "Avatar deleted",
+      "errorFallback": "Error",
+      "delete": "Delete",
+      "reset": "Reset",
+      "close": "Close",
+      "save": "Save",
+      "errors": {
+        "selectArea": "Select avatar area",
+        "requiredFile": "Select file",
+        "invalidFile": "Invalid file",
+        "400": "Validation error",
+        "401": "No access"
+      }
+    },
+    "editCover": {
+      "title": "Edit cover",
+      "description": "Upload a new image for your cover",
+      "uploadHint": "Upload image (png, jpeg, jpg, avif, webp)",
+      "success": "Cover updated",
+      "deleted": "Cover deleted",
+      "errorFallback": "Error",
+      "delete": "Delete",
+      "reset": "Reset",
+      "close": "Close",
+      "save": "Save",
+      "errors": {
+        "selectArea": "Select cover area",
+        "requiredFile": "Select file",
+        "invalidFile": "Invalid file",
+        "400": "Validation error",
+        "401": "No access"
+      }
+    },
+    "subscribers": "subscribers",
+    "listeners": "listeners"
   },
   "userSettings": {
     "title": "Settings",

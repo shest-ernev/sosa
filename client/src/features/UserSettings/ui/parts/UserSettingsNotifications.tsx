@@ -51,7 +51,7 @@ export const UserSettingsNotifications = ({
         {t('userSettings.notifications')}
       </Text>
       <div className={styles.sectionItems}>
-        <label className={styles.item}>
+        <div className={styles.item}>
           <Text>{t('userSettings.notificationNewRelease')}</Text>
           <Switch
             className={cn(isReleasePending && styles.switchLoading)}
@@ -59,8 +59,8 @@ export const UserSettingsNotifications = ({
             onCheckedChange={(v) => setRelease(v)}
             disabled={isReleasePending}
           />
-        </label>
-        <label className={styles.item}>
+        </div>
+        <div className={styles.item}>
           <Text>{t('userSettings.notificationsComment')}</Text>
           <Switch
             className={cn(isCommentPending && styles.switchLoading)}
@@ -68,8 +68,8 @@ export const UserSettingsNotifications = ({
             onCheckedChange={(v) => setComment(v)}
             disabled={isCommentPending}
           />
-        </label>
-        <label className={styles.item}>
+        </div>
+        <div className={styles.item}>
           <Text>{t('userSettings.notificationsLike')}</Text>
           <Switch
             className={cn(isLikePending && styles.switchLoading)}
@@ -77,8 +77,8 @@ export const UserSettingsNotifications = ({
             onCheckedChange={(v) => setLike(v)}
             disabled={isLikePending}
           />
-        </label>
-        <label className={styles.item}>
+        </div>
+        <div className={styles.item}>
           <Text>{t('userSettings.notificationsRepost')}</Text>
           <Switch
             className={cn(isRepostPending && styles.switchLoading)}
@@ -86,8 +86,8 @@ export const UserSettingsNotifications = ({
             onCheckedChange={(v) => setRepost(v)}
             disabled={isRepostPending}
           />
-        </label>
-        <label className={styles.item}>
+        </div>
+        <div className={styles.item}>
           <Text>{t('userSettings.notitficationsNewSubs')}</Text>
           <Switch
             className={cn(isSubsPending && styles.switchLoading)}
@@ -95,7 +95,7 @@ export const UserSettingsNotifications = ({
             onCheckedChange={(v) => setSubs(v)}
             disabled={isSubsPending}
           />
-        </label>
+        </div>
       </div>
     </div>
   )

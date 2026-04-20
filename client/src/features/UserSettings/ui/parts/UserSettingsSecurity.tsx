@@ -48,7 +48,7 @@ export const UserSettingsSecurity = ({
       >
         {t('userSettings.security')}
       </Text>
-      <label className={styles.item}>
+      <div className={styles.item}>
         <Text>{t('userSettings.email')}</Text>
         <Button
           className={styles.editBtn}
@@ -59,8 +59,8 @@ export const UserSettingsSecurity = ({
             <PencilIcon />
           </Link>
         </Button>
-      </label>
-      <label className={styles.item}>
+      </div>
+      <div className={styles.item}>
         <Text>{t('userSettings.password')}</Text>
         <div className={styles.btns}>
           <Button
@@ -88,7 +88,7 @@ export const UserSettingsSecurity = ({
             </Button>
           )}
         </div>
-      </label>
+      </div>
     </div>
   )
 }

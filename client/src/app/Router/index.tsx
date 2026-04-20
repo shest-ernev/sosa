@@ -10,6 +10,7 @@ import {
   SignUpPage,
   SettingsPage,
   DeletePasswordPage,
+  ProfilePage,
 } from '@/pages'
 
 export const Router = () => {
@@ -46,6 +47,10 @@ export const Router = () => {
       <Route
         path={routes.changeEmail}
         element={<ChangeEmailPage />}
+      />
+      <Route
+        path={routes.profile}
+        element={<ProfilePage />}
       />
     </Routes>
   )

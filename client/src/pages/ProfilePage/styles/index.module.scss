@@ -1,0 +1,47 @@
+.content {
+  width: 100%;
+  min-height: var(--page-height);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 1.25rem;
+}
+
+.userLoading {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.875rem;
+  gap: 1.875rem;
+}
+
+.avatarLoading {
+  width: 11.25rem;
+  height: 11.25rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.paramsLoading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.nameLoading {
+  width: 11.25rem;
+  height: 3.75rem;
+}
+
+.btnsLoading {
+  width: 100%;
+  display: flex;
+  gap: 0.625rem;
+}
+
+.btnSkeleton {
+  width: 9.375rem;
+  height: 2rem;
+  border-radius: 1.25rem;
+}

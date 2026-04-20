@@ -6,7 +6,8 @@
     "changePassword": "Изменить пароль",
     "deletePassword": "Удалить пароль",
     "privacyPolicy": "Политика конфиденциальности",
-    "changeEmail": "Изменить email"
+    "changeEmail": "Изменить email",
+    "profile": "Профиль"
   },
   "header": {
     "home": "Главная",
@@ -72,6 +73,53 @@
     "yes": "Выйти",
     "cancel": "Закрыть",
     "error": "Ошибка при выходе из аккаунта"
+  },
+  "profile": {
+    "edit": "Редактировать",
+    "avatar": "Аватар",
+    "cover": "Обложка",
+    "name": "Имя",
+    "description": "Описание",
+    "editAvatar": {
+      "title": "Изменить аватар",
+      "description": "Загрузите новое изображение для аватара",
+      "uploadHint": "Загрузите изображение (png, jpeg, jpg, avif, webp)",
+      "success": "Аватар изменен",
+      "deleted": "Аватар удален",
+      "errorFallback": "Ошибка",
+      "delete": "Удалить",
+      "reset": "Сброс",
+      "close": "Закрыть",
+      "save": "Сохранить",
+      "errors": {
+        "selectArea": "Выберите область для аватара",
+        "requiredFile": "Выберите файл",
+        "invalidFile": "Не корректный файл",
+        "400": "Ошибка валидации",
+        "401": "Нет доступа"
+      }
+    },
+    "editCover": {
+      "title": "Изменить обложку",
+      "description": "Загрузите новое изображение для обложки",
+      "uploadHint": "Загрузите изображение (png, jpeg, jpg, avif, webp)",
+      "success": "Обложка изменена",
+      "deleted": "Обложка удалена",
+      "errorFallback": "Ошибка",
+      "delete": "Удалить",
+      "reset": "Сброс",
+      "close": "Закрыть",
+      "save": "Сохранить",
+      "errors": {
+        "selectArea": "Выберите область для обложки",
+        "requiredFile": "Выберите файл",
+        "invalidFile": "Не корректный файл",
+        "400": "Ошибка валидации",
+        "401": "Нет доступа"
+      }
+    },
+    "subscribers": "подписчиков",
+    "listeners": "слушателей"
   },
   "userSettings": {
     "title": "Настройки",

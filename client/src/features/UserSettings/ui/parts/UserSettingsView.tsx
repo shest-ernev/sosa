@@ -44,7 +44,7 @@ export const UserSettingsView = observer(() => {
         {t('userSettings.viewTitle')}
       </Text>
       <div className={styles.sectionItems}>
-        <label className={styles.item}>
+        <div className={styles.item}>
           <Text>{t('userSettings.theme')}</Text>
           <Select.Root
             value={activeTheme}
@@ -67,8 +67,8 @@ export const UserSettingsView = observer(() => {
               ))}
             </Select.Content>
           </Select.Root>
-        </label>
-        <label className={styles.item}>
+        </div>
+        <div className={styles.item}>
           <Text>{t('userSettings.lang')}</Text>
           <Select.Root
             value={activeLang}
@@ -91,7 +91,7 @@ export const UserSettingsView = observer(() => {
               ))}
             </Select.Content>
           </Select.Root>
-        </label>
+        </div>
       </div>
     </div>
   )

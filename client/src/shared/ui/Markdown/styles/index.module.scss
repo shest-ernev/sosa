@@ -1,0 +1,37 @@
+.text {
+  font-family: 'Circe';
+  color: rgb(var(--text-secondary));
+  font-size: var(--text-m);
+  line-height: 130%;
+  margin: 0;
+}
+
+.text + .text {
+  margin-top: 0.5rem;
+}
+
+.link {
+  color: rgb(var(--text-primary));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.linkIcon {
+  width: 0.625rem;
+  height: 0.625rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}

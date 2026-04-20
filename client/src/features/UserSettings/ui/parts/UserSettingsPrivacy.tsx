@@ -38,7 +38,7 @@ export const UserSettingsPrivacy = ({
       >
         {t('userSettings.privacy')}
       </Text>
-      <label className={styles.item}>
+      <div className={styles.item}>
         <Text>{t('userSettings.privacyProfile')}</Text>
         <Switch
           className={cn(isProfilePending && styles.switchLoading)}
@@ -46,8 +46,8 @@ export const UserSettingsPrivacy = ({
           onCheckedChange={(v) => setProfile(v)}
           disabled={isProfilePending}
         />
-      </label>
-      <label className={styles.item}>
+      </div>
+      <div className={styles.item}>
         <Text>{t('userSettings.privacyLibrary')}</Text>
         <Switch
           className={cn(isLibraryPending && styles.switchLoading)}
@@ -55,8 +55,8 @@ export const UserSettingsPrivacy = ({
           disabled={isLibraryPending}
           onCheckedChange={(v) => setLibrary(v)}
         />
-      </label>
-      <label className={styles.item}>
+      </div>
+      <div className={styles.item}>
         <Text>{t('userSettings.privacySubscribers')}</Text>
         <Switch
           className={cn(isSubscribersPending && styles.switchLoading)}
@@ -64,7 +64,7 @@ export const UserSettingsPrivacy = ({
           onCheckedChange={(v) => setSubscribers(v)}
           disabled={isSubscribersPending}
         />
-      </label>
+      </div>
     </div>
   )
 }

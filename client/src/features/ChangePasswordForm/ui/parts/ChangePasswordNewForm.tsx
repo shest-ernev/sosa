@@ -8,6 +8,7 @@ import { Input, Text, Button } from '@/shared/ui'
 import { useQS, useStore } from '@/shared/hooks'
 import { getTranslate } from '@/shared/lib'
 import { routes } from '@/shared/config'
+import PasswordIcon from '@/shared/assets/svg/password.svg?react'
 import {
   useChangePasswordNewMutation,
   queryClient,
@@ -90,6 +91,7 @@ export const ChangePasswordNewForm = observer(() => {
                   type='password'
                   error={!!error}
                 >
+                  <PasswordIcon className={styles.inputIcon} />
                   <Input.Value
                     placeholder={t('changePassword.passwordPlaceholder')}
                     {...field}

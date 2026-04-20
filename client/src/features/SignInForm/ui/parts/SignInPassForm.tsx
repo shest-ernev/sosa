@@ -8,6 +8,7 @@ import { useQS } from '@/shared/hooks'
 import { getTranslate } from '@/shared/lib'
 import { useSignInPasswordMutation } from '@/shared/api'
 import { ls, routes } from '@/shared/config'
+import PasswordIcon from '@/shared/assets/svg/password.svg?react'
 
 import { SignInFormQS } from '../../types'
 import { useSignInFormContext } from '../../hooks'
@@ -79,6 +80,7 @@ export const SignInPassForm = () => {
                   type='password'
                   error={!!error}
                 >
+                  <PasswordIcon className={styles.inputIcon} />
                   <Input.Value
                     placeholder={t('signIn.passwordPlaceholder')}
                     {...field}

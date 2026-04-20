@@ -36,7 +36,6 @@ export const HeaderDropdown = () => {
         </Button>
       </Dropdown.Trigger>
       <Dropdown.Content
-        sideOffset={10}
         side='bottom'
         align='end'
         className={styles.dropdownContent}
@@ -82,7 +81,7 @@ export const HeaderDropdown = () => {
             <div className={styles.notificationsIndicator} />
           </Link>
         </Dropdown.Item>
-        <LogOut onClose={() => setOpen(false)} />
+        <LogOut />
       </Dropdown.Content>
     </Dropdown.Root>
   )

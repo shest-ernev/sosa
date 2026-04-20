@@ -11,6 +11,12 @@ export const getAuthKey = 'getAuthKey'
 export const logOutKey = 'logOutKey'
 
 export const getUserKey = 'getUserKey'
+export const editUserNameKey = 'editUserNameKey'
+export const editUserDescriptionKey = 'editUserDescriptionKey'
+export const editUserAvatarKey = 'editUserAvatarKey'
+export const deleteUserAvatarKey = 'deleteUserAvatarKey'
+export const editUserCoverKey = 'editUserCoverKey'
+export const deleteUserCoverKey = 'deleteUserCoverKey'
 
 export const getUserSettingsKey = 'getUserSettingsKey'
 export const editUserSettingsKey = 'editUserSettingsKey'
