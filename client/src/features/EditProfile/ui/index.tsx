@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next'
 
 import { Button, Dropdown } from '@/shared/ui'
 import PencilIcon from '@/shared/assets/svg/pencil.svg?react'
-import NameIcon from '@/shared/assets/svg/name.svg?react'
 import DescriptionIcon from '@/shared/assets/svg/description.svg?react'
 
 import { EditProfileProps } from '../types'
@@ -10,8 +9,9 @@ import styles from '../styles/index.module.scss'
 
 import { EditProfileAvatar } from './parts/EditProfileAvatar'
 import { EditProfileCover } from './parts/EditProfileCover'
+import { EditProfileName } from './parts/EditProfileName'
 
-export const EditProfile = ({ avatar, cover }: EditProfileProps) => {
+export const EditProfile = ({ avatar, cover, name }: EditProfileProps) => {
   const { t } = useTranslation()
 
   return (
@@ -28,10 +28,7 @@ export const EditProfile = ({ avatar, cover }: EditProfileProps) => {
       >
         <EditProfileAvatar avatar={avatar} />
         <EditProfileCover cover={cover} />
-        <Dropdown.Item>
-          <NameIcon className={styles.iconDropdown} />
-          {t('profile.name')}
-        </Dropdown.Item>
+        <EditProfileName name={name} />
         <Dropdown.Item>
           <DescriptionIcon className={styles.iconDropdown} />
           {t('profile.description')}

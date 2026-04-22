@@ -118,6 +118,24 @@
         "401": "No access"
       }
     },
+    "editName": {
+      "title": "Edit name",
+      "description": "Enter a new profile name",
+      "placeholder": "Enter name...",
+      "success": "Name updated",
+      "errorFallback": "Error",
+      "reset": "Reset",
+      "close": "Close",
+      "save": "Save",
+      "errors": {
+        "required": "Required field",
+        "minNameLength": "Minimum 2 characters",
+        "maxNameLength": "Maximum 300 characters",
+        "400": "Validation error",
+        "401": "No access",
+        "409": "This name is already taken"
+      }
+    },
     "subscribers": "subscribers",
     "listeners": "listeners"
   },

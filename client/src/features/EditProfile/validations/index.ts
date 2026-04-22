@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 import { regs } from '@/shared/config'
 
-import { fileFormFields } from '../config'
+import { fileFormFields, nameFormFields } from '../config'
 
 export const fileFormSchema = z.object({
   [fileFormFields.image]: z
@@ -15,4 +15,11 @@ export const fileFormSchema = z.object({
     .refine((file) => !file || regs.fileImage.test(file.name.toLowerCase()), {
       message: 'profile.editAvatar.errors.invalidFile',
     }),
+})
+
+export const nameFormSchema = z.object({
+  [nameFormFields.name]: z
+    .string('profile.editName.errors.required')
+    .min(2, 'profile.editName.errors.minNameLength')
+    .max(300, 'profile.editName.errors.maxNameLength'),
 })

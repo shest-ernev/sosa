@@ -23,6 +23,7 @@ export const ProfileInfo = () => {
         <EditProfile
           avatar={!!data.data.avatar}
           cover={!!data.data.cover}
+          name={data.data.name}
         />
       }
     />
